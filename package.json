@@ -15,7 +15,6 @@
     "swr": "^2.1.0",
     "web-vitals": "^2.1.4"
   },
-  "proxy": "http://localhost:3100",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
