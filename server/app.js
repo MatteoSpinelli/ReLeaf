@@ -19,6 +19,14 @@ app.use(cors());
 // api route
 app.use("/api/v1", apiV1Router);
 
+app.get("/", function (req, res, next) {
+  res.status(200).json({ message: "index" });
+});
+
+app.get("/api", function (req, res, next) {
+  res.status(200).json({ message: "index" });
+});
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404, "endpoint not found"));
