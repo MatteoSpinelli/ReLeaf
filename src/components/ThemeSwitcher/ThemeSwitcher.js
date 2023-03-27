@@ -10,7 +10,7 @@ export default function ThemeSwitcher() {
       } ${!isDark && "text-gray-700 "}`}
       onClick={toggleTheme}
     >
-      Switch theme
+      Toggle theme
     </button>
   );
 }
