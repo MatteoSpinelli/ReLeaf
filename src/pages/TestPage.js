@@ -1,6 +1,5 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 
 // styles
 import "./Home.scss";
@@ -9,14 +8,20 @@ import "./Home.scss";
 import useLang from "../hooks/useLang";
 import useTheme from "../hooks/useTheme";
 
-export default function Home() {
-  const { langShort } = useLang();
-  const { isDark } = useTheme();
+// components
+import Test from "../components/Test/Test";
+import LanguageSwitcher from "../components/LanguageSwitcher/LanguageSwitcher";
+import ThemeSwitcher from "../components/ThemeSwitcher/ThemeSwitcher";
+import { Link } from "react-router-dom";
+
+export default function TestPage() {
+  const { lang, langShort } = useLang();
+  const { theme, isDark } = useTheme();
   return (
     <>
       <Helmet
         prioritizeSeoTags
-        title="Homepage"
+        title="Design System"
         titleTemplate="%s | reLeaf"
         htmlAttributes={{ lang: langShort, className: isDark ? "dark" : null }}
       />
@@ -25,13 +30,23 @@ export default function Home() {
           isDark ? "bg-zinc-900 text-white" : null
         }`}
       >
+        <Test />
+        <ThemeSwitcher />
+        <LanguageSwitcher />
+        <div className="text-xs">
+          Current Theme: <strong>{theme}</strong>
+        </div>
+        <div className="text-xs">
+          Current language: <strong>{lang}</strong>
+        </div>
+
         <Link
-          to="/test"
+          to="/"
           className={`m-1 p-1 text-sm border rounded-md ${
             isDark && " text-white"
           } ${!isDark && "text-gray-700 "}`}
         >
-          Test Page
+          Back to home
         </Link>
       </main>
     </>
