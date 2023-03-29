@@ -1,6 +1,7 @@
 {
-  "name": "server",
-  "version": "0.0.0",
+  "name": "releaf-server",
+  "description": "An API made by Team #2 at Develhope's bootcamp",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "nodemon index.js"

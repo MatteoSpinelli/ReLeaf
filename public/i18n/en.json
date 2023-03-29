@@ -1,0 +1,35 @@
+{
+  "global": {
+    "it": "Italian",
+    "en": "English",
+    "get_started": "Get Started"
+  },
+  "homepage": {
+    "hero_title": "Join our mission",
+    "hero_description": "We are at a critical point in our planet's history, where the actions we take today will have a profound impact on the future, but it's not too late to take action. Every small step towards a greener lifestyle can have a significant impact on the environment. Be part of the movement towards a brighter, more sustainable future by making simple changes today.",
+    "roadmap_title": "The real impact starts from you",
+    "roadmap_description": "The change we want to see in the world begins with us. The real impact on the environment starts with the choices we make in our daily lives. By taking responsibility and making conscious decisions, we can create a ripple effect that leads to a better future for all.",
+    "roadmap_step1_title": "Calculate your carbon footprint",
+    "roadmap_step1_description": "Our calculator quickly estimates your daily CO₂ emissions based on your lifestyle choices. Use it to gain valuable insights on reducing your carbon footprint and living a more sustainable lifestyle. Take steps towards a greener future today!",
+    "roadmap_step2_title": "Take Action Now!",
+    "roadmap_step2_description": "Calculating your carbon footprint is just the first step towards a more sustainable future. The next step is to take action! By signing up for our platform, you can access resources and tools to help you reduce your footprint even further. From eco-friendly activities recommendations to tips on sustainable travel, our platform is designed to support you every step of the way.",
+    "roadmap_step3_title": "You Have the Power to Make a Difference",
+    "roadmap_step3_description": "Every action you take, no matter how small, can have a positive impact on the world around you. Whether it's choosing to recycle, reducing your energy usage, or supporting sustainable businesses, you have the power to make a difference.",
+    "call_to_action1": "Discover the environmental impact of your daily routines with our quick test. Find out how you can make improvements and create a greener future. Take the test now!",
+    "call_to_action2": "Take our quick test and discover simple ways to make a positive difference. Join the movement for a greener future!",
+    "activities_title": "Activities to Reduce Your Carbon Footprint",
+    "activities_description": "We propose various activities such as using public transportation, consuming less meat, and supporting renewable energy that can make a significant difference. By taking these actions, we can decrease the amount of carbon emissions released into the atmosphere, and promote a sustainable future.",
+    "faq_title": "Frequently Asked Questions"
+  },
+  "footer": {
+    "slogan": "Reduce your carbon footprint, one leaf at a time",
+    "copyright": "© 2023 reLeaf, all rights reserved.",
+    "signature": "Made with ♥ by Develhope's Full Stack 9 Team 2"
+  },
+  "testpage": {
+    "current_theme": "Current Theme: ",
+    "current_lang": "Current Language: ",
+    "back_home": "Back to Home",
+    "toggle_theme": "Toggle Theme"
+  }
+}

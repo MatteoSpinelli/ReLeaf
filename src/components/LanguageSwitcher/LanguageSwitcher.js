@@ -1,6 +1,7 @@
 import React from "react";
 import useLang from "../../hooks/useLang";
 import useTheme from "../../hooks/useTheme";
+import useTranslate from "../../hooks/useTranslate";
 
 export default function ThemeSwitcher() {
   const { lang, setLang } = useLang();
@@ -8,6 +9,10 @@ export default function ThemeSwitcher() {
 
   // languages will be fetched in database when implemented
   const languages = ["it-IT", "en-US"];
+
+  const tf = useTranslate();
+
+  const t = tf("global");
 
   return (
     <div>
@@ -19,7 +24,7 @@ export default function ThemeSwitcher() {
           } ${language === lang && !isDark && "text-gray-700 bg-zinc-200"}`}
           onClick={() => setLang(language)}
         >
-          {language}
+          {t[language.slice(0, 2)]}
         </button>
       ))}
     </div>

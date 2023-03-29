@@ -25,16 +25,10 @@ export default function useTheme() {
   };
 
   /**
-   * Indicates whether the current theme is "light".
-   * @type {boolean}
-   */
-  const isLight = theme === "light";
-
-  /**
    * Indicates whether the current theme is "dark".
    * @type {boolean}
    */
   const isDark = theme === "dark";
 
-  return { theme, setTheme, toggleTheme, isLight, isDark };
+  return { theme, setTheme, toggleTheme, isDark };
 }

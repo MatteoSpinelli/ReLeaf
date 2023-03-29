@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const systemLang = navigator.language || navigator.userLanguage;
-console.log(systemLang);
 
 const currentLang = localStorage.getItem("lang") || systemLang;
 

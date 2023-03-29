@@ -1,8 +1,14 @@
 import React from "react";
 import useTheme from "../../hooks/useTheme";
+import useTranslate from "../../hooks/useTranslate";
 
 export default function ThemeSwitcher() {
   const { isDark, toggleTheme } = useTheme();
+
+  const tf = useTranslate();
+
+  const t = tf("testpage");
+
   return (
     <button
       className={`m-1 p-1 text-sm border rounded-md ${
@@ -10,7 +16,7 @@ export default function ThemeSwitcher() {
       } ${!isDark && "text-gray-700 "}`}
       onClick={toggleTheme}
     >
-      Toggle theme
+      {t.toggle_theme}
     </button>
   );
 }

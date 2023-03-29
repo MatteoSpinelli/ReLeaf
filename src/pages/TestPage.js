@@ -13,31 +13,38 @@ import Test from "../components/Test/Test";
 import LanguageSwitcher from "../components/LanguageSwitcher/LanguageSwitcher";
 import ThemeSwitcher from "../components/ThemeSwitcher/ThemeSwitcher";
 import { Link } from "react-router-dom";
+import useTranslate from "../hooks/useTranslate";
 
 export default function TestPage() {
-  const { lang, langShort } = useLang();
+  const { langShort } = useLang();
   const { theme, isDark } = useTheme();
+
+  const tf = useTranslate();
+  const t = tf("testpage");
+  const tg = tf("global");
   return (
     <>
       <Helmet
         prioritizeSeoTags
-        title="Design System"
+        title="Test Page"
         titleTemplate="%s | reLeaf"
         htmlAttributes={{ lang: langShort, className: isDark ? "dark" : null }}
       />
       <main
-        className={`flex flex-col gap-1 h-screen justify-center items-center ${
-          isDark ? "bg-zinc-900 text-white" : null
+        className={`flex flex-col min-h-screen items-center justify-center ${
+          isDark ? "bg-backgroundDark text-white" : "bg-background text-black"
         }`}
       >
         <Test />
         <ThemeSwitcher />
         <LanguageSwitcher />
         <div className="text-xs">
-          Current Theme: <strong>{theme}</strong>
+          {t.current_theme}
+          <strong>{theme}</strong>
         </div>
         <div className="text-xs">
-          Current language: <strong>{lang}</strong>
+          {t.current_lang}
+          <strong>{tg[langShort]}</strong>
         </div>
 
         <Link
@@ -46,7 +53,7 @@ export default function TestPage() {
             isDark && " text-white"
           } ${!isDark && "text-gray-700 "}`}
         >
-          Back to home
+          {t.back_home}
         </Link>
       </main>
     </>
