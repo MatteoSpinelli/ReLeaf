@@ -8,23 +8,20 @@ import "./Home.scss";
 // hooks
 import useLang from "../hooks/useLang";
 import useTheme from "../hooks/useTheme";
+import Hero from "../components/Hero/Hero";
 
 export default function Home() {
   const { langShort } = useLang();
   const { isDark } = useTheme();
   return (
     <>
-      <Helmet
-        prioritizeSeoTags
-        title="Homepage"
-        titleTemplate="%s | reLeaf"
-        htmlAttributes={{ lang: langShort, className: isDark ? "dark" : null }}
-      />
+      <Helmet prioritizeSeoTags title="Homepage" titleTemplate="%s | reLeaf" />
       <main
-        className={`flex flex-col gap-1 h-screen justify-center items-center ${
-          isDark ? "bg-zinc-900 text-white" : null
+        className={`relative flex flex-col min-h-screen w-full justify-start ${
+          isDark ? "bg-backgroundDark text-white" : "bg-background text-black"
         }`}
       >
+        <Hero />
         <Link
           to="/test"
           className={`m-1 p-1 text-sm border rounded-md ${

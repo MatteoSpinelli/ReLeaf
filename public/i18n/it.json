@@ -1,0 +1,35 @@
+{
+  "global": {
+    "it": "Italiano",
+    "en": "Inglese",
+    "get_started": "Get Started"
+  },
+  "homepage": {
+    "hero_title": "Aiutaci a salvare il pianeta",
+    "hero_description": "Siamo in un punto critico della storia del nostro pianeta, dove le azioni che intraprendiamo oggi avranno un impatto profondo sul futuro, ma non è troppo tardi per agire. Ogni piccolo passo verso uno stile di vita più ecologico può avere un impatto significativo sull'ambiente. Fai parte del movimento verso un futuro più luminoso e sostenibile apportando semplici cambiamenti oggi.",
+    "roadmap_title": "Il vero impatto inizia da te",
+    "roadmap_description": "Il cambiamento che vogliamo vedere nel mondo comincia da noi. L'impatto reale sull'ambiente comincia dalle scelte che facciamo nella nostra vita quotidiana. Prendendo responsabilità e facendo decisioni consapevoli, possiamo creare un effetto domino che porta verso un futuro migliore per tutti.",
+    "roadmap_step1_title": "Calcola il tuo Carbon Footprint",
+    "roadmap_step1_description": "Il nostro calcolatore stima rapidamente le tue emissioni giornaliere di CO₂ in base alle scelte del tuo stile di vita. Utilizzalo per ottenere preziosi suggerimenti per ridurre la tua carbon footprint e vivere uno stile di vita più sostenibile. Fai dei passi verso un futuro più verde oggi!",
+    "roadmap_step2_title": "Agisci ora!",
+    "roadmap_step2_description": "Calcolare la tua carbon footprint è solo il primo passo verso un futuro più sostenibile. Il passo successivo è agire! Iscrivendoti alla nostra piattaforma, puoi accedere a risorse e strumenti per aiutarti a ridurre ulteriormente la tua impronta. Dalle raccomandazioni per attività ecologiche ai consigli per un viaggio sostenibile, la nostra piattaforma è progettata per supportarti in ogni passo.",
+    "roadmap_step3_title": "Hai il potere di fare la differenza",
+    "roadmap_step3_description": "Ogni azione che intraprendi, per quanto piccola, può avere un impatto positivo sul mondo intorno a te. Che si tratti di scegliere di riciclare, ridurre il consumo di energia o sostenere attività commerciali sostenibili, hai il potere di fare la differenza.",
+    "call_to_action1": "Scopri l'impatto ambientale della tua routine quotidiana con il nostro test. Scopri come puoi apportare miglioramenti e creare un futuro più sostenibile. Fai il test ora!",
+    "call_to_action2": "Fai il nostro test e scopri modi semplici per fare la differenza in modo positivo. Unisciti al movimento per un futuro più sostenibile!",
+    "activities_title": "Attività per ridurre il tuo Carbon Footprint",
+    "activities_description": "Proponiamo varie attività come l'utilizzo dei mezzi pubblici, il consumo ridotto di carne e il supporto all'energia rinnovabile che possono fare una differenza significativa. Prendendo queste azioni, possiamo diminuire la quantità di emissioni di carbonio rilasciate nell'atmosfera e promuovere un futuro sostenibile.",
+    "faq_title": "Domande Frequenti"
+  },
+  "footer": {
+    "slogan": "Riduci il tuo impatto ambientale, un passo alla volta",
+    "copyright": "© 2023 reLeaf, tutti i diritti riservati.",
+    "signature": "Realizzato dal Team 2, classe Full Stack 9 di Develhope"
+  },
+  "testpage": {
+    "current_theme": "Tema Attuale: ",
+    "current_lang": "Lingua Attuale: ",
+    "back_home": "Torna alla Home",
+    "toggle_theme": "Cambia Tema"
+  }
+}

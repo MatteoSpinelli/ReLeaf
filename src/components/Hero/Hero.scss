@@ -1,0 +1,9 @@
+@use "bg-animation";
+.hero {
+  &-title {
+    @apply text-8xl;
+  }
+
+  &-description {
+  }
+}
