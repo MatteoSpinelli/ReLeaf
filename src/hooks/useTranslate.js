@@ -8,12 +8,13 @@ export default function useTranslate(...components) {
 
   const { data, error, isLoading } = useSWR(`/i18n/${langShort}.json`, fetcher);
 
-  const t = (component) => {
-    if (error) {
-      console.log(error);
+  let res = {}
+  if (data){
+    for (let component of components){
+      res = {...res, ...data[component]}
     }
-    return (!isLoading && data[component]) || {};
-  };
+  }
 
-  return t;
+  return res;
 }
+

@@ -5,9 +5,8 @@ import useTranslate from "../../hooks/useTranslate";
 export default function ThemeSwitcher() {
   const { isDark, toggleTheme } = useTheme();
 
-  const tf = useTranslate();
+  const {toggle_theme} = useTranslate("testpage");
 
-  const t = tf("testpage");
 
   return (
     <button
@@ -16,7 +15,7 @@ export default function ThemeSwitcher() {
       } ${!isDark && "text-gray-700 "}`}
       onClick={toggleTheme}
     >
-      {t.toggle_theme}
+      {toggle_theme}
     </button>
   );
 }
