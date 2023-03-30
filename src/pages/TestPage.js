@@ -19,9 +19,8 @@ export default function TestPage() {
   const { langShort } = useLang();
   const { theme, isDark } = useTheme();
 
-  const tf = useTranslate();
-  const t = tf("testpage");
-  const tg = tf("global");
+  const { current_theme, current_lang, back_home, ...tg } = useTranslate("testpage", "global");
+ 
   return (
     <>
       <Helmet
@@ -39,11 +38,11 @@ export default function TestPage() {
         <ThemeSwitcher />
         <LanguageSwitcher />
         <div className="text-xs">
-          {t.current_theme}
+          {current_theme}
           <strong>{theme}</strong>
         </div>
         <div className="text-xs">
-          {t.current_lang}
+          {current_lang}
           <strong>{tg[langShort]}</strong>
         </div>
 
@@ -53,7 +52,7 @@ export default function TestPage() {
             isDark && " text-white"
           } ${!isDark && "text-gray-700 "}`}
         >
-          {t.back_home}
+          {back_home}
         </Link>
       </main>
     </>
