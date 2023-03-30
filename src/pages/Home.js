@@ -9,6 +9,7 @@ import "./Home.scss";
 import useLang from "../hooks/useLang";
 import useTheme from "../hooks/useTheme";
 import Hero from "../components/Hero/Hero";
+import Roadmap from "../components/Roadmap/Roadmap";
 
 export default function Home() {
   const { langShort } = useLang();
@@ -22,9 +23,10 @@ export default function Home() {
         }`}
       >
         <Hero />
+        <Roadmap />
         <Link
           to="/test"
-          className={`m-1 p-1 text-sm border rounded-md ${
+          className={`m-1 p-1 text-sm border rounded-md fixed left-0 bottom-0 ${
             isDark && " text-white"
           } ${!isDark && "text-gray-700 "}`}
         >
