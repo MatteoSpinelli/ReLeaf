@@ -8,7 +8,7 @@ export default function TestPanel() {
   const { isDark } = useTheme();
   return (
     <div
-      className={`fixed left-2 bottom-2 flex justify-center rounded-md text-xs backdrop-blur-sm ${
+      className={`z-50 fixed left-2 bottom-2 flex justify-center rounded-full text-xs backdrop-blur-sm ${
         !isDark
           ? "bg-backgroundDark/70 text-white"
           : "bg-background/70 text-black"

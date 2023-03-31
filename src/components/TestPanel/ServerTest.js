@@ -23,12 +23,12 @@ export default function ServerTest() {
         </div>
       )}
       {error && !isLoading && (
-        <div className="m-1 border rounded-md bg-red-600 cursor-pointer flex justify-center items-center">
+        <div className="m-1 border border-transparent rounded-full bg-red-600 cursor-pointer flex justify-center items-center">
           <AiFillApi className="fill-red-100 p-1" size={24} />
         </div>
       )}
       {data && !error && !isLoading && (
-        <div className="m-1 border rounded-md bg-green-600 cursor-pointer flex justify-center items-center">
+        <div className="m-1 border border-transparent rounded-full bg-green-600 cursor-pointer flex justify-center items-center">
           <AiFillApi className="fill-green-100 p-1" size={24} />
         </div>
       )}
