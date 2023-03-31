@@ -1,5 +1,9 @@
 import React from "react";
+
+// hooks
 import useTheme from "../../hooks/useTheme";
+
+// components
 import ServerTest from "./ServerTest";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeSwitcher from "./ThemeSwitcher";

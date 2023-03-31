@@ -1,8 +1,11 @@
 import React from "react";
 import useSWR from "swr";
 
+// icons
 import { AiFillApi } from "react-icons/ai";
 import { ImSpinner2 } from "react-icons/im";
+
+//hooks
 import useTheme from "../../hooks/useTheme";
 
 export default function ServerTest() {

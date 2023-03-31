@@ -1,6 +1,9 @@
 import React from "react";
+
+// hooks
 import useTheme from "../../hooks/useTheme";
 
+// icons
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 
 export default function ThemeSwitcher() {
