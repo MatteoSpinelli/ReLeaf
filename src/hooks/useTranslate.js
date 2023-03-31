@@ -6,15 +6,14 @@ const fetcher = (data) => fetch(data).then((res) => res.json());
 export default function useTranslate(...components) {
   const { langShort } = useLang();
 
-  const { data, error, isLoading } = useSWR(`/i18n/${langShort}.json`, fetcher);
+  const { data } = useSWR(`/i18n/${langShort}.json`, fetcher);
 
-  let res = {}
-  if (data){
-    for (let component of components){
-      res = {...res, ...data[component]}
+  let res = {};
+  if (data) {
+    for (let component of components) {
+      res = { ...res, ...data[component] };
     }
   }
 
   return res;
 }
-
