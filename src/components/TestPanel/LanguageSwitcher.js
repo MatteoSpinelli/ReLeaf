@@ -16,7 +16,7 @@ export default function LanguageSwitcher() {
       {languages.map((language, index) => (
         <button
           key={index + language}
-          className={`m-1 p-1 mx-[2px] text-xs border rounded-md hover:bg-contrast/80 hover:-translate-y-[1px] transition-all ${
+          className={`m-1 p-1 mx-[2px] text-xs border border-transparent rounded-md hover:bg-contrast/50 hover:-translate-y-[1px] transition-all ${
             language === lang && isDark && "text-gray-700 bg-contrast "
           } ${language === lang && !isDark && "text-gray-700 bg-contrast "}`}
           onClick={() => setLang(language)}
