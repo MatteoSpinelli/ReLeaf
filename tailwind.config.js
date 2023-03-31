@@ -12,6 +12,8 @@ module.exports = {
         gray: "#F2F2F2",
         background: "#FFFFFF",
         backgroundDark: "#283442",
+        secondaryTxt: "#323232",
+        secondaryTxtDark: "#9BB3BB",
       },
     },
   },

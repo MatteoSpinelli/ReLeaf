@@ -2,12 +2,12 @@ import React from 'react'
 import useTranslate from '../../hooks/useTranslate'
 import "./Roadmap.scss"
 
-export default function StepRoadmap({ counter }) {
+export function StepRoadmap({ counter, ImgStep }) {
   const t = useTranslate("homepage")
   return (
     <div className={`roadmap_step md:flex ${counter !== 2 ? "flex-row-reverse": ""} justify-between`}>
       <div className='roadmap_img md:flex-grow md:w-8/12'>
-        <img  src={`/images/roadmap${counter}.png`} alt="roadmap description" />
+        <ImgStep />
       </div>
       <div className='roadmap_text'>
         <div className='r_counter font-bold'>
