@@ -7,7 +7,7 @@ export function StepRoadmap({ counter, ImgStep }) {
   const t = useTranslate("homepage")
   const { isDark } = useTheme()
   return (
-    <div className={`roadmap_step md:flex ${counter !== 2 ? "flex-row-reverse": ""} justify-between text-secondaryTxt`}>
+    <div className={`roadmap_step md:flex ${counter !== 2 ? "flex-row-reverse": ""} justify-between ${!isDark ? "text-secondaryTxt" : "text-secondaryTxtDark"}`}>
       <div className='roadmap_img md:flex-grow md:w-8/12'>
         <ImgStep />
       </div>
