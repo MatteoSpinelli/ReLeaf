@@ -1,14 +1,25 @@
 import React from 'react'
+import useTranslate from '../../hooks/useTranslate'
+import "./Roadmap.scss"
 
-export default function StepRoadmap({counter}) {
+export default function StepRoadmap({ counter }) {
+  const t = useTranslate("homepage")
   return (
-    <div>
-        <div className='roadmap_text'>
-            <div className='counter'>{counter}</div>
+    <div className={`roadmap_step md:flex ${counter !== 2 ? "flex-row-reverse": ""} justify-between`}>
+      <div className='roadmap_img md:flex-grow md:w-8/12'>
+        <img  src={`/images/roadmap${counter}.png`} alt="roadmap description" />
+      </div>
+      <div className='roadmap_text'>
+        <div className='r_counter font-bold'>
+          {counter}
         </div>
-        <div className='roadmap_img'>
-          <img src={`/images/roadmap${counter}.png`} alt="roadmap description" />
+        <div className='r_title text-4xl font-bold'>
+          {t[`roadmap_step${counter}_title`]}
         </div>
+        <div className='r_description text-2xl'>
+          {t[`roadmap_step${counter}_description`]}
+        </div>
+      </div>
     </div>
   )
 }

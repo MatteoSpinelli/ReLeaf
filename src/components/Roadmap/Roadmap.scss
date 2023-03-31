@@ -1,0 +1,45 @@
+.roadmap{
+    max-width: 100vw;
+}
+
+
+.roadmap_step{
+    @media screen and (min-width:768px) {
+        width: 70%;
+    }
+    .roadmap_text{
+        padding: 1rem;
+        .r_title{
+            margin-bottom: 1rem;
+            margin-top: 0.5rem;
+        }
+        .r_counter{
+            width: 54px;
+            height: 54px;
+            border-radius: 27px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #38B4C2;
+            font-size: 32px;
+            text-align: left;
+            color: white,
+        }
+        @media screen and (min-width:768px) {
+            max-width: 50%;
+        }
+    }
+    .roadmap_img{
+        display: flex;
+        justify-content: center;
+
+        @media screen and (min-width:768px) {
+            flex-grow: 1;
+            align-items: center;
+            min-width: 40%;
+        }
+        img{
+            display: inline-block;
+        }
+    }
+}
