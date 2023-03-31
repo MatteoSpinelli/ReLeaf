@@ -23,7 +23,7 @@ export default function PageContainer({
     >
       <Helmet
         prioritizeSeoTags
-        titleTemplate={props?.titleTemplate || "%s | reLeaf"}
+        titleTemplate={props?.titleTemplate || "%s | ReLeaf"}
         htmlAttributes={{ lang: langShort }}
       >
         <title>{title}</title>

@@ -22,7 +22,7 @@ export default function ServerTest() {
           />
         </div>
       )}
-      {error && !error && !isLoading && (
+      {error && !isLoading && (
         <div className="m-1 border rounded-md bg-red-600 cursor-pointer flex justify-center items-center">
           <AiFillApi className="fill-red-100 p-1" size={24} />
         </div>
@@ -40,8 +40,8 @@ export default function ServerTest() {
         }`}
       >
         {data && !error && !isLoading
-          ? "Connected to server"
-          : "Not connected to server"}
+          ? "Server is online"
+          : "Couldn't connect to the server"}
       </div>
     </div>
   );

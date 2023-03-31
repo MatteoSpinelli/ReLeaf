@@ -12,12 +12,15 @@ import TestPanel from "../components/TestPanel/TestPanel";
 export default function Home() {
   return (
     <PageContainer
-      title="ReLeaf"
-      description="Join ReLeaf, be part of the movement towards a brighter, more sustainable future by making simple changes today"
+      title="ReLeaf" // the title of the page
+      titleTemplate="%s | You have the power to make a difference" // titleTemplate is optional, default value is "%s | ReLeaf". %s is the title
+      description="Join ReLeaf, be part of the movement towards a brighter, more sustainable future by making simple changes today" // meta description
+      // here you can add other props, for now available props are: title, titleTemplate, description and className
     >
-      <Hero />
-      <Roadmap />
-      <TestPanel />
+      <Hero /> {/* Hero Section */}
+      <Roadmap /> {/* Roadmap Section */}
+      {/* Add other section components here */}
+      <TestPanel /> {/* Test Panel - Keep it at the bottom */}
     </PageContainer>
   );
 }
