@@ -26,10 +26,9 @@
     "copyright": "© 2023 reLeaf, all rights reserved.",
     "signature": "Made with ♥ by Develhope's Full Stack 9 Team 2"
   },
-  "testpage": {
+  "test_switcher": {
     "current_theme": "Current Theme: ",
     "current_lang": "Current Language: ",
-    "back_home": "Back to Home",
     "toggle_theme": "Toggle Theme"
   }
 }
