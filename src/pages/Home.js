@@ -8,6 +8,7 @@ import PageContainer from "../components/PageContainer/PageContainer";
 import Hero from "../components/Hero/Hero";
 import Roadmap from "../components/Roadmap/Roadmap";
 import TestPanel from "../components/TestPanel/TestPanel";
+import ActivitySwiper from "../components/ActivitySwiper/ActivitySwiper";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Hero /> {/* Hero Section */}
       <Roadmap /> {/* Roadmap Section */}
       {/* Add other section components here */}
+      <ActivitySwiper />
       <TestPanel /> {/* Test Panel - Keep it at the bottom */}
     </PageContainer>
   );
