@@ -1,10 +1,18 @@
 import React from "react";
-import { ReactComponent as BgImage } from "../../assets/svg/homepage/releaf-background.svg";
-import { ReactComponent as BgImageDark } from "../../assets/svg/homepage/releaf-background-dark.svg";
-import { ReactComponent as HeroSeparatorImage } from "../../assets/svg/homepage/hero-separator.svg";
-import useTranslate from "../../hooks/useTranslate";
+
+// styles
 import "./Hero.scss";
+
+// hooks
 import useTheme from "../../hooks/useTheme";
+import useTranslate from "../../hooks/useTranslate";
+
+// svg components
+import HeroSeparator from "./HeroSeparator";
+import HeroBackground from "./HeroBackground";
+import HeroBackgroundDark from "./HeroBackgroundDark";
+
+// components
 import Button from "../Button/Button";
 
 export default function Hero() {
@@ -14,9 +22,9 @@ export default function Hero() {
     <section className="hero">
       <div className="hero-content">
         {isDark ? (
-          <BgImageDark className="hero-bg" />
+          <HeroBackgroundDark className="hero-bg" />
         ) : (
-          <BgImage className="hero-bg" />
+          <HeroBackground className="hero-bg" />
         )}
         <div className="hero-container">
           <div className="hero-inner-container">
@@ -32,7 +40,7 @@ export default function Hero() {
           </div>
         </div>
         <div className="hero-separator">
-          <HeroSeparatorImage
+          <HeroSeparator
             className={`${
               isDark ? "fill-backgroundDark" : "fill-background"
             } -bottom-20 min-w-[800px] w-screen`}

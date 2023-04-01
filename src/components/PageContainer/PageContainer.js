@@ -16,7 +16,7 @@ export default function PageContainer({
   return (
     <main
       className={`${
-        props?.className
+        props?.className ? props.className : ""
       } relative flex flex-col min-h-screen w-full justify-start ${
         isDark ? "bg-backgroundDark text-white" : "bg-background text-black"
       }`}

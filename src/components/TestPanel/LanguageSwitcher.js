@@ -1,4 +1,6 @@
 import React from "react";
+
+// hooks
 import useLang from "../../hooks/useLang";
 import useTheme from "../../hooks/useTheme";
 import useTranslate from "../../hooks/useTranslate";
