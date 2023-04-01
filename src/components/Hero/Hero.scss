@@ -1,5 +1,5 @@
 @use "bg-animation";
-
+@use "bg-dark";
 .hero {
   @apply relative;
   & > .hero-content {
