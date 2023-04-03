@@ -12,6 +12,7 @@ import Hero from "../components/Hero/Hero";
 import Roadmap from "../components/Roadmap/Roadmap";
 import TestPanel from "../components/TestPanel/TestPanel";
 import CallToAction from "../components/CallToAction/CallToAction";
+import ActivitySwiper from "../components/ActivitySwiper/ActivitySwiper";
 
 export default function Home() {
   const t = useTranslate("homepage", "global");
@@ -28,6 +29,7 @@ export default function Home() {
       <CallToAction description={t.call_to_action1} buttonText={t.get_started}/> {/* Call to Action Section */}
       <CallToAction description={t.call_to_action2} buttonText={t.get_started}/> {/* Call to Action Section */}
       {/* Add other section components here */}
+      <ActivitySwiper />
       <TestPanel /> {/* Test Panel - Keep it at the bottom */}
     </PageContainer>
   );
