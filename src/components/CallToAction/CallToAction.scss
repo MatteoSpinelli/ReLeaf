@@ -1,0 +1,25 @@
+.cta {
+  @apply mt-24;
+  & > .cta-content {
+    @apply w-full h-96 bg-no-repeat bg-center bg-cover flex  justify-center items-center overflow-x-hidden;
+    background-image: url(../../assets/cta/ctabg.svg);
+    &.dark{background-image: url(../../assets/cta/ctabg-dark.svg)}
+
+    & > .cta-container {
+      @apply flex flex-col justify-center items-center text-center px-10 py-0;
+
+      & > .cta-inner-container {
+        @apply flex flex-col justify-center items-center;
+        
+        & > .cta-description {
+          @apply text-2xl md:text-3xl font-semibold text-center;
+          margin-bottom: 1.25rem;
+          }
+        }
+      }
+    }
+  }
+  @media (min-width: 1024px) {
+    .cta-description {
+      max-width: 56rem;
+    }}
