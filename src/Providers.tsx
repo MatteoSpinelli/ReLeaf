@@ -6,7 +6,7 @@ import { store } from "./store";
 
 import { HelmetProvider } from "react-helmet-async";
 
-export default function Providers({ children }) {
+export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <HelmetProvider>
       <Provider store={store}>

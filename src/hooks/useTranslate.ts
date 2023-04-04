@@ -1,9 +1,13 @@
 import useLang from "./useLang";
 import useSWR from "swr";
 
-const fetcher = (data) => fetch(data).then((res) => res.json());
+const fetcher = (data: any) => fetch(data).then((res) => res.json());
 
-export default function useTranslate(...components) {
+interface Translations {
+  [key: string]: string;
+}
+
+export default function useTranslate(...components: string[]): Translations {
   const { langShort } = useLang();
 
   const { data } = useSWR(`/i18n/${langShort}.json`, fetcher);
@@ -15,5 +19,5 @@ export default function useTranslate(...components) {
     }
   }
 
-  return res;
+  return res as Translations;
 }

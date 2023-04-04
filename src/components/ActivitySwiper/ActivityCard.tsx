@@ -5,9 +5,19 @@ import { BsCardImage } from "react-icons/bs";
 
 import useTheme from "../../hooks/useTheme";
 
-import EcoPointIcon from "../common/EcoPointIcon";
+import EcoPointIcon from "../Icons/EcoPointIcon";
 
 import { MdOutlineNavigateNext } from "react-icons/md";
+
+interface ActivityCardProps {
+  title: string;
+  description: string;
+  image?: string;
+  ecoPoints: number;
+  linkRewrite?: string;
+  readMore?: boolean;
+  [x: string]: any;
+}
 
 export default function ActivityCard({
   title,
@@ -17,7 +27,7 @@ export default function ActivityCard({
   linkRewrite,
   readMore = true,
   ...props
-}) {
+}: ActivityCardProps) {
   const { isDark } = useTheme();
   return (
     <div

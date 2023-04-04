@@ -1,6 +1,6 @@
 import React from "react";
 
-function HeroSeparator(props) {
+function HeroSeparator(props: any) {
   return (
     <svg
       {...props}

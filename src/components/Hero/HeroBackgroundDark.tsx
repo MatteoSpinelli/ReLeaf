@@ -1,6 +1,6 @@
 import React from "react";
 
-function HeroBackgroundDark(props) {
+function HeroBackgroundDark(props: any) {
   return (
     <svg
       {...props}
@@ -23,8 +23,8 @@ function HeroBackgroundDark(props) {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(0 0)"
         >
-          <stop id="euUzG1HbSJc6-fill-0" offset="0%" stop-color="#001e2a" />
-          <stop id="euUzG1HbSJc6-fill-1" offset="100%" stop-color="#00353f" />
+          <stop id="euUzG1HbSJc6-fill-0" offset="0%" stopColor="#001e2a" />
+          <stop id="euUzG1HbSJc6-fill-1" offset="100%" stopColor="#00353f" />
         </linearGradient>
         <radialGradient
           id="euUzG1HbSJc358-fill"
@@ -35,11 +35,11 @@ function HeroBackgroundDark(props) {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(466.4461 129.3297)"
         >
-          <stop id="euUzG1HbSJc358-fill-0" offset="0%" stop-color="#fff" />
+          <stop id="euUzG1HbSJc358-fill-0" offset="0%" stopColor="#fff" />
           <stop
             id="euUzG1HbSJc358-fill-1"
             offset="100%"
-            stop-color="rgba(255,255,255,0)"
+            stopColor="rgba(255,255,255,0)"
           />
         </radialGradient>
         <radialGradient
@@ -54,17 +54,17 @@ function HeroBackgroundDark(props) {
           <stop
             id="euUzG1HbSJc484-fill-0"
             offset="0%"
-            stop-color="rgba(255,255,255,0.2)"
+            stopColor="rgba(255,255,255,0.2)"
           />
           <stop
             id="euUzG1HbSJc484-fill-1"
             offset="22.81%"
-            stop-color="rgba(255,255,255,0.1)"
+            stopColor="rgba(255,255,255,0.1)"
           />
           <stop
             id="euUzG1HbSJc484-fill-2"
             offset="88.45%"
-            stop-color="rgba(255,255,255,0)"
+            stopColor="rgba(255,255,255,0)"
           />
         </radialGradient>
         <radialGradient
@@ -76,11 +76,11 @@ function HeroBackgroundDark(props) {
           gradientUnits="userSpaceOnUse"
           gradientTransform="matrix(0.176 0 0 1 0.035516 0.0123)"
         >
-          <stop id="euUzG1HbSJc485-fill-0" offset="0%" stop-color="#fff" />
+          <stop id="euUzG1HbSJc485-fill-0" offset="0%" stopColor="#fff" />
           <stop
             id="euUzG1HbSJc485-fill-1"
             offset="78.4%"
-            stop-color="rgba(255,255,255,0)"
+            stopColor="rgba(255,255,255,0)"
           />
         </radialGradient>
         <radialGradient
@@ -92,11 +92,11 @@ function HeroBackgroundDark(props) {
           gradientUnits="userSpaceOnUse"
           gradientTransform="matrix(0 -0.176 1 0 0.0396 0.014726)"
         >
-          <stop id="euUzG1HbSJc486-fill-0" offset="0%" stop-color="#fff" />
+          <stop id="euUzG1HbSJc486-fill-0" offset="0%" stopColor="#fff" />
           <stop
             id="euUzG1HbSJc486-fill-1"
             offset="78.4%"
-            stop-color="rgba(255,255,255,0)"
+            stopColor="rgba(255,255,255,0)"
           />
         </radialGradient>
         <radialGradient
@@ -111,17 +111,17 @@ function HeroBackgroundDark(props) {
           <stop
             id="euUzG1HbSJc488-fill-0"
             offset="0%"
-            stop-color="rgba(255,255,255,0.2)"
+            stopColor="rgba(255,255,255,0.2)"
           />
           <stop
             id="euUzG1HbSJc488-fill-1"
             offset="22.81%"
-            stop-color="rgba(255,255,255,0.1)"
+            stopColor="rgba(255,255,255,0.1)"
           />
           <stop
             id="euUzG1HbSJc488-fill-2"
             offset="88.45%"
-            stop-color="rgba(255,255,255,0)"
+            stopColor="rgba(255,255,255,0)"
           />
         </radialGradient>
         <radialGradient
@@ -133,11 +133,11 @@ function HeroBackgroundDark(props) {
           gradientUnits="userSpaceOnUse"
           gradientTransform="matrix(0.176 0 0 1 -0.016892 -0.0144)"
         >
-          <stop id="euUzG1HbSJc489-fill-0" offset="0%" stop-color="#fff" />
+          <stop id="euUzG1HbSJc489-fill-0" offset="0%" stopColor="#fff" />
           <stop
             id="euUzG1HbSJc489-fill-1"
             offset="78.4%"
-            stop-color="rgba(255,255,255,0)"
+            stopColor="rgba(255,255,255,0)"
           />
         </radialGradient>
         <radialGradient
@@ -149,11 +149,11 @@ function HeroBackgroundDark(props) {
           gradientUnits="userSpaceOnUse"
           gradientTransform="matrix(0 -0.176 1 0 -0.0163 -0.020585)"
         >
-          <stop id="euUzG1HbSJc490-fill-0" offset="0%" stop-color="#fff" />
+          <stop id="euUzG1HbSJc490-fill-0" offset="0%" stopColor="#fff" />
           <stop
             id="euUzG1HbSJc490-fill-1"
             offset="78.4%"
-            stop-color="rgba(255,255,255,0)"
+            stopColor="rgba(255,255,255,0)"
           />
         </radialGradient>
         <radialGradient
@@ -168,17 +168,17 @@ function HeroBackgroundDark(props) {
           <stop
             id="euUzG1HbSJc492-fill-0"
             offset="0%"
-            stop-color="rgba(255,255,255,0.2)"
+            stopColor="rgba(255,255,255,0.2)"
           />
           <stop
             id="euUzG1HbSJc492-fill-1"
             offset="22.81%"
-            stop-color="rgba(255,255,255,0.1)"
+            stopColor="rgba(255,255,255,0.1)"
           />
           <stop
             id="euUzG1HbSJc492-fill-2"
             offset="88.45%"
-            stop-color="rgba(255,255,255,0)"
+            stopColor="rgba(255,255,255,0)"
           />
         </radialGradient>
         <radialGradient
@@ -190,11 +190,11 @@ function HeroBackgroundDark(props) {
           gradientUnits="userSpaceOnUse"
           gradientTransform="matrix(0.176 0 0 1 -0.007672 0.0418)"
         >
-          <stop id="euUzG1HbSJc493-fill-0" offset="0%" stop-color="#fff" />
+          <stop id="euUzG1HbSJc493-fill-0" offset="0%" stopColor="#fff" />
           <stop
             id="euUzG1HbSJc493-fill-1"
             offset="78.4%"
-            stop-color="rgba(255,255,255,0)"
+            stopColor="rgba(255,255,255,0)"
           />
         </radialGradient>
         <radialGradient
@@ -206,11 +206,11 @@ function HeroBackgroundDark(props) {
           gradientUnits="userSpaceOnUse"
           gradientTransform="matrix(0 -0.176 1 0 0.0399 0.04363)"
         >
-          <stop id="euUzG1HbSJc494-fill-0" offset="0%" stop-color="#fff" />
+          <stop id="euUzG1HbSJc494-fill-0" offset="0%" stopColor="#fff" />
           <stop
             id="euUzG1HbSJc494-fill-1"
             offset="78.4%"
-            stop-color="rgba(255,255,255,0)"
+            stopColor="rgba(255,255,255,0)"
           />
         </radialGradient>
         <radialGradient
@@ -225,17 +225,17 @@ function HeroBackgroundDark(props) {
           <stop
             id="euUzG1HbSJc496-fill-0"
             offset="0%"
-            stop-color="rgba(255,255,255,0.2)"
+            stopColor="rgba(255,255,255,0.2)"
           />
           <stop
             id="euUzG1HbSJc496-fill-1"
             offset="22.81%"
-            stop-color="rgba(255,255,255,0.1)"
+            stopColor="rgba(255,255,255,0.1)"
           />
           <stop
             id="euUzG1HbSJc496-fill-2"
             offset="88.45%"
-            stop-color="rgba(255,255,255,0)"
+            stopColor="rgba(255,255,255,0)"
           />
         </radialGradient>
         <radialGradient
@@ -247,11 +247,11 @@ function HeroBackgroundDark(props) {
           gradientUnits="userSpaceOnUse"
           gradientTransform="matrix(0.176 0 0 1 -0.02816 0.0025)"
         >
-          <stop id="euUzG1HbSJc497-fill-0" offset="0%" stop-color="#fff" />
+          <stop id="euUzG1HbSJc497-fill-0" offset="0%" stopColor="#fff" />
           <stop
             id="euUzG1HbSJc497-fill-1"
             offset="78.4%"
-            stop-color="rgba(255,255,255,0)"
+            stopColor="rgba(255,255,255,0)"
           />
         </radialGradient>
         <radialGradient
@@ -263,17 +263,17 @@ function HeroBackgroundDark(props) {
           gradientUnits="userSpaceOnUse"
           gradientTransform="matrix(0 -0.176 1 0 -0.003 0.000439)"
         >
-          <stop id="euUzG1HbSJc498-fill-0" offset="0%" stop-color="#fff" />
+          <stop id="euUzG1HbSJc498-fill-0" offset="0%" stopColor="#fff" />
           <stop
             id="euUzG1HbSJc498-fill-1"
             offset="78.4%"
-            stop-color="rgba(255,255,255,0)"
+            stopColor="rgba(255,255,255,0)"
           />
         </radialGradient>
       </defs>
       <g transform="translate(0 0.000031)">
         <g>
-          <g clip-path="url(#euUzG1HbSJc515)">
+          <g clipPath="url(#euUzG1HbSJc515)">
             <rect
               width="1160"
               height="772"
