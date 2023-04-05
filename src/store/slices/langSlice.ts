@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const systemLang = navigator.language || navigator.userLanguage;
+const systemLang: string = navigator.language;
 
-const currentLang = localStorage.getItem("lang") || systemLang;
+const currentLang: string = localStorage.getItem("lang") || systemLang;
 
-const initialState = currentLang;
+const initialState: string = currentLang;
 
 const langSlice = createSlice({
   name: "lang",

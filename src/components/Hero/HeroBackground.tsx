@@ -1,6 +1,6 @@
 import React from "react";
 
-function HeroBackground(props) {
+function HeroBackground(props: any) {
   return (
     <svg
       {...props}

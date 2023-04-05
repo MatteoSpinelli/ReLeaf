@@ -5,12 +5,20 @@ import { Helmet } from "react-helmet-async";
 import useTheme from "../../hooks/useTheme";
 import useLang from "../../hooks/useLang";
 
+interface PageContainerProps {
+  children: React.ReactNode;
+  title: string;
+  description: string;
+  className?: string;
+  titleTemplate?: string;
+}
+
 export default function PageContainer({
   children,
   title,
   description,
   ...props
-}) {
+}: PageContainerProps) {
   const { langShort } = useLang();
   const { isDark } = useTheme();
   return (

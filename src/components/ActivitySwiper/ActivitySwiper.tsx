@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ActivityCard from "./ActivityCard";
 import useTranslate from "../../hooks/useTranslate";
 import useTheme from "../../hooks/useTheme";
@@ -6,16 +6,28 @@ import useTheme from "../../hooks/useTheme";
 import "./ActivitySwiper.scss";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
+import { Swiper as SwiperType, Navigation } from "swiper";
 import "swiper/css";
 import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md";
 
+interface Activity {
+  title: string;
+  description: string;
+  image: string;
+  linkRewrite: string;
+  ecoPoints: number;
+}
+
 export default function ActivitySwiper() {
-  const [swiper, setSwiper] = useState({});
+  const [swiper, setSwiper] = useState<SwiperType>();
+
+  useEffect(() => {
+    console.log(swiper);
+  }, [swiper]);
   const t = useTranslate("homepage");
   const { isDark } = useTheme();
 
-  const activities = [
+  const activities: Activity[] = [
     {
       title: "Support renewable energy",
       description:
@@ -103,7 +115,7 @@ export default function ActivitySwiper() {
       <div className="mt-32 hidden md:flex absolute left-10 xl:left-20 h-full items-center">
         <button
           className=" p-2 rounded-full border border-transparent bg-link/50 hover:bg-link transition-all duration-200 h-10 w-10 flex justify-center items-center"
-          onClick={() => swiper.slidePrev()}
+          onClick={() => swiper && swiper.slidePrev()}
         >
           <MdOutlineNavigateBefore className="fill-white w-8 h-8" />
         </button>
@@ -111,7 +123,7 @@ export default function ActivitySwiper() {
       <div className="mt-32 hidden md:flex absolute right-10 xl:right-20 h-full items-center">
         <button
           className=" p-2 rounded-full border border-transparent bg-link/50 hover:bg-link transition-all duration-200 h-10 w-10 flex justify-center items-center"
-          onClick={() => swiper.slideNext()}
+          onClick={() => swiper && swiper.slideNext()}
         >
           <MdOutlineNavigateNext className="fill-white w-8 h-8" />
         </button>

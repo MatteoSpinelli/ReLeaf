@@ -1,6 +1,6 @@
 import React from "react";
 
-function EcoPointIcon(props) {
+function EcoPointIcon(props: any) {
   return (
     <svg
       width="44"

@@ -26,9 +26,17 @@ export default function Home() {
     >
       <Hero /> {/* Hero Section */}
       <Roadmap /> {/* Roadmap Section */}
-      <CallToAction description={t.call_to_action1} buttonText={t.get_started}/> {/* Call to Action Section */}
+      <CallToAction
+        description={t.call_to_action1}
+        buttonText={t.get_started}
+      />{" "}
+      {/* Call to Action Section */}
       <ActivitySwiper /> {/* Activities Swiper Section */}
-      <CallToAction description={t.call_to_action2} buttonText={t.get_started}/> {/* Call to Action Section */}
+      <CallToAction
+        description={t.call_to_action2}
+        buttonText={t.get_started}
+      />{" "}
+      {/* Call to Action Section */}
       {/* Add other section components here */}
       <TestPanel /> {/* Test Panel - Keep it at the bottom */}
     </PageContainer>

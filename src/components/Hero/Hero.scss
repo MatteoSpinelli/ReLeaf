@@ -11,7 +11,7 @@
     }
     & > .hero-container {
       @apply absolute inset-0 flex flex-col w-full items-center justify-center;
-      height: 80%;
+      height: 64%;
       & > .hero-inner-container {
         @apply px-5 lg:max-w-3xl flex justify-center sm:items-center flex-col text-center max-w-6xl;
         & > .hero-title {

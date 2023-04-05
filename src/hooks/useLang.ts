@@ -1,19 +1,23 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setLang as st } from "../store/slices/langSlice";
 
+interface Languages {
+  lang: string;
+  langShort: string;
+  setLang: (lang: string) => void;
+}
+
 /**
  * A custom hook that provides language-related functionality.
- * @export
- * @returns {{ lang: string; langShort: string; setLang: (theme: string) => void; }}
  */
-export default function useLang() {
-  const lang = useSelector((state) => state.lang);
+export default function useLang(): Languages {
+  const lang = useSelector((state: { lang: string }) => state.lang);
   const dispatch = useDispatch();
 
   /**
    * Sets the current language to the value provided as argument.
    */
-  const setLang = (lang) => {
+  const setLang = (lang: string): void => {
     dispatch(st(lang));
   };
 
