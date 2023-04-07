@@ -9,3 +9,111 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Lang {
+  id         String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  lang_short String     @unique
+  lang       String     @unique
+  Question   Question[]
+  Label      Label[]
+  Value      Value[]
+}
+
+model User {
+  id             String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name           String
+  lastname       String
+  email          String           @unique
+  password       String
+  role           Role             @default(USER)
+  ActivityToUser ActivityToUser[]
+  TestResult     TestResult?      @relation(fields: [testResultId], references: [id])
+  testResultId   String?          @db.Uuid
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Question {
+  id           String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id_question  Int
+  id_lang      Lang    @relation(fields: [langId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  type         String
+  category     String
+  title        String
+  description  String?
+  tooltip      String?
+  minValue     Int
+  maxValue     Int
+  defaultValue Int
+  um           String?
+  values       Value[]
+  minLabel     String?
+  maxLabel     String?
+  labels       Label[]
+  note         String?
+  langId       String  @db.Uuid
+}
+
+model Label {
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id_lang     Lang      @relation(fields: [langId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  gt          Int
+  title       String
+  description String?
+  Question    Question? @relation(fields: [questionId], references: [id])
+  questionId  String?   @db.Uuid
+  langId      String    @db.Uuid
+}
+
+model Value {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id_lang    Lang      @relation(fields: [langId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  title      String
+  value      Int
+  Question   Question? @relation(fields: [questionId], references: [id])
+  questionId String?   @db.Uuid
+  langId     String    @db.Uuid
+}
+
+model TestResult {
+  id                   String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  overshoot_date       DateTime
+  carbon_footprint     Int
+  carbon_percentage    Int
+  ecological_footprint Int
+  earth                Int
+  crop                 Int
+  graz                 Int
+  forest               Int
+  fish                 Int
+  energy               Int
+  built                Int
+  food                 Int
+  housing              Int
+  transport            Int
+  goods                Int
+  services             Int
+  userId               String   @db.Uuid
+  User                 User[]
+}
+
+model Activity {
+  id             String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title          String
+  description    String
+  eco_points     Int
+  link_rewrite   String
+  ActivityToUser ActivityToUser[]
+}
+
+model ActivityToUser {
+  id_user     User     @relation(fields: [userId], references: [id])
+  id_activity Activity @relation(fields: [activityId], references: [id])
+  userId      String   @db.Uuid
+  activityId  String   @db.Uuid
+
+  @@id([userId, activityId])
+}
