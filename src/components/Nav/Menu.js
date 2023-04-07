@@ -12,7 +12,7 @@ export function Menu({isVisible = false}) {
     const dispatch = useDispatch()
     const isMenuVisible = useSelector((state) => state.isMenuVisible)
     return (
-        <div ref={menuRef} className="menu_nav_global flex flex-col fixed top-0 w-8/12 h-screen justify-evenly items-center" style={{
+        <div ref={menuRef} className="menu_nav_global flex flex-col fixed top-0 w-8/12 h-screen justify-evenly items-center md:flex-row" style={{
             backgroundColor: isDark ? "#283442" : "#FFFFFF",
             borderLeft: `1px solid ${isDark ? "#23303F" : "#DDDDDD"}`,
             translate: isMenuVisible ? "0px" : "2000px"
