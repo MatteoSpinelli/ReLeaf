@@ -1,6 +1,6 @@
 import React from "react";
 
-function Roadmap1(props) {
+function Roadmap1(props: any) {
   return (
     <svg
       id="eheq2rUnyj31"
