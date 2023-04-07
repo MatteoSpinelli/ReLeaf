@@ -26,7 +26,7 @@ export default function useTheme() {
    * Indicates whether the current theme is "dark".
    * @type {boolean}
    */
-  const isDark = theme === "dark";
+  const isDark: boolean | undefined = theme === "dark";
 
   return { theme, setTheme, toggleTheme, isDark };
 }
