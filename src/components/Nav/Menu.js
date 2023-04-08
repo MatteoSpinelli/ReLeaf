@@ -18,10 +18,12 @@ export function Menu() {
             translate: isMenuVisible ? "0px" : "2000px"
 
         }}>
-            <Button variant="login" children={"Login"} />
-            <div>About Us</div>
-            <div>Our Mission</div>
-            <div>Blog</div>
+            <Button variant="login">
+                Login
+            </Button>
+            <div className="menu_nav_items cursor-pointer hover:text-link hover:underline hover:underline-offset-4 hover:decoration-2">About Us</div>
+            <div className="menu_nav_items cursor-pointer hover:text-link hover:underline hover:underline-offset-4 hover:decoration-2">Our Mission</div>
+            <div className="menu_nav_items cursor-pointer hover:text-link hover:underline hover:underline-offset-4 hover:decoration-2">Blog</div>
             <Cross onClick={() => {
                 dispatch(toggle())
                 menuRef.current.style.translate = "2000px"
