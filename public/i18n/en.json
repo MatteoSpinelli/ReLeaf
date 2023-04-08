@@ -19,7 +19,10 @@
     "call_to_action2": "Take our quick test and discover simple ways to make a positive difference. Join the movement for a greener future!",
     "activities_title": "Activities to Reduce Your Carbon Footprint",
     "activities_description": "We propose various activities such as using public transportation, consuming less meat, and supporting renewable energy that can make a significant difference. By taking these actions, we can decrease the amount of carbon emissions released into the atmosphere, and promote a sustainable future.",
-    "faq_title": "Frequently Asked Questions"
+    "faq_title": "Frequently Asked Questions",
+    "nav_login": "Login",
+    "nav_about": "About us",
+    "nav_mission": "Our mission"
   },
   "footer": {
     "slogan": "Reduce your carbon footprint, one leaf at a time",

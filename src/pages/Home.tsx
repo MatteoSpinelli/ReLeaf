@@ -13,6 +13,7 @@ import Roadmap from "../components/Roadmap/Roadmap";
 import TestPanel from "../components/TestPanel/TestPanel";
 import CallToAction from "../components/CallToAction/CallToAction";
 import ActivitySwiper from "../components/ActivitySwiper/ActivitySwiper";
+import { Nav } from "../components/Nav/Nav";
 
 export default function Home() {
   const t = useTranslate("homepage", "global");
@@ -24,6 +25,7 @@ export default function Home() {
       description="Join ReLeaf, be part of the movement towards a brighter, more sustainable future by making simple changes today" // meta description
       // here you can add other props, for now available props are: title, titleTemplate, description and className
     >
+      <Nav /> {/* Nav bar */}
       <Hero /> {/* Hero Section */}
       <Roadmap /> {/* Roadmap Section */}
       <CallToAction
