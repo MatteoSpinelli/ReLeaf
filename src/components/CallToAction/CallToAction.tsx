@@ -9,7 +9,17 @@ import useTheme from "../../hooks/useTheme";
 // components
 import Button from "../Button/Button";
 
-function CallToAction({description, buttonText='Get Started', link=null }) {
+interface CallToActionProps {
+  description: string;
+  buttonText?: string;
+  link?: string | null;
+}
+
+function CallToAction({
+  description,
+  buttonText = "Get Started",
+  link = null,
+}: CallToActionProps) {
   const { isDark } = useTheme();
 
   return (
