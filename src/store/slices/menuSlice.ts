@@ -4,10 +4,11 @@ const menuState = createSlice({
     name: "isMenuVisible",
     initialState: false,
     reducers: {
-        toggle: (state, action) => !state
+        toggle: (state, action) => !state,
+        setTrue: () => true
     }
 })
 
-export const { toggle } = menuState.actions;
+export const { toggle, setTrue } = menuState.actions;
 
 export default menuState.reducer;

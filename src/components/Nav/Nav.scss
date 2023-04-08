@@ -13,4 +13,10 @@ nav{
     right: 0;
     translate: 2000px;
     transition: translate 0.5s ;
+    @media (min-width: 768px) {
+        right: 0;
+        translate: 0px;
+        background-color: transparent !important;
+        border: none !important;
+    }
 }
