@@ -2,7 +2,9 @@
   "global": {
     "it": "Italian",
     "en": "English",
-    "get_started": "Get Started"
+    "get_started": "Get Started",
+    "login": "Login"
+
   },
   "homepage": {
     "hero_title": "Join our mission",
@@ -22,7 +24,12 @@
     "faq_title": "Frequently Asked Questions",
     "nav_login": "Login",
     "nav_about": "About us",
-    "nav_mission": "Our mission"
+    "nav_mission": "Our mission",
+
+    "login_title": "Welcome back",
+    "login_description": "Enter your email to log in.",
+    "login_question": "Don’t have an account yet?"
+
   },
   "footer": {
     "slogan": "Reduce your carbon footprint, one leaf at a time",

@@ -2,7 +2,8 @@
   "global": {
     "it": "Italiano",
     "en": "Inglese",
-    "get_started": "Get Started"
+    "get_started": "Inizia",
+    "login": "Accedi"
   },
   "homepage": {
     "hero_title": "Unisciti a noi",
@@ -22,8 +23,11 @@
     "faq_title": "Domande Frequenti",
     "nav_login": "Accedi",
     "nav_about": "Chi siamo",
-    "nav_mission": "Il nostro obiettivo"
+    "nav_mission": "Il nostro obiettivo",
 
+    "login_title": "Bentornato",
+    "login_description": "Inserisci la tua email per accedere.",
+    "login_question": "Non hai ancora un account?"
 
 
   },
