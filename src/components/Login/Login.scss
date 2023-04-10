@@ -1,5 +1,5 @@
 .login-section{
-    @apply flex flex-col items-center justify-center py-28
+    @apply flex flex-col items-center justify-center py-28 mx-5;
 }
 
 .login-container {
@@ -11,11 +11,11 @@
 }
 
 .login-description-container h1{
-    @apply font-bold text-2xl;
+    @apply font-bold text-5xl mb-5;
 }
 
 .login-form {
-    @apply flex flex-col items-start justify-center gap-3 w-full;
+    @apply flex flex-col items-start justify-center gap-3 w-full mb-5;
   }
   
 .login-form input{

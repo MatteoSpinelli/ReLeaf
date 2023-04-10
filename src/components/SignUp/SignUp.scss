@@ -1,0 +1,48 @@
+.signup-section {
+  @apply flex flex-col items-center justify-center mb-9 mt-36 mx-5;
+}
+
+.signup-container {
+  @apply flex flex-col items-center justify-center gap-8;
+}
+
+.signup-description-container {
+  @apply flex flex-col items-center justify-center;
+}
+
+.signup-description-container h1 {
+  @apply font-bold text-5xl mb-5;
+}
+
+.signup-description-container p {
+  @apply text-center max-w-lg;
+}
+
+.signup-form {
+  @apply flex flex-col items-start justify-center gap-3 w-96;
+}
+
+.signup-form input {
+  border: 1px solid gainsboro;
+  width: 100%;
+  height: 3rem;
+}
+.signup-form button {
+  background: #159c71;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.signup-link {
+  @apply flex flex-col items-start mb-8 mt-1 font-semibold fixed top-14 left-5;
+  color: #f3713d;
+}
+.signup-link:hover {
+  color: #f2936e;
+}
+
+@media screen and (min-width: 768px) {
+  .signup-link {
+    @apply fixed top-20 left-7;
+  }
+}
