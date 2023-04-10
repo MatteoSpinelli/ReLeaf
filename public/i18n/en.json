@@ -3,7 +3,9 @@
     "it": "Italian",
     "en": "English",
     "get_started": "Get Started",
-    "login": "Login"
+    "login": "Login",
+    "signup": "Sign up"
+
 
   },
   "homepage": {
@@ -28,7 +30,10 @@
 
     "login_title": "Welcome back",
     "login_description": "Enter your email to log in.",
-    "login_question": "Don’t have an account yet?"
+    "login_question": "Don’t have an account yet?",
+
+    "signup_description": "Join us to give a boost to your Eco Points and together create a more sustainable future for our planet.",
+    "signup_to_test": "Back to test"
 
   },
   "footer": {
