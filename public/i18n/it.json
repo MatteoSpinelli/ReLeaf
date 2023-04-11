@@ -2,7 +2,10 @@
   "global": {
     "it": "Italiano",
     "en": "Inglese",
-    "get_started": "Get Started"
+    "get_started": "Inizia",
+    "login": "Accedi",
+    "signup": "Registrati"
+
   },
   "homepage": {
     "hero_title": "Unisciti a noi",
@@ -19,7 +22,18 @@
     "call_to_action2": "Fai il nostro test e scopri modi semplici per fare la differenza in modo positivo. Unisciti al movimento per un futuro più sostenibile!",
     "activities_title": "Attività per ridurre il tuo Carbon Footprint",
     "activities_description": "Proponiamo varie attività come l'utilizzo dei mezzi pubblici, il consumo ridotto di carne e il supporto all'energia rinnovabile che possono fare una differenza significativa. Prendendo queste azioni, possiamo diminuire la quantità di emissioni di carbonio rilasciate nell'atmosfera e promuovere un futuro sostenibile.",
-    "faq_title": "Domande Frequenti"
+    "faq_title": "Domande Frequenti",
+    "nav_login": "Accedi",
+    "nav_about": "Chi siamo",
+    "nav_mission": "Il nostro obiettivo",
+
+    "login_title": "Bentornato",
+    "login_description": "Inserisci la tua email per accedere.",
+    "login_question": "Non hai ancora un account?",
+
+    "signup_description": "Unisciti a noi per dare una svolta ai tuoi Eco Points e creare insieme un futuro più sostenibile per il nostro pianeta.",
+    "signup_to_test": "Torna al test"
+
   },
   "footer": {
     "slogan": "Riduci il tuo impatto ambientale, un passo alla volta",
