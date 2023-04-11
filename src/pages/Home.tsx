@@ -13,6 +13,7 @@ import Roadmap from "../components/Roadmap/Roadmap";
 import TestPanel from "../components/TestPanel/TestPanel";
 import CallToAction from "../components/CallToAction/CallToAction";
 import ActivitySwiper from "../components/ActivitySwiper/ActivitySwiper";
+import Faq from "../components/Faq/Faq";
 import { Nav } from "../components/Nav/Nav";
 
 export default function Home() {
@@ -40,6 +41,7 @@ export default function Home() {
       />{" "}
       {/* Call to Action Section */}
       {/* Add other section components here */}
+      <Faq /> {/* FAQ Section */}
       <TestPanel /> {/* Test Panel - Keep it at the bottom */}
     </PageContainer>
   );
