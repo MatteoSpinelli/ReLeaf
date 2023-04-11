@@ -15,22 +15,25 @@
 }
 
 .signup-description-container p {
-  @apply text-center max-w-lg;
+  @apply text-center max-w-lg pl-4 pr-4;
+ 
 }
 
 .signup-form {
-  @apply flex flex-col items-start justify-center gap-3 w-96;
+  @apply flex flex-col justify-center gap-3 w-96;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .signup-form input {
   border: 1px solid gainsboro;
-  width: 100%;
   height: 3rem;
+  padding-left: 10px;
+
 }
 .signup-form button {
   background: #159c71;
   border-radius: 6px;
-  width: 100%;
 }
 
 .signup-link {

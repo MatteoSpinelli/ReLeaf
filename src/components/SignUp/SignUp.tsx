@@ -53,7 +53,7 @@ function SingUp({
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder=" Email"
+            placeholder="Email"
             required
           />
           <Button>{LoginBtn}</Button>
