@@ -5,7 +5,12 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require("cors");
 
-const apiV1Router = require("./routes/api/v1");
+const rootRoutes = require("./routes/api/v1");
+const authRoutes = require("./routes/api/v1/auth.js");
+const questionsRoutes = require("./routes/api/v1/questions.js");
+const activitiesRoutes = require("./routes/api/v1/activities.js");
+const tokenRoutes = require("./routes/api/v1/token.js");
+const calculatorRoutes = require("./routes/api/v1/calculator.js");
 
 const app = express();
 
@@ -16,8 +21,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-// api route
-app.use("/api/v1", apiV1Router);
+// api routes
+app.use("/api/v1", rootRoutes);
+app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/questions", questionsRoutes);
+app.use("/api/v1/activities", activitiesRoutes);
+app.use("/api/v1/token", tokenRoutes);
+app.use("/api/v1/calculator", calculatorRoutes);
 
 app.get("/", function (req, res, next) {
   res.status(200).json({ message: "index" });

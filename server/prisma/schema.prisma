@@ -17,6 +17,7 @@ model Lang {
   Question   Question[]
   Label      Label[]
   Value      Value[]
+  Activity   Activity[]
 }
 
 model User {
@@ -102,11 +103,13 @@ model TestResult {
 
 model Activity {
   id             String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id_lang        Lang             @relation(fields: [langId], references: [id])
   title          String
   description    String
   eco_points     Int
   link_rewrite   String
   ActivityToUser ActivityToUser[]
+  langId         String           @db.Uuid
 }
 
 model ActivityToUser {
@@ -116,4 +119,9 @@ model ActivityToUser {
   activityId  String   @db.Uuid
 
   @@id([userId, activityId])
+}
+
+model AuthToken {
+  id    String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  token String
 }
