@@ -7,9 +7,9 @@ const prisma = new PrismaClient();
 /* GET /api/v1/calculator */
 router.post("/", async function (req, res, next) {
   const body = req.body;
-  const token = await prisma.authToken.findFirst();
-
   try {
+    const token = await prisma.authToken.findFirstOrThrow();
+
     const data = await fetch(
       "https://api.footprintcalculator.org/v2/calculate",
       {
