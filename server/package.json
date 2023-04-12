@@ -3,11 +3,13 @@
   "description": "An API made by Team #2 at Develhope's bootcamp",
   "version": "0.1.0",
   "private": true,
+  "module": "esnext",
   "prisma": {
     "seed": "node prisma/seed.mjs"
   },
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "dependencies": {
     "@prisma/client": "^4.12.0",
