@@ -1,8 +1,6 @@
+const prisma = require("../../../lib/prismadb.js");
 var express = require("express");
-const { PrismaClient } = require("@prisma/client");
 var router = express.Router();
-
-const prisma = new PrismaClient();
 
 /* GET /api/v1/questions */
 router.get("/", async function (req, res, next) {

@@ -1,14 +1,12 @@
+const prisma = require("../../../lib/prismadb.js");
 var express = require("express");
-const { PrismaClient } = require("@prisma/client");
 var router = express.Router();
-
-const prisma = new PrismaClient();
 
 /* GET /api/v1/calculator */
 router.post("/", async function (req, res, next) {
   const body = req.body;
   try {
-    const token = await prisma.authToken.findFirstOrThrow();
+    const token = await prisma.authToken.findFirst({ where: {} });
 
     const data = await fetch(
       "https://api.footprintcalculator.org/v2/calculate",
