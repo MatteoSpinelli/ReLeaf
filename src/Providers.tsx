@@ -6,6 +6,9 @@ import { store } from "./store";
 
 import { HelmetProvider } from "react-helmet-async";
 
+// components
+import ScrollToTop from "./components/common/ScrollToTop";
+
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <HelmetProvider>
@@ -18,7 +21,13 @@ export default function Providers({ children }: { children: React.ReactNode }) {
               ),
           }}
         >
-          <BrowserRouter>{children}</BrowserRouter>
+          <BrowserRouter>
+            <>
+              {/* Scroll to Top when route change */}
+              <ScrollToTop />
+              {children}
+            </>
+          </BrowserRouter>
         </SWRConfig>
       </Provider>
     </HelmetProvider>

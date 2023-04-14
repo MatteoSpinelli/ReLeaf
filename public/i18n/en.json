@@ -5,8 +5,6 @@
     "get_started": "Get Started",
     "login": "Login",
     "signup": "Sign up"
-
-
   },
   "homepage": {
     "hero_title": "Join our mission",
@@ -34,7 +32,40 @@
 
     "signup_description": "Join us to give a boost to your Eco Points and together create a more sustainable future for our planet.",
     "signup_to_test": "Back to test"
-
+  },
+  "test_result": {
+    "back_to_test": "Back to Test",
+    "your": "Your",
+    "test_results": "Test Results",
+    "earths_p1": "If everyone",
+    "earths_p2": "lived",
+    "earths_p3": "like you, we would",
+    "earths_p4": "need",
+    "earth": "Earth",
+    "earths": "Earths",
+    "overshoot_p1": "Your personal",
+    "overshoot_p2": "Earth Overshoot Day",
+    "overshoot_p3": "is:",
+    "overshoot_description": "If everybody lived like you, Earth Overshoot Day would be on this day. This means by this date, we would have used as much from nature as Earth can renew in the entire year. In 2020, Earth Overshoot Day for humanity is August 22.",
+    "ecological_fp": "Ecological Footprint",
+    "carbon_fp": "Carbon Footprint",
+    "by_land_type": "By Land Type",
+    "lbl_built": "Built-up land",
+    "lbl_forest": "Forest products",
+    "lbl_crop": "Crop land",
+    "lbl_graz": "Grazing land",
+    "lbl_fish": "Fishing Grounds",
+    "lbl_energy": "Carbon Footprint",
+    "by_consumption": "By Consumption Category",
+    "lbl_food": "Food",
+    "lbl_housing": "Housing",
+    "lbl_transport": "Transport",
+    "lbl_goods": "Goods",
+    "lbl_services": "Services",
+    "signup_cta_p1": "The next step is to create an account to help us reducing the global impact. Let's make a",
+    "signup_cta_p2": "change",
+    "signup_cta_p3": "for a better planet",
+    "signup_cta": "Sign Up Now"
   },
   "footer": {
     "slogan": "Reduce your carbon footprint, one leaf at a time",

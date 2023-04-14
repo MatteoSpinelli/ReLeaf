@@ -7,8 +7,6 @@ router.post("/", async function (req, res, next) {
   const body = req.body;
   const token = await prisma.authToken.findFirst();
 
-  console.log("Token Object is: ", token);
-
   if (token) {
     const data = await fetch(
       "https://api.footprintcalculator.org/v2/calculate",
