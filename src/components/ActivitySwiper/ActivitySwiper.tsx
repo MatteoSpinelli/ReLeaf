@@ -21,9 +21,6 @@ interface Activity {
 export default function ActivitySwiper() {
   const [swiper, setSwiper] = useState<SwiperType>();
 
-  useEffect(() => {
-    console.log(swiper);
-  }, [swiper]);
   const t = useTranslate("homepage");
   const { isDark } = useTheme();
 

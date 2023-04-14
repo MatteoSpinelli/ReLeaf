@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      const result = {
+        data: {
+          countryCode: 62,
+          date: "2023-04-27T00:00:00.000+00:00",
+          tonsCarbon: 7.961867023503746,
+          earth: 3.133893613520956,
+          carbonPercent: 53.61808582524732,
+          total: 5.108246590039157,
+          crop: 1.2453589173526751,
+          graz: 0.10888046936313472,
+          forest: 0.6934564468191576,
+          fish: 0.1093993678333148,
+          energy: 2.738944040812465,
+          built: 0.21220734785841108,
+          food: 1.343660706695119,
+          housing: 0.9973279095203182,
+          transport: 1.0263725392232736,
+          goods: 1.0248019353075495,
+          services: 0.7160834992928959,
+        },
+        status: { message: "", code: 200, status: "200 OK" },
+      };
+
+      const data = [
+        result.data.built,
+        result.data.forest,
+        result.data.crop,
+        result.data.graz,
+        result.data.fish,
+        result.data.energy,
+      ];
+
+      const ctx = document.getElementById("myChart");
+
+      new Chart(ctx, {
+        type: "pie",
+        data: {
+          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          datasets: [
+            {
+              label: "gha",
+              data: data,
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

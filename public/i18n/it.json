@@ -5,7 +5,6 @@
     "get_started": "Inizia",
     "login": "Accedi",
     "signup": "Registrati"
-
   },
   "homepage": {
     "hero_title": "Unisciti a noi",
@@ -33,7 +32,40 @@
 
     "signup_description": "Unisciti a noi per dare una svolta ai tuoi Eco Points e creare insieme un futuro più sostenibile per il nostro pianeta.",
     "signup_to_test": "Torna al test"
-
+  },
+  "test_result": {
+    "back_to_test": "Torna al Test",
+    "your": "La tua",
+    "test_results": "Risultati del Test",
+    "earths_p1": "Se ognuno",
+    "earths_p2": "vivesse",
+    "earths_p3": "come te, avremmo",
+    "earths_p4": "bisogno di",
+    "earth": "Terra",
+    "earths": "Terre",
+    "overshoot_p1": "Il tuo giorno di",
+    "overshoot_p2": "sovrasfruttamento della terra",
+    "overshoot_p3": "è:",
+    "overshoot_description": "Se tutti vivessero come te, l'Earth Overshoot Day sarebbe in questo giorno. Ciò significa che entro questa data, avremmo esaurito le risorse che la Terra è in grado di rigenerare nell'arco di un anno solare. Nel 2020, l'Earth Overshoot Day per l'umanità è il 22 agosto.",
+    "ecological_fp": "Impronta Ecologica",
+    "carbon_fp": "Carbon Footprint",
+    "by_land_type": "Per Tipo di Terreno",
+    "lbl_built": "Terreno edificato",
+    "lbl_forest": "Foreste",
+    "lbl_crop": "Terreno agricolo",
+    "lbl_graz": "Pascoli",
+    "lbl_fish": "Zone di pesca",
+    "lbl_energy": "Carbon Footprint",
+    "by_consumption": "Per Categoria di Consumo",
+    "lbl_food": "Cibo",
+    "lbl_housing": "Abitazione",
+    "lbl_transport": "Trasporti",
+    "lbl_goods": "Beni",
+    "lbl_services": "Servizi",
+    "signup_cta_p1": "Il prossimo passo è creare un account per aiutarci a ridurre l'impatto globale. Facciamo un",
+    "signup_cta_p2": "cambiamento",
+    "signup_cta_p3": "per un pianeta migliore",
+    "signup_cta": "Registrati Ora"
   },
   "footer": {
     "slogan": "Riduci il tuo impatto ambientale, un passo alla volta",
