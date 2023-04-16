@@ -16,6 +16,7 @@ router.get("/", async function (req, res, next) {
       include: { labels: true, values: true },
     });
   }
+  questions = questions.reverse()
   res.status(200).json(questions);
 });
 
