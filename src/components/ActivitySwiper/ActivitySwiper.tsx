@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import ActivityCard from "./ActivityCard";
 import useTranslate from "../../hooks/useTranslate";
 import useTheme from "../../hooks/useTheme";
@@ -96,6 +96,7 @@ export default function ActivitySwiper() {
         modules={[Navigation]}
         spaceBetween={20}
         autoHeight
+        slideVisibleClass="visible-slide"
         breakpoints={{
           0: { slidesPerView: 1.3 },
           640: { slidesPerView: 2 },
@@ -111,7 +112,7 @@ export default function ActivitySwiper() {
       </Swiper>
       <div className="mt-32 hidden md:flex absolute left-10 xl:left-20 h-full items-center">
         <button
-          className=" p-2 rounded-full border border-transparent bg-link/50 hover:bg-link transition-all duration-200 h-10 w-10 flex justify-center items-center"
+          className="z-10 p-2 rounded-full border border-transparent bg-link/50 hover:bg-link transition-all duration-200 h-10 w-10 flex justify-center items-center"
           onClick={() => swiper && swiper.slidePrev()}
         >
           <MdOutlineNavigateBefore className="fill-white w-8 h-8" />
@@ -119,7 +120,7 @@ export default function ActivitySwiper() {
       </div>
       <div className="mt-32 hidden md:flex absolute right-10 xl:right-20 h-full items-center">
         <button
-          className=" p-2 rounded-full border border-transparent bg-link/50 hover:bg-link transition-all duration-200 h-10 w-10 flex justify-center items-center"
+          className="z-10 p-2 rounded-full border border-transparent bg-link/50 hover:bg-link transition-all duration-200 h-10 w-10 flex justify-center items-center"
           onClick={() => swiper && swiper.slideNext()}
         >
           <MdOutlineNavigateNext className="fill-white w-8 h-8" />
