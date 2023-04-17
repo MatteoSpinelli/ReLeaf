@@ -10,34 +10,15 @@ import Footprint from "./Footprint";
 import PieChart from "./PieChart";
 import BarChart from "./BarChart";
 import SignupCta from "./SignupCta";
+import { useSelector } from "react-redux";
 
 export default function TestResult() {
   const t = useTranslate("test_result");
   const { isDark } = useTheme();
   // get test results from, an hook (useCalculator) it will later get data from server sending redux data
   // for now answers are generated randomly
-  const { data } = useCalculator({
-    country: 62,
-    answers: [
-      { questionid: 1, value: Math.floor(Math.random() * 100) },
-      { questionid: 7, value: Math.floor(Math.random() * 100) },
-      { questionid: 18, value: 100 },
-      { questionid: 20, value: 100 },
-      { questionid: 19, value: Math.floor(Math.random() * 14950 + 50) },
-      { questionid: 22, value: Math.floor(Math.random() * 9 + 1) },
-      { questionid: 23, value: Math.floor(Math.random() * 90 + 10) },
-      { questionid: 24, value: Math.floor(Math.random() * 90 + 10) },
-      { questionid: 21, value: Math.floor(Math.random() * 100) },
-      { questionid: 10, value: Math.floor(Math.random() * 100) },
-      { questionid: 25, value: Math.floor(Math.random() * 500) },
-      { questionid: 26, value: Math.floor(Math.random() * 500) },
-      { questionid: 27, value: Math.floor(Math.random() * 140 + 10) },
-      { questionid: 28, value: Math.floor(Math.random() * 125 + 25) },
-      { questionid: 29, value: Math.floor(Math.random() * 100) },
-      { questionid: 30, value: Math.floor(Math.random() * 500) },
-      { questionid: 33, value: Math.floor(Math.random() * 200) },
-    ],
-  });
+  const body = useSelector((state: any) => state.questions.body)
+  const { data } = useCalculator(body);
 
   return (
     <div className="pt-[60px] flex flex-col items-center w-full">
