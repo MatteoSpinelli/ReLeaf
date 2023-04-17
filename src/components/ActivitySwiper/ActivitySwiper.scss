@@ -22,3 +22,13 @@
 .swiper-slide:has(+ .swiper-slide:last-of-type.swiper-slide-active) {
   opacity: 1;
 }
+.swiper-pagination-bullets {
+  @apply flex gap-2 justify-center;
+  .swiper-pagination-bullet {
+    @apply w-[8px] h-[8px] rounded-full bg-link/25;
+    cursor: pointer;
+    &.swiper-pagination-bullet-active {
+      @apply bg-link;
+    }
+  }
+}
