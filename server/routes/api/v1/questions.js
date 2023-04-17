@@ -21,8 +21,27 @@ const map = {
   "29": "30",
   "21": "33",
 }
+const mapIt = {
+  "18": "1",
+  "24": "7",
+  "1": "18",
+  "20": "20",
+  "23": "19",
+  "27": "22",
+  "7": "23",
+  "28": "24",
+  "25": "21",
+  "19": "10",
+  "10": "25",
+  "26": "26",
+  "22": "27",
+  "33": "28",
+  "30": "29",
+  "21": "30",
+  "29": "33",
+}
 
-function hashFunction(arr){
+function hashFunction(arr, map){
   const newArr = []
   arr.forEach((el, i) => {
     const id = el.id_question
@@ -46,7 +65,7 @@ router.get("/", async function (req, res, next) {
     });
   }
   questions = questions.reverse()
-  res.status(200).json(hashFunction(questions));
+  res.status(200).json(hashFunction(questions, lang === "it" ? mapIt : map));
 });
 
 module.exports = router;
