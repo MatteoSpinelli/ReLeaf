@@ -6,8 +6,8 @@ import useTheme from "../../hooks/useTheme";
 import "./ActivitySwiper.scss";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Swiper as SwiperType, Navigation } from "swiper";
-import "swiper/css";
+import { Swiper as SwiperType, Navigation, Pagination } from "swiper";
+import "swiper/scss";
 import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md";
 
 interface Activity {
@@ -76,7 +76,7 @@ export default function ActivitySwiper() {
   ];
 
   return (
-    <div className="relative flex flex-col justify-center items-center my-24">
+    <div className="relative flex flex-col justify-center items-center my-24 overflow-hidden">
       <h2 className="font-bold px-5 text-4xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl mb-6 text-center md:max-w-xl lg:max-w-5xl">
         {t.activities_title}
       </h2>
@@ -93,7 +93,7 @@ export default function ActivitySwiper() {
         }}
         className="relative py-6 w-full h-full pl-5 sm:px-5 md:max-w-xl
         lg:max-w-4xl"
-        modules={[Navigation]}
+        modules={[Navigation, Pagination]}
         spaceBetween={20}
         autoHeight
         slideVisibleClass="visible-slide"
@@ -101,6 +101,17 @@ export default function ActivitySwiper() {
           0: { slidesPerView: 1.3 },
           640: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
+        }}
+        navigation
+        pagination={{
+          clickable: true,
+          renderBullet: function (index, className) {
+            return (
+              '<span class="' +
+              className +
+              '"><div class="pagination-bullet"></div></span>'
+            );
+          },
         }}
       >
         {activities &&
@@ -110,6 +121,7 @@ export default function ActivitySwiper() {
             </SwiperSlide>
           ))}
       </Swiper>
+      <div className="flex gap-2"></div>
       <div className="mt-32 hidden md:flex absolute left-10 xl:left-20 h-full items-center">
         <button
           className="z-10 p-2 rounded-full border border-transparent bg-link/50 hover:bg-link transition-all duration-200 h-10 w-10 flex justify-center items-center"
