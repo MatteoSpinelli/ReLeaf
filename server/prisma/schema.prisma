@@ -41,6 +41,7 @@ model Question {
   id           String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   id_question  Int
   id_lang      Lang    @relation(fields: [langId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  order        Int     @default(0)
   type         String
   category     String
   title        String
@@ -61,6 +62,7 @@ model Question {
 model Label {
   id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   id_lang     Lang      @relation(fields: [langId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  order       Int       @default(0)
   gt          Int
   title       String
   description String?
@@ -72,6 +74,7 @@ model Label {
 model Value {
   id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   id_lang    Lang      @relation(fields: [langId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  order      Int       @default(0)
   title      String
   value      Int
   Question   Question? @relation(fields: [questionId], references: [id])

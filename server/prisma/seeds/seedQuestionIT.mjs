@@ -6,6 +6,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
     data: {
       id_question: 1,
       langId: langIT.id,
+      order: 0,
       type: "steps",
       title: "Quanto spesso mangi carne, pesce e altri derivati animali?",
       description: "(manzo, maiale, pollo, pesce, uova, latticini)",
@@ -22,12 +23,14 @@ export default async function seedQuestionIT({ langIT }, log = true) {
         create: [
           {
             langId: langIT.id,
+            order: 0,
             gt: 0,
             title: "Mai",
             description: null,
           },
           {
             langId: langIT.id,
+            order: 1,
             gt: 2,
             title: "Raramente",
             description:
@@ -35,6 +38,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
           },
           {
             langId: langIT.id,
+            order: 2,
             gt: 25,
             title: "Ogni Tanto",
             description:
@@ -42,6 +46,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
           },
           {
             langId: langIT.id,
+            order: 3,
             gt: 50,
             title: "Spesso",
             description:
@@ -49,6 +54,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
           },
           {
             langId: langIT.id,
+            order: 4,
             gt: 75,
             title: "Molto spesso",
             description: "(mangio carne tutti i giorni)",
@@ -63,6 +69,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
     data: {
       id_question: 7,
       langId: langIT.id,
+      order: 1,
       type: "number",
       title:
         "Quanto del cibo che mangi è fresco, non confezionato o coltivato localmente?",
@@ -85,6 +92,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
     data: {
       id_question: 18,
       langId: langIT.id,
+      order: 2,
       type: "answers",
       category: "Abitazione",
       title: "Quale tipo di abitazione è piu simile a casa tua?",
@@ -98,27 +106,32 @@ export default async function seedQuestionIT({ langIT }, log = true) {
         create: [
           {
             langId: langIT.id,
+            order: 0,
             title: "Casa unifamiliare, senza acqua corrente",
             value: 20,
           },
           {
             langId: langIT.id,
+            order: 1,
             title: "Casa unifamiliare, con acqua corrente",
             value: 125,
           },
           {
             langId: langIT.id,
+            order: 2,
             title: "Casa popolare",
             value: 85,
           },
           {
             langId: langIT.id,
+            order: 3,
             title:
               "Casa a schiera o palazzina plurifamiliare (2-4 unità abitative)",
             value: 100,
           },
           {
             langId: langIT.id,
+            order: 4,
             title: "Condominio",
             value: 140,
           },
@@ -135,6 +148,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
     data: {
       id_question: 20,
       langId: langIT.id,
+      order: 3,
       type: "answers",
       category: "Abitazione",
       title: "Di quale materiale è fatta casa tua?",
@@ -148,26 +162,31 @@ export default async function seedQuestionIT({ langIT }, log = true) {
         create: [
           {
             langId: langIT.id,
+            order: 0,
             title: "Paglia / Bambù",
             value: 20,
           },
           {
             langId: langIT.id,
+            order: 1,
             title: "Legno",
             value: 100,
           },
           {
             langId: langIT.id,
+            order: 2,
             title: "Cemento / mattoni",
             value: 90,
           },
           {
             langId: langIT.id,
+            order: 3,
             title: "Mattoni di terra e paglia",
             value: 91,
           },
           {
             langId: langIT.id,
+            order: 4,
             title: "Acciaio / altro",
             value: 120,
           },
@@ -183,6 +202,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
   const question19 = await prisma.question.create({
     data: {
       id_question: 19,
+      order: 4,
       langId: langIT.id,
       type: "steps",
       category: "Abitazione",
@@ -201,30 +221,35 @@ export default async function seedQuestionIT({ langIT }, log = true) {
         create: [
           {
             langId: langIT.id,
+            order: 0,
             gt: 50,
             title: "Molto piccola",
             description: null,
           },
           {
             langId: langIT.id,
+            order: 1,
             gt: 150,
             title: "Piccola",
             description: null,
           },
           {
             langId: langIT.id,
+            order: 2,
             gt: 500,
             title: "Nella media",
             description: null,
           },
           {
             langId: langIT.id,
+            order: 3,
             gt: 1500,
             title: "Grande",
             description: null,
           },
           {
             langId: langIT.id,
+            order: 4,
             gt: 5000,
             title: "Molto grande",
             description: null,
@@ -239,6 +264,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
     data: {
       id_question: 22,
       langId: langIT.id,
+      order: 5,
       type: "number",
       category: "Abitazione",
       title: "Quante persone vivono nella tua casa?",
@@ -260,6 +286,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
     data: {
       id_question: 23,
       langId: langIT.id,
+      order: 6,
       type: "toggle",
       category: "Abitazione",
       title: "Hai energia elettrica in casa?",
@@ -281,6 +308,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
     data: {
       id_question: 24,
       langId: langIT.id,
+      order: 7,
       type: "steps",
       category: "Abitazione",
       title: "Quanto è efficiente il consumo di energia elettrica in casa tua?",
@@ -298,6 +326,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
         create: [
           {
             langId: langIT.id,
+            order: 0,
             gt: 10,
             title: "Molto inefficiente",
             description:
@@ -305,12 +334,14 @@ export default async function seedQuestionIT({ langIT }, log = true) {
           },
           {
             langId: langIT.id,
+            order: 1,
             gt: 11,
             title: "Inferiore alla media",
             description: "(lampade poco efficienti, elettrodomestici standard)",
           },
           {
             langId: langIT.id,
+            order: 2,
             gt: 20,
             title: "Nella media",
             description:
@@ -318,6 +349,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
           },
           {
             langId: langIT.id,
+            order: 3,
             gt: 30,
             title: "Sopra la media",
             description:
@@ -325,6 +357,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
           },
           {
             langId: langIT.id,
+            order: 4,
             gt: 60,
             title: "Design incentrato sull'efficienza",
             description:
@@ -339,6 +372,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
     data: {
       id_question: 21,
       langId: langIT.id,
+      order: 8,
       type: "number",
       category: "Abitazione",
       title:
@@ -362,6 +396,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
     data: {
       id_question: 10,
       langId: langIT.id,
+      order: 9,
       type: "steps",
       category: "Abitazione",
       title: "Quanti rifiuti produci rispetto ai tuoi vicini?",
@@ -378,30 +413,35 @@ export default async function seedQuestionIT({ langIT }, log = true) {
         create: [
           {
             langId: langIT.id,
+            order: 0,
             gt: 0,
             title: "Molti meno",
             description: null,
           },
           {
             langId: langIT.id,
+            order: 1,
             gt: 2,
             title: "Di meno",
             description: null,
           },
           {
             langId: langIT.id,
+            order: 2,
             gt: 25,
             title: "La stessa quantità",
             description: null,
           },
           {
             langId: langIT.id,
+            order: 3,
             gt: 50,
             title: "Di più",
             description: null,
           },
           {
             langId: langIT.id,
+            order: 4,
             gt: 75,
             title: "Molti di più",
             description: null,
@@ -416,6 +456,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
     data: {
       id_question: 25,
       langId: langIT.id,
+      order: 10,
       type: "number",
       category: "Trasporti",
       title: "Quanti chilometri percorri ogni settimana in macchina o in moto?",
@@ -438,6 +479,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
     data: {
       id_question: 26,
       langId: langIT.id,
+      order: 11,
       type: "number",
       category: "Trasporti",
       title: "Quanti chilometri percorri ogni settimana in macchina o in moto?",
@@ -460,6 +502,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
     data: {
       id_question: 27,
       langId: langIT.id,
+      order: 12,
       type: "steps",
       category: "Trasporti",
       title:
@@ -483,6 +526,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
     data: {
       id_question: 28,
       langId: langIT.id,
+      order: 13,
       type: "steps",
       category: "Trasporti",
       title:
@@ -506,6 +550,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
     data: {
       id_question: 29,
       langId: langIT.id,
+      order: 14,
       type: "steps",
       category: "Trasporti",
       title: "Quando viaggi in auto, quante volte viaggi con qualcun altro?",
@@ -522,30 +567,35 @@ export default async function seedQuestionIT({ langIT }, log = true) {
         create: [
           {
             langId: langIT.id,
+            order: 0,
             gt: 0,
             title: "Mai",
             description: null,
           },
           {
             langId: langIT.id,
+            order: 1,
             gt: 20,
             title: "Raramente",
             description: null,
           },
           {
             langId: langIT.id,
+            order: 2,
             gt: 40,
             title: "Ogni tanto",
             description: null,
           },
           {
             langId: langIT.id,
+            order: 3,
             gt: 60,
             title: "Spesso",
             description: null,
           },
           {
             langId: langIT.id,
+            order: 4,
             gt: 80,
             title: "Sempre",
             description: null,
@@ -560,6 +610,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
     data: {
       id_question: 30,
       langId: langIT.id,
+      order: 15,
       type: "number",
       category: "Trasporti",
       title: "Quanti chilometri percorri ogni settimana con i mezzi pubblici?",
@@ -581,6 +632,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
     data: {
       id_question: 33,
       langId: langIT.id,
+      order: 16,
       type: "number",
       category: "Trasporti",
       title: "Quante ore viaggi in aereo ogni anno?",
