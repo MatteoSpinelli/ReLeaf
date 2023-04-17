@@ -1,6 +1,24 @@
 .swiper-wrapper {
-  @apply min-h-[430px] py-5;
+  @apply min-h-[430px] py-10 px-5;
 }
+
+.swiper {
+  overflow: visible !important;
+}
+
 .swiper-slide {
-  @apply self-stretch;
+  opacity: 0;
+  transition: all 150ms ease-in-out;
+  transition-property: all !important;
+  &:last-of-type.swiper-slide-active,
+  &.swiper-slide-prev:has(+ .swiper-slide:last-of-type.swiper-slide-active) {
+    transform: translateX(-50px);
+  }
+}
+
+.swiper-slide.swiper-slide-active,
+.swiper-slide.swiper-slide-next,
+.swiper-slide.swiper-slide-next + .swiper-slide,
+.swiper-slide:has(+ .swiper-slide:last-of-type.swiper-slide-active) {
+  opacity: 1;
 }
