@@ -15,7 +15,12 @@ export default function useCalculator(body: TestInputData) {
     );
   };
 
-  const { data, isLoading, error } = useSWR("/api/v1/calculator", fetcher);
+  const { data, isLoading, error } = useSWR("/api/v1/calculator", fetcher, { revalidateOnFocus: false,
+    revalidateOnMount:true,
+    revalidateOnReconnect: false,
+    refreshWhenOffline: false,
+    refreshWhenHidden: false,
+    refreshInterval: 0});
 
   return { data, isLoading, error } as {
     data: { data: TestData; status: any };

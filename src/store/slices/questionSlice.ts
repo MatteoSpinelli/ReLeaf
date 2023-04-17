@@ -19,23 +19,23 @@ const questionState = createSlice<questionAnswer, SliceCaseReducers<any>, string
             source: "result1",
             answers: [
                 { questionId: 1, value: 30 },
+                { questionId: 7, value: 30 },
+                { questionId: 18, value: 100 },
+                { questionId: 20, value: 100 },
+                { questionId: 19, value: 900 },
+                { questionId: 22, value: 2 },
+                { questionId: 23, value: 10 },
+                { questionId: 24, value: 30 },
+                { questionId: 21, value: 12 },
                 { questionId: 10, value: 30 },
                 { questionId: 25, value: 133 },
-                { questionId: 30, value: 45 },
-                { questionId: 20, value: 100 },
-                { questionId: 27, value: 21 },
-                { questionId: 28, value: 6 },
-                { questionId: 7, value: 30 },
-                { questionId: 24, value: 30 },
-                { questionId: 23, value: 10 },
-                { questionId: 18, value: 100 },
-                { questionId: 22, value: 2 },
-                { questionId: 19, value: 900 },
                 { questionId: 26, value: 3 },
-                { questionId: 33, value: 60 },
-                { questionId: 29, value: 34 },
-                { questionId: 21, value: 12 },
-              ],
+                { questionId: 27, value: 34 },
+                { questionId: 28, value: 45 },
+                { questionId: 29, value: 60 },
+                { questionId: 30, value: 21 },
+                { questionId: 33, value: 6 },
+            ],
         }
     },
     reducers: {
@@ -46,7 +46,7 @@ const questionState = createSlice<questionAnswer, SliceCaseReducers<any>, string
         setValue: (state, action) => {
             state.body.answers[state.currentQuestion] = action.payload
         },
-        
+
     }
 })
 
