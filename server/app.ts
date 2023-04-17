@@ -1,16 +1,21 @@
-const createError = require("http-errors");
-const express = require("express");
-const path = require("path");
-const cookieParser = require("cookie-parser");
-const logger = require("morgan");
-const cors = require("cors");
+import createError from "http-errors";
+import express from "express";
+import path from "path";
+import cookieParser from "cookie-parser";
+import logger from "morgan";
+import cors from "cors";
+import dotenv from "dotenv";
 
-const rootRoutes = require("./routes/api/v1");
-const authRoutes = require("./routes/api/v1/auth.js");
-const questionsRoutes = require("./routes/api/v1/questions.js");
-const activitiesRoutes = require("./routes/api/v1/activities.js");
-const tokenRoutes = require("./routes/api/v1/token.js");
-const calculatorRoutes = require("./routes/api/v1/calculator.js");
+import rootRoutes from "./routes/api/v1/index.js";
+import authRoutes from "./routes/api/v1/auth.js";
+import questionsRoutes from "./routes/api/v1/questions.js";
+import activitiesRoutes from "./routes/api/v1/activities.js";
+import tokenRoutes from "./routes/api/v1/token.js";
+import calculatorRoutes from "./routes/api/v1/calculator.js";
+
+const __dirname = path.resolve();
+
+dotenv.config();
 
 const app = express();
 
@@ -43,7 +48,7 @@ app.use(function (req, res, next) {
 });
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use(function (err: any, req: any, res: any, next: any) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
@@ -53,4 +58,4 @@ app.use(function (err, req, res, next) {
   res.json({ status: err.status || 500, message: err.message });
 });
 
-module.exports = app;
+export default app;

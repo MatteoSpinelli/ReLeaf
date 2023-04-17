@@ -1,6 +1,6 @@
-const prisma = require("../../../lib/prismadb.js");
-var express = require("express");
-var router = express.Router();
+import prisma from "../../../lib/prismadb.js";
+import express from "express";
+const router = express.Router();
 
 /* GET /api/v1/calculator */
 router.post("/", async function (req, res, next) {
@@ -28,4 +28,4 @@ router.post("/", async function (req, res, next) {
   }
 });
 
-module.exports = router;
+export default router;

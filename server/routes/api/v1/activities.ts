@@ -1,5 +1,5 @@
-var express = require("express");
-var router = express.Router();
+import express from "express";
+const router = express.Router();
 
 /* GET /api/v1/activities */
 router.get("/", function (req, res, next) {
@@ -8,4 +8,4 @@ router.get("/", function (req, res, next) {
     .json({ status: 200, message: "hello from activities endpoint" });
 });
 
-module.exports = router;
+export default router;
