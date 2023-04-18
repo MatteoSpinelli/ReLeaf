@@ -20,6 +20,7 @@ export default function SignUpPage() {
       <Nav /> {/* Nav bar */}
       <SignUp
         title={t.signup}
+        signup_password={t.signup_password}
         signupDescription={t.signup_description}
         buttonText={t.login_btn}
         toTest={t.signup_to_test}

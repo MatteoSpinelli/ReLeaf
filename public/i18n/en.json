@@ -31,7 +31,9 @@
     "login_question": "Don’t have an account yet?",
 
     "signup_description": "Join us to give a boost to your Eco Points and together create a more sustainable future for our planet.",
-    "signup_to_test": "Back to test"
+    "signup_to_test": "Back to test",
+    "signup_password": "Include at least one uppercase letter and a number."
+
   },
   "test_result": {
     "back_to_test": "Back to Test",

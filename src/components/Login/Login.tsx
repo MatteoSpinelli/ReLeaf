@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 // styles
 import "./Login.scss";
@@ -17,7 +18,6 @@ interface LoginProps {
   buttonText: string;
   getStarted?: string;
   LoginBtn: string
-
 }
 
 function Login({
@@ -29,10 +29,11 @@ function Login({
 }: LoginProps) {
   const { isDark } = useTheme();
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log({ email });
+    console.log({ email, password });
   };
 
   return (
@@ -50,13 +51,23 @@ function Login({
         </div>
 
         <form className="login-form" onSubmit={handleSubmit}>
-          <label id="login-email">Email</label>
+          <label id="login-email">Email<abbr title="required">*</abbr></label>
           <input
             id="login-email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder=" Email"
+            placeholder="email"
+            required
+          />
+          <label id="login-password">Password<abbr title="required">*</abbr></label>
+           <input
+            id="login-password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="password"
+            pattern="(?=.*\d)(?=.*[A-Z]).{8,}" 
             required
           />
           <Button>{LoginBtn}</Button>
@@ -65,7 +76,9 @@ function Login({
         <div className="login-question-container">
           <p>{loginQuestion}</p>
           <a className="login-link" href="">
+          <Link to="/signup" className="login-link">
           {getStarted}
+          </Link>
           </a>
         </div>
       </div>
