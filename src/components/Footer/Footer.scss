@@ -1,0 +1,20 @@
+.footer-menu-title {
+  @apply font-bold pb-3 text-lg text-white pt-5 md:pt-0;
+}
+
+.footer-menu-list {
+  & > li {
+    @apply pb-1 font-thin text-secondaryTxtDark hover:text-white cursor-pointer transition-all duration-300;
+    &:hover {
+      transform: translateY(1px);
+    }
+  }
+}
+
+.footer-social-icon {
+  @apply cursor-pointer transition-all duration-300;
+  &:hover {
+    filter: brightness(1.75);
+    transform: translateY(-1px);
+  }
+}

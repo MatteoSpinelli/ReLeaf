@@ -15,6 +15,7 @@ import CallToAction from "../components/CallToAction/CallToAction";
 import ActivitySwiper from "../components/ActivitySwiper/ActivitySwiper";
 import Faq from "../components/Faq/Faq";
 import { Nav } from "../components/Nav/Nav";
+import Footer from "../components/Footer/Footer";
 
 export default function Home() {
   const t = useTranslate("homepage", "global");
@@ -32,16 +33,17 @@ export default function Home() {
       <CallToAction
         description={t.call_to_action1}
         buttonText={t.get_started}
-      />{" "}
+      />
       {/* Call to Action Section */}
       <ActivitySwiper /> {/* Activities Swiper Section */}
-      <CallToAction
-        description={t.call_to_action2}
-        buttonText={t.get_started}
-      />{" "}
       {/* Call to Action Section */}
       {/* Add other section components here */}
       <Faq /> {/* FAQ Section */}
+      <CallToAction
+        description={t.call_to_action2}
+        buttonText={t.get_started}
+      />
+      <Footer/>
       <TestPanel /> {/* Test Panel - Keep it at the bottom */}
     </PageContainer>
   );

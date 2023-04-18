@@ -72,7 +72,25 @@
   "footer": {
     "slogan": "Reduce your carbon footprint, one leaf at a time",
     "copyright": "© 2023 reLeaf, all rights reserved.",
-    "signature": "Made with ♥ by Develhope's Full Stack 9 Team 2"
+    "signature": "Made with ♥ by Develhope's Full Stack 9 Team 2",
+    "menu1_title": "Explore",
+    "menu1_link1": "How it works",
+    "menu1_link2": "About us",
+    "menu1_link3": "Our mission",
+    "menu1_link4": "Blog",
+    "menu1_link5": "🏅 Leaderboard",
+    "menu1_link6": "FAQ",
+    "menu2_title": "Resources",
+    "menu2_link1": "Follow on Facebook",
+    "menu2_link2": "Follow on Instagram",
+    "menu2_link3": "Follow on Twitter",
+    "menu2_link4": "Support",
+    "menu2_link5": "Contact us",
+    "menu3_title": "Recent Articles",
+    "menu3_link1": "🌍 Save the planet with reLeaf",
+    "menu3_link2": "🌲 Support reforestation on Treedom",
+    "menu3_link3": "🛰 The planet is changing every day",
+    "menu3_link4": "🍃 Help us reduce the global impact"
   },
   "test_switcher": {
     "current_theme": "Current Theme: ",

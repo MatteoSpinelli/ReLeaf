@@ -26,7 +26,7 @@ export default function Faq() {
     },
   ];
   return (
-    <div className="my-24 flex justify-center items-center flex-col">
+    <div className="flex justify-center items-center flex-col">
       <h2 className="font-bold px-5 text-4xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl mb-6 text-center md:max-w-xl lg:max-w-5xl">
         Frequently Asked Question
       </h2>

@@ -33,7 +33,6 @@
     "signup_description": "Unisciti a noi per dare una svolta ai tuoi Eco Points e creare insieme un futuro più sostenibile per il nostro pianeta.",
     "signup_to_test": "Torna al test",
     "signup_password": "Inserisci almeno una lettera maiuscola e un numero."
-
   },
   "test_result": {
     "back_to_test": "Torna al Test",
@@ -72,7 +71,25 @@
   "footer": {
     "slogan": "Riduci il tuo impatto ambientale, un passo alla volta",
     "copyright": "© 2023 reLeaf, tutti i diritti riservati.",
-    "signature": "Realizzato dal Team 2, classe Full Stack 9 di Develhope"
+    "signature": "Realizzato dal Team 2, classe Full Stack 9 di Develhope",
+    "menu1_title": "Esplora",
+    "menu1_link1": "Come funziona",
+    "menu1_link2": "Chi siamo",
+    "menu1_link3": "La nostra missione",
+    "menu1_link4": "Blog",
+    "menu1_link5": "🏅 Classifica",
+    "menu1_link6": "FAQ",
+    "menu2_title": "Risorse",
+    "menu2_link1": "Seguici su Facebook",
+    "menu2_link2": "Seguici su Instagram",
+    "menu2_link3": "Seguici su Twitter",
+    "menu2_link4": "Supporto",
+    "menu2_link5": "Contattaci",
+    "menu3_title": "Articoli Recenti",
+    "menu3_link1": "🌍 Salva il pianeta con ReLeaf",
+    "menu3_link2": "🌲 Supporta la riforestazione con Treedom",
+    "menu3_link3": "🛰 Il pianeta cambia ogni giorno",
+    "menu3_link4": "🍃 Aiutaci a ridurre l'impatto globale"
   },
   "test_switcher": {
     "current_theme": "Tema Attuale: ",
