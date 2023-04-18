@@ -14,6 +14,7 @@ interface LoginProps {
   signupDescription: string;
   buttonText: string;
   toTest?: string;
+  signup_password: string;
   LoginBtn: string;
 }
 
@@ -21,14 +22,16 @@ function SingUp({
   title = "signup",
   signupDescription = "signup_description",
   toTest = " signup_to_test",
+  signup_password = "signup_password",
   LoginBtn = "login",
 }: LoginProps) {
   const { isDark } = useTheme();
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log({ email });
+    console.log({ email, password });
   };
 
   return (
@@ -47,16 +50,28 @@ function SingUp({
         </div>
 
         <form className="signup-form" onSubmit={handleSubmit}>
-          <label id="login-email">Email</label>
+          <label id="login-email">Email<abbr title="required">*</abbr></label>
           <input
             id="login-email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
+            placeholder="email"
+            title="Required"
             required
           />
-          <Button>{LoginBtn}</Button>
+          <label id="login-password">Password<abbr title="required">*</abbr></label>
+           <input
+            id="login-password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="password"
+            pattern="(?=.*\d)(?=.*[A-Z]).{8,}" 
+            required
+          />
+           <small>{signup_password}</small>
+          <Button>{title}</Button>
         </form>
       </div>
     </section>
