@@ -1,0 +1,21 @@
+nav {
+  height: 60px;
+  box-sizing: border-box;
+  .logo_nav_global {
+    svg {
+      height: 40px;
+    }
+  }
+}
+
+.menu_nav_global {
+  right: 0;
+  translate: 2000px;
+  transition: translate 0.5s;
+  @media (min-width: 768px) {
+    right: 0;
+    translate: 0px;
+    background-color: transparent !important;
+    border: none !important;
+  }
+}

@@ -1,0 +1,49 @@
+.login-section{
+    @apply flex flex-col items-center justify-center py-28 mx-5 pl-4 pr-4;;
+  
+}
+
+.login-container {
+    @apply flex flex-col items-center justify-center gap-8 w-96;
+    
+  }
+
+.login-description-container{
+    @apply flex flex-col items-center justify-center;
+}
+
+.login-description-container h1{
+    @apply font-bold text-5xl mb-5;
+}
+
+.login-form {
+    @apply flex flex-col items-start justify-center gap-3 w-full mb-5 pl-4 pr-4;;
+
+  }
+  
+.login-form input{
+    border: 1px solid gainsboro;
+    width: 100%;
+    height: 3rem;
+    padding-left: 10px;
+}
+.login-form button{
+   background: #159C71;
+   border-radius: 6px;
+   width: 100%;
+}
+
+.login-question-container {
+    @apply flex flex-col items-center justify-center;
+  }
+  
+
+.login-link{
+color: #F3713D;
+font-weight: 600;
+}
+
+.login-img{
+    width: 25rem;
+    margin-bottom: 15px;
+}
