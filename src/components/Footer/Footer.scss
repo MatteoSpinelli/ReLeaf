@@ -1,0 +1,13 @@
+.footer-menu-title{
+     @apply font-bold pb-3 text-lg text-white pt-5 md:pt-0;
+}
+
+.footer-menu-list{
+    & > li{
+        @apply pb-1 font-thin text-secondaryTxtDark hover:text-white cursor-pointer transition-all hover:-translate-y-[1px] duration-300;
+    }
+}
+
+.footer-social-icon{
+    @apply cursor-pointer hover:brightness-[1.75] transition-all hover:-translate-y-[1px] duration-[400ms];
+}

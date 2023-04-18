@@ -23,6 +23,8 @@ module.exports = {
         faqBorder: "#a6dba7",
         faqBgDark: "#23303f",
         faqBorderDark: "#223f50",
+        footerBgCopyright:"#0b1f19",
+        footerBgCopyrightDark:"#0b191f",
       },
     },
   },
