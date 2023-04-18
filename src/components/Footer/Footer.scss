@@ -12,7 +12,7 @@
 }
 
 .footer-social-icon {
-  @apply cursor-pointer transition-all duration-[400ms];
+  @apply cursor-pointer transition-all duration-300;
   &:hover {
     filter: brightness(1.75);
     transform: translateY(-1px);
