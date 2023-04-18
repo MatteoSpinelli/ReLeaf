@@ -17,7 +17,7 @@ export default function Footprint({ data }: { data: TestData }) {
       {data && (
         <div className="flex justify-around">
           <h3 className="text-4xl font-bold pb-5">
-            {data.tonsCarbon.toFixed(1)} 
+            {data.tonsCarbon.toFixed(1)} CO2
           </h3>
           <h3 className="text-4xl font-bold pb-5">
             {Math.round(data.carbonPercent)}%
