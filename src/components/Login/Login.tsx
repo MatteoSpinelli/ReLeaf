@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 // styles
 import "./Login.scss";
@@ -10,6 +10,7 @@ import useTheme from "../../hooks/useTheme";
 // components
 import Button from "../Button/Button";
 import loginimage from "./loginimage.png";
+import useAuth from "../../hooks/useAuth";
 
 interface LoginProps {
   title?: string;
@@ -17,7 +18,7 @@ interface LoginProps {
   loginQuestion: string;
   buttonText: string;
   getStarted?: string;
-  LoginBtn: string
+  LoginBtn: string;
 }
 
 function Login({
@@ -25,20 +26,36 @@ function Login({
   loginDescription = "login_description",
   loginQuestion = "login_question",
   getStarted = "get_started",
-  LoginBtn= "login"
+  LoginBtn = "login",
 }: LoginProps) {
   const { isDark } = useTheme();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const { login, authenticated } = useAuth();
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log({ email, password });
+    const loggedIn = await login(email, password);
+
+    if (loggedIn.success) {
+      navigate("/");
+    } else {
+      alert(loggedIn.data?.message);
+    }
   };
+
+  useEffect(() => {
+    if (authenticated) {
+      navigate("/");
+    }
+  }, [authenticated]);
 
   return (
     <section className="login-section">
-      <img className="login-img" src={loginimage} alt="login image"></img>
+      <img className="login-img" src={loginimage} alt="login image" />
 
       <div className={`login-container ${isDark ? "dark" : ""}`}>
         <div className="login-description-container">
@@ -51,7 +68,9 @@ function Login({
         </div>
 
         <form className="login-form" onSubmit={handleSubmit}>
-          <label id="login-email">Email<abbr title="required">*</abbr></label>
+          <label id="login-email">
+            Email<abbr title="required">*</abbr>
+          </label>
           <input
             id="login-email"
             type="email"
@@ -60,14 +79,16 @@ function Login({
             placeholder="email"
             required
           />
-          <label id="login-password">Password<abbr title="required">*</abbr></label>
-           <input
+          <label id="login-password">
+            Password<abbr title="required">*</abbr>
+          </label>
+          <input
             id="login-password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="password"
-            pattern="(?=.*\d)(?=.*[A-Z]).{8,}" 
+            pattern="(?=.*\d)(?=.*[A-Z]).{8,}"
             required
           />
           <Button>{LoginBtn}</Button>
@@ -76,9 +97,9 @@ function Login({
         <div className="login-question-container">
           <p>{loginQuestion}</p>
           <a className="login-link" href="">
-          <Link to="/signup" className="login-link">
-          {getStarted}
-          </Link>
+            <Link to="/signup" className="login-link">
+              {getStarted}
+            </Link>
           </a>
         </div>
       </div>
