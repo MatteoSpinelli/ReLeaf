@@ -11,7 +11,7 @@
   transition: all 150ms ease-in-out;
   transition-property: all !important;
   &:last-of-type.swiper-slide-active,
-  &.swiper-slide-prev:has(+ .swiper-slide:last-of-type.swiper-slide-active) {
+  &.swiper-slide-prev + .swiper-slide:last-of-type.swiper-slide-active {
     transform: translateX(-50px);
   }
 }
@@ -19,7 +19,7 @@
 .swiper-slide.swiper-slide-active,
 .swiper-slide.swiper-slide-next,
 .swiper-slide.swiper-slide-next + .swiper-slide,
-.swiper-slide:has(+ .swiper-slide:last-of-type.swiper-slide-active) {
+.swiper-slide + .swiper-slide:last-of-type.swiper-slide-active {
   opacity: 1;
 }
 .swiper-pagination-bullets {

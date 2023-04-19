@@ -11,6 +11,7 @@ const questionsRoutes = require("./routes/api/v1/questions.js");
 const activitiesRoutes = require("./routes/api/v1/activities.js");
 const tokenRoutes = require("./routes/api/v1/token.js");
 const calculatorRoutes = require("./routes/api/v1/calculator.js");
+const { verifyAccessToken } = require("./middlewares/auth");
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(verifyAccessToken);
 
 // api routes
 app.use("/api/v1", rootRoutes);

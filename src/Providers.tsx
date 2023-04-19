@@ -8,6 +8,7 @@ import { HelmetProvider } from "react-helmet-async";
 
 // components
 import ScrollToTop from "./components/common/ScrollToTop";
+import { getCookie } from "./utils/cookie";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -16,9 +17,12 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         <SWRConfig
           value={{
             fetcher: (uri, options = {}) =>
-              fetch(process.env.REACT_APP_SERVER_URI + uri, options).then(
-                (res) => res.json()
-              ),
+              fetch(process.env.REACT_APP_SERVER_URI + uri, {
+                ...options,
+                headers: {
+                  authorization: `Bearer ${getCookie("jwt")}`,
+                },
+              }).then((res) => res.json()),
           }}
         >
           <BrowserRouter>
