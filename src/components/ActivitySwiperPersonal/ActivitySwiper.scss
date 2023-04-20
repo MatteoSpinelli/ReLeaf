@@ -1,0 +1,19 @@
+.swiper-wrapper {
+  @apply min-h-[430px] py-5;
+}
+.swiper-slide {
+  @apply self-stretch;
+}
+
+.button-add {
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  @apply  m-4 bg-teal-600 text-white text-3xl ;
+}
+.button-add:hover {
+  @apply bg-teal-600 opacity-80;}
+
+.button-add:active {
+  transform: scale(0.9);
+}

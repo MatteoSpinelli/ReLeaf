@@ -44,6 +44,10 @@
   color: #f2936e;
 }
 
+.signup-form input {
+  color: black; 
+}
+
 @media screen and (min-width: 768px) {
   .signup-link {
     @apply fixed top-20 left-7;
