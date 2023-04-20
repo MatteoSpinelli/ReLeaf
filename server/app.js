@@ -1,3 +1,4 @@
+require("dotenv").config()
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
@@ -12,7 +13,6 @@ const activitiesRoutes = require("./routes/api/v1/activities.js");
 const tokenRoutes = require("./routes/api/v1/token.js");
 const calculatorRoutes = require("./routes/api/v1/calculator.js");
 const { verifyAccessToken } = require("./middlewares/auth");
-
 const app = express();
 
 app.use(cors());

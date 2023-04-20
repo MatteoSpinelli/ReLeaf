@@ -71,7 +71,7 @@ router.post("/signup", async (req, res) => {
 
 router.get("/user", authMiddleware, async (req, res) => {
   const user = await prisma.user.findFirst({
-    where: { email: req.user.email },
+    where: { email: req.user.data.email },
   });
 
   res.status(200).json({

@@ -11,6 +11,7 @@ import useTheme from "../../hooks/useTheme";
 import Button from "../Button/Button";
 import loginimage from "./loginimage.png";
 import useAuth from "../../hooks/useAuth";
+import { useUser } from "../../hooks/useUser";
 
 interface LoginProps {
   title?: string;
@@ -46,12 +47,6 @@ function Login({
       alert(loggedIn.data?.message);
     }
   };
-
-  useEffect(() => {
-    if (authenticated) {
-      navigate("/");
-    }
-  }, [authenticated]);
 
   return (
     <section className="login-section">
