@@ -2,8 +2,10 @@ import { useState } from "react";
 
 interface AuthResponse {
   success: boolean;
-  message?: string;
-  accessToken?: string;
+  message: string;
+  accessToken: string;
+  iat: number;
+  exp: number;
 }
 
 export default function useAuth() {
@@ -21,9 +23,11 @@ export default function useAuth() {
       }
     );
     const data: AuthResponse = await res.json();
+    const dat = new Date(data.exp * 1000).toUTCString();
+    console.log(dat);
     if (data && data.success) {
       setAuthenticated(true);
-      document.cookie = `jwt=${data.accessToken};`;
+      document.cookie = `jwt=${data.accessToken};expires=${dat};secure;sameSite=Strict;path=/;`;
       return { success: true };
     } else {
       setAuthenticated(false);
