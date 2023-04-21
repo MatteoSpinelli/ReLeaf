@@ -5,6 +5,9 @@ import { ShowQuestion } from "./ShowQuestion"
 import { useEffect } from "react"
 import { redirect, useNavigate } from "react-router-dom"
 import { useUser } from "../../hooks/useUser"
+import { ReactComponent as BG1 } from "../../assets/questionary-bg/quest-carpool.svg"
+import { ReactComponent as BG2 } from "../../assets/questionary-bg/quest-energy-eco.svg"
+
 
 export function Test() {
     const [user, setUser] = useUser()
@@ -25,13 +28,15 @@ export function Test() {
         }
     }, [])
     return (
-        <div className="w-screen h-screen flex flex-col justify-center items-center">
+        <div className="w-screen h-screen flex flex-col justify-center items-center z-10">
             {/* Presentational logic */}
             {data && <ShowQuestion question={data[questions.currentQuestion]} />} {/* Presentational logic for questions */}
             {/* next and prev buttons */}
             <button onClick={handleButtons}>Previous</button>
             <button onClick={handleButtons}>Next</button>
             {/* Progession Circle and statements */}
+            { questions.currentQuestion === 1 && <BG1 className="fixed bottom-0 left-0 z-[-2]" /> }
+            { questions.currentQuestion === 2 && <BG2 className="fixed bottom-0 left-0 z-[-2]" /> }
         </div>
     )
 }
