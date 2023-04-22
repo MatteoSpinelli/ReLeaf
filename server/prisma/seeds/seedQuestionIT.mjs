@@ -459,7 +459,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
       order: 10,
       type: "number",
       category: "Trasporti",
-      title: "Quanti chilometri percorri ogni settimana in macchina o in moto?",
+      title: "Quanti chilometri percorri ogni settimana in macchina?",
       description: "(sia come guidatore che come passeggero)",
       tooltip:
         "Se cammini o vai in bicicletta, scegli zero. Spostarsi a piedi o in bicicletta riduce la tua Impronta e contribuisce al tuo benessere.",
@@ -482,7 +482,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
       order: 11,
       type: "number",
       category: "Trasporti",
-      title: "Quanti chilometri percorri ogni settimana in macchina o in moto?",
+      title: "Quanti chilometri percorri ogni settimana in moto?",
       description: "(sia come guidatore che come passeggero)",
       tooltip:
         "Se cammini o vai in bicicletta, scegli zero. Spostarsi a piedi o in bicicletta riduce la tua Impronta e contribuisce al tuo benessere.",
@@ -506,7 +506,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
       type: "steps",
       category: "Trasporti",
       title:
-        "Qual è il consumo medio di carburante dei veicoli che usi più spesso?",
+        "Qual è il consumo medio di carburante dei veicoli (macchine) che usi più spesso?",
       description: null,
       tooltip:
         "A seconda della fonte energetica utilizzata per produrre energia elettrica (% rinnovabile rispetto alla % non rinnovabile), il consumo equivalente di un veicolo elettrico può variare da 2 a 6 litri per 100 km percorsi.",
@@ -530,7 +530,7 @@ export default async function seedQuestionIT({ langIT }, log = true) {
       type: "steps",
       category: "Trasporti",
       title:
-        "Qual è il consumo medio di carburante dei veicoli che usi più spesso?",
+        "Qual è il consumo medio di carburante dei veicoli (moto) che usi più spesso?",
       description: null,
       tooltip:
         "A seconda della fonte energetica utilizzata per produrre energia elettrica (% rinnovabile rispetto alla % non rinnovabile), il consumo equivalente di un veicolo elettrico può variare da 2 a 6 litri per 100 km percorsi.",

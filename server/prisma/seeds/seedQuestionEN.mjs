@@ -455,7 +455,7 @@ export default async function seedQuestionEN({ langEN }, log = true) {
       order: 10,
       type: "number",
       category: "Transportation",
-      title: "How far do you travel by car or motorcycle each week?",
+      title: "How far do you travel by car each week?",
       description: "(as a driver or passenger)",
       tooltip:
         "If you only walk or bicycle, choose zero. Both walking and bicycling reduce your Footprint and improve your well-being.",
@@ -478,7 +478,7 @@ export default async function seedQuestionEN({ langEN }, log = true) {
       order: 11,
       type: "number",
       category: "Transportation",
-      title: "How far do you travel by car or motorcycle each week?",
+      title: "How far do you travel by motorcycle each week?",
       description: "(as a driver or passenger)",
       tooltip:
         "If you only walk or bicycle, choose zero. Both walking and bicycling reduce your Footprint and improve your well-being.",
@@ -502,7 +502,7 @@ export default async function seedQuestionEN({ langEN }, log = true) {
       type: "steps",
       category: "Transportation",
       title:
-        "What is the average fuel economy of the vehicles you use most often?",
+        "What is the average fuel economy of the vehicles (cars) you use most often?",
       description: null,
       tooltip:
         "Depending on the electricity source (% renewable versus % non-renewable), the fuel economy of a typical electric vehicle may range from 2 to 6 litres/100 km or 40 to 150 miles/gallon.",
@@ -526,7 +526,7 @@ export default async function seedQuestionEN({ langEN }, log = true) {
       type: "steps",
       category: "Transportation",
       title:
-        "What is the average fuel economy of the vehicles you use most often?",
+        "What is the average fuel economy of the vehicles (motorcycles) you use most often?",
       description: null,
       tooltip:
         "Depending on the electricity source (% renewable versus % non-renewable), the fuel economy of a typical electric vehicle may range from 2 to 6 litres/100 km or 40 to 150 miles/gallon.",
