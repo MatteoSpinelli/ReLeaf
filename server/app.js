@@ -1,4 +1,4 @@
-require("dotenv").config()
+require("dotenv").config();
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
@@ -12,7 +12,7 @@ const questionsRoutes = require("./routes/api/v1/questions.js");
 const activitiesRoutes = require("./routes/api/v1/activities.js");
 const tokenRoutes = require("./routes/api/v1/token.js");
 const calculatorRoutes = require("./routes/api/v1/calculator.js");
-const { verifyAccessToken } = require("./middlewares/auth");
+const { authMiddleware } = require("./middlewares/auth");
 const app = express();
 
 app.use(cors());
@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(verifyAccessToken);
+app.use(authMiddleware);
 
 // api routes
 app.use("/api/v1", rootRoutes);

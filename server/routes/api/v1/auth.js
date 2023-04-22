@@ -3,7 +3,8 @@ const bcrypt = require("bcrypt");
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
-const { authMiddleware } = require("../../../middlewares/auth");
+const { authStrictMiddleware } = require("../../../middlewares/auth");
+const error = require("../../../utils/error.js");
 
 const { ACCESS_TOKEN_SECRET } = process.env;
 
@@ -14,7 +15,10 @@ router.post("/login", async (req, res, next) => {
   if (req.user) {
     res.status(200).json({
       success: true,
-      accessToken: req.user.accessToken,
+      message: "Already Authenticated",
+      accessToken: req.user.accessToken.split(" ")[1],
+      iat: req.user.iat,
+      exp: req.user.exp,
     });
     return;
   }
@@ -28,25 +32,51 @@ router.post("/login", async (req, res, next) => {
   if (user) {
     const isLogged = await bcrypt.compare(password, user.password);
     if (isLogged) {
-      const data = jwt.sign(
+      const newToken = jwt.sign(
         {
-          data: { email: user.email, role: user.role },
+          data: {
+            email: user.email,
+            name: user.name,
+            lastname: user.lastname,
+            role: user.role,
+          },
         },
         ACCESS_TOKEN_SECRET,
         { expiresIn: "10d" }
       );
-      res.status(200).json({ success: true, accessToken: data });
+
+      const decoded = jwt.decode(newToken);
+
+      res.status(200).json({
+        success: true,
+        message: "Authenticated successfully",
+        accessToken: newToken,
+        iat: decoded.iat,
+        exp: decoded.exp,
+      });
     } else {
-      res.status(400).json({ success: false, message: "Password not valid" });
+      res.status(401).json({
+        success: false,
+        ...error(401, "Password not valid"),
+      });
     }
   } else {
-    res.status(400).json({ success: false, message: "Email not valid" });
+    res.status(401).json({
+      success: false,
+      ...error(401, "Email not valid"),
+    });
   }
 });
 
 /* POST /api/v1/auth/signup */
 router.post("/signup", async (req, res) => {
   const { email, password, name = "", lastname = "", testResult } = req.body;
+  const { user } = req;
+
+  if (user) {
+    res.status(403).json(error(403, "Cannot sign up while authenticated"));
+    return;
+  }
 
   const hashedPassword = await bcrypt.hash(password, 8);
 
@@ -64,22 +94,27 @@ router.post("/signup", async (req, res) => {
     });
 
     res.status(201).json({ success: true, message: "user created", user });
-  } catch (error) {
-    res.status(400).json({ success: false, message: "email already exists" });
+  } catch (err) {
+    res.status(409).json(error(409, "Account already exists"));
   }
 });
 
-router.get("/user", authMiddleware, async (req, res) => {
-  const user = await prisma.user.findFirst({
-    where: { email: req.user.data.email },
-  });
+/* GET /api/v1/auth/user */
+router.get("/user", authStrictMiddleware, async (req, res) => {
+  const { user } = req;
+  if (user) {
+    res.status(200).json(user);
+    return;
+  }
 
-  res.status(200).json({
-    email: user.email,
-    name: user.name,
-    lastname: user.lastname,
-    role: user.role,
-  });
+  res
+    .status(401)
+    .json(
+      error(
+        401,
+        "The request has not been applied because it lacks valid authentication credentials for the target resource"
+      )
+    );
 });
 
 module.exports = router;
