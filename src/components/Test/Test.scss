@@ -1,0 +1,19 @@
+.testPage {
+
+    .next_test,
+    .previous_test {
+        width: 53.08px;
+        height: 53.08px;
+        cursor: pointer;
+        background: #159C71;
+        transition: all 1s ease-out;
+    }
+    .previous_test{
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+
+    }
+    .button_active{
+        width: 65.08px;
+        height: 65.08px;
+    }
+}
