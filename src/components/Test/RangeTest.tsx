@@ -1,7 +1,7 @@
 import { createRef } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { setValue } from "../../store/slices/questionSlice"
-
+import "./Test.scss"
 export function RangeTest({ question }: {question: any }) {
     const inputRef: any = createRef<HTMLInputElement>()
     const dispatch = useDispatch()
@@ -25,11 +25,13 @@ export function RangeTest({ question }: {question: any }) {
         }
     }
 
-    return <div className="flex flex-col items-center gap-4">
-        <div>
-            <label>{question.minLabel}</label>
-            <input ref={inputRef} onChange={handleChange} type="range" id="temp" name="temp" value={value} min={question.minValue} max={question.maxValue} />
-            <label>{question.maxLabel}</label>
+    return <div className="range">
+        <div className="range-container">
+            <label className="range-label">{question.minLabel}</label>
+            <div>
+            <input className="range-input" ref={inputRef} onChange={handleChange} type="range" id="temp" name="temp" value={value} min={question.minValue} max={question.maxValue} />
+            </div>
+            <label className="range-label">{question.maxLabel}</label>
         </div>
         {labels()}
         {um()}
