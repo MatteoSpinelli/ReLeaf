@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setValue } from "../../store/slices/questionSlice";
 import { useEffect } from "react"
+//style
+import "./Test.scss";
 
 export function ToggleTest({ question }: { question: any }) {
     const dispatch = useDispatch()
@@ -12,7 +14,7 @@ export function ToggleTest({ question }: { question: any }) {
         e.target.checked ? dispatch(setValue({questionid: question.id_question , value: question.maxValue})) : dispatch(setValue({questionid: question.id_question , value: question.minValue}))
     }
 
-    return <div className="grid grid-rows-1">
+    return <div className="checkbox">
         <input onClick={handleClick} type="checkbox" name="" defaultChecked={value === question.maxValue}  />
     </div>
 

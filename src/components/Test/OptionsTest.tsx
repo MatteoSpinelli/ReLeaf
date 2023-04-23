@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setValue } from "../../store/slices/questionSlice";
+import "./Test.scss"
 
 export function OptionsTest({ question }: { question: any }) {
     const dispatch = useDispatch()
@@ -14,11 +15,11 @@ export function OptionsTest({ question }: { question: any }) {
         dispatch(setValue({questionid: question.id_question , value: Number(e.currentTarget.children[0].value)}))
     }
 
-    return <div className="grid grid-rows-1">
+    return <div className="radio-container">
         {question.values.map((radio: any) => {
             return <div onClick={handleClick} key={radio.value}>
                 <input type="radio" className="radioTest" value={radio.value} defaultChecked={radio.value === value} />
-                <label className="mx-2">{radio.title}</label>
+                <label className="radio-label">{radio.title}</label>
             </div>
         })}
     </div>
