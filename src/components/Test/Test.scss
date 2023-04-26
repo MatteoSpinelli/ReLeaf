@@ -1,19 +1,114 @@
-.testPage {
-
-    .next_test,
-    .previous_test {
-        width: 53.08px;
-        height: 53.08px;
-        cursor: pointer;
-        background: #159C71;
-        transition: all 1s ease-out;
-    }
-    .previous_test{
-        transform: matrix(-1, 0, 0, 1, 0, 0);
-
-    }
-    .button_active{
-        width: 65.08px;
-        height: 65.08px;
-    }
+.BgImages svg {
+  max-width: 100%;
 }
+
+.showquestion-container {
+  @apply flex flex-col justify-center items-center text-center max-w-2xl;
+}
+
+.question {
+  @apply mb-12 text-3xl font-extrabold;
+}
+
+.circle {
+  @apply w-44 h-44 rounded-full border-4 border-orange-300 bg-white bg-opacity-50 flex justify-center items-center overflow-hidden p-8;
+}
+.circle p {
+  text-align: center;
+  font-size: 12px;
+}
+
+.learn-about {
+  @apply fixed bottom-0 right-1 rounded-b-full bg-white bg-opacity-50 flex justify-center items-center font-bold text-xl transition-transform transform-gpu hover:scale-110;
+  width: 150px;
+  height: 75px;
+  border-radius: 75px 75px 0 0;
+}
+
+.logo {
+  @apply fixed top-0 left-1 flex justify-center w-28 m-4 ;
+}
+
+//=== RANGE ===//
+.range {
+  @apply flex flex-col justify-center gap-4 ;
+}
+.range-container {
+  @apply flex flex-row justify-center items-center;
+}
+
+.range-label {
+  text-transform: uppercase;
+  @apply font-semibold text-sm mx-4;
+}
+.range-input {
+  appearance: none;
+  background-color: rgba(56, 180, 194, 1);
+  border-radius: 10px;
+  height: 8px;
+  width: 50%;
+  max-width: 400px;
+  min-width: 400px;
+}
+
+.range-input::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(243, 113, 61, 1);
+  border-radius: 50%;
+}
+
+.range-input::-moz-range-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(243, 113, 61, 1);
+  border-radius: 50%;
+}
+
+
+//=== OPTIONS ===//
+.radio-container {
+  @apply flex flex-col gap-2 items-start mx-4;
+}
+
+.radioTest {
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 3px solid rgba(56, 180, 194, 1);
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.radioTest:checked {
+ background-color: rgba(243, 113, 61, 1);
+}
+
+.radio-label {
+  @apply mx-2;
+}
+
+//=== CHECKBOX ===//
+.checkbox input[type="checkbox"] {
+  appearance: none;
+  border: 3px solid rgba(56, 180, 194, 1);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+.checkbox input[type="checkbox"]:checked {
+  background-color: rgba(243, 113, 61, 1);
+}
+
+
+  @media (max-width: 640px) {
+    .range-input {
+      max-width: 100%;
+      min-width: 100%;
+    }
+  }
