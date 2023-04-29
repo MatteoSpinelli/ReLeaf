@@ -15,10 +15,10 @@ export function OptionsTest({ question }: { question: any }) {
         dispatch(setValue({questionid: question.id_question , value: Number(e.currentTarget.children[0].value)}))
     }
 
-    return <div className="radio-container">
+    return <div className="radio-container w-1/2">
         {question.values.map((radio: any) => {
-            return <div onClick={handleClick} key={radio.value}>
-                <input type="radio" className="radioTest" value={radio.value} defaultChecked={radio.value === value} />
+            return <div onClick={handleClick}  key={radio.value}>
+                <input type="radio" className="radioTest float-left" value={radio.value} defaultChecked={radio.value === value} />
                 <label className="radio-label">{radio.title}</label>
             </div>
         })}

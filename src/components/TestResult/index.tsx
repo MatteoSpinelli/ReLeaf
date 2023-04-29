@@ -11,6 +11,7 @@ import PieChart from "./PieChart";
 import BarChart from "./BarChart";
 import SignupCta from "./SignupCta";
 import { useSelector } from "react-redux";
+import { getCookie } from "../../utils/cookie";
 
 export default function TestResult() {
   const t = useTranslate("test_result");
@@ -19,7 +20,8 @@ export default function TestResult() {
   // for now answers are generated randomly
   const body = useSelector((state: any) => state.questions.body)
   const { data } = useCalculator(body);
-
+  /* data && console.log(JSON.parse(getCookie("testResult") || "")) viasualize data to be sent (results) */
+  
   return (
     <div className="pt-[60px] flex flex-col items-center w-full">
       <div className="w-full max-w-5xl flex flex-col items-center text-center px-3">

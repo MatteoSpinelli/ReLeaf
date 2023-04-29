@@ -91,11 +91,29 @@ router.post("/signup", async (req, res) => {
           create: { ...testResult },
         },
       },
+      
     });
-
-    res.status(201).json({ success: true, message: "user created", user });
+    const newToken = jwt.sign(
+      {
+        data: {
+          email: email,
+          name: name,
+          lastname: lastname,
+        },
+      },
+      ACCESS_TOKEN_SECRET,
+      { expiresIn: "10d" }
+    );
+    const decoded = jwt.decode(newToken);
+    res.status(200).json({
+      success: true,
+      message: "sign up success",
+      accessToken: newToken,
+      iat: decoded.iat,
+      exp: decoded.exp,
+    });
   } catch (err) {
-    res.status(409).json(error(409, "Account already exists"));
+    res.status(409).json(err.message);
   }
 });
 

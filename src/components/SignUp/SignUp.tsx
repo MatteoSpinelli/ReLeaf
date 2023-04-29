@@ -8,6 +8,7 @@ import useTheme from "../../hooks/useTheme";
 
 // components
 import Button from "../Button/Button";
+import { useSignUp } from "../../hooks/useSignUp";
 
 interface LoginProps {
   title?: string;
@@ -28,10 +29,16 @@ function SingUp({
   const { isDark } = useTheme();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { signUp } = useSignUp()
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log({ email, password });
+    if (!email || !password) {
+      return 
+    }
+    const success = await signUp(email, password)
+    console.log(success)
   };
 
   return (
