@@ -37,6 +37,12 @@ export function Test() {
 
     function handleButtons(evt: any) {
         dispatch(go(evt.target.classList[0] === "next-btn" ? 1 : -1));
+        /* animate the question */
+        const div: any = document.querySelector(".showquestion-container")
+        div.classList.remove("animate-question")
+        void div.offsetWidth;
+        div.classList.add("animate-question")
+
         /* upload of the answer */
         if (questions.currentQuestion === 16) {
             navigate("/test-result");
@@ -72,7 +78,7 @@ export function Test() {
             {data && <ShowQuestion question={data[questions.currentQuestion]} />}
             {/* Presentational logic for questions */}
             {/* next and prev buttons */}
-            <PreviousBtn onClick={handleButtons}  className="previous-btn bg-primary rotate-180 rounded-full w-[40px] h-[40px] p-2 fixed top-1/2 left-7" />
+            <PreviousBtn onClick={handleButtons} className="previous-btn bg-primary rotate-180 rounded-full w-[40px] h-[40px] p-2 fixed top-1/2 left-7" />
             <NextBtn onClick={handleButtons} className="next-btn bg-primary rounded-full w-[40px] h-[40px] p-2 fixed top-[50vh] right-7" />
             {/* Progession Circle and statements */}
             <div className="circle">

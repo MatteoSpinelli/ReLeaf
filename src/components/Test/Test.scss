@@ -30,22 +30,25 @@
 }
 
 //=== RANGE ===//
-.range {
+/* .range {
   @apply flex flex-col justify-center gap-4 ;
 }
 .range-container {
   @apply flex flex-row justify-center items-center;
 }
-
+ */
 .range-label {
   text-transform: uppercase;
-  @apply font-semibold text-sm mx-4;
+  @apply font-semibold text-sm;
 }
 .range-input {
   appearance: none;
   background-color: rgba(56, 180, 194, 1);
   border-radius: 10px;
   height: 8px;
+}
+.range-container{
+  grid-template-columns: 20% 1fr 20%;
 }
 
 .range-input::-webkit-slider-thumb {
