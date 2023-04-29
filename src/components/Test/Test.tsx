@@ -22,119 +22,121 @@ import { ReactComponent as BG12 } from "../../assets/questionary-bg/q-fuel-12.sv
 import { ReactComponent as BG14 } from "../../assets/questionary-bg/q-carpool-14.svg";
 import { ReactComponent as BG15 } from "../../assets/questionary-bg/q-bus-15.svg";
 import { ReactComponent as BG16 } from "../../assets/questionary-bg/q-fly-16.svg";
+import { ReactComponent as PreviousBtn } from "../../assets/svg/test/previous.svg";
+import { ReactComponent as NextBtn } from "../../assets/svg/test/next.svg";
 //style
 import "./Test.scss";
 
 export function Test() {
-  const [user, setUser] = useUser();
-  const { data, isLoading, error } = useQuestions();
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const questions = useSelector((state: any) => state.questions);
-  const [bgOpacity, setBgOpacity] = useState(0);
+    const [user, setUser] = useUser();
+    const { data, isLoading, error } = useQuestions();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const questions = useSelector((state: any) => state.questions);
+    const [bgOpacity, setBgOpacity] = useState(0);
 
-  function handleButtons(evt: any) {
-    dispatch(go(evt.target.innerText === "Next" ? 1 : -1));
-    /* upload of the answer */
-    if (questions.currentQuestion === 16) {
-      navigate("/test-result");
+    function handleButtons(evt: any) {
+        dispatch(go(evt.target.classList[0] === "next-btn" ? 1 : -1));
+        /* upload of the answer */
+        if (questions.currentQuestion === 16) {
+            navigate("/test-result");
+        }
+
+        // gradually background image
+        setBgOpacity(0);
+        setTimeout(() => {
+            setBgOpacity(1);
+        }, 300);
     }
-
     // gradually background image
-    setBgOpacity(0);
-    setTimeout(() => {
-      setBgOpacity(1);
-    }, 300);
-  }
-  // gradually background image
-  useEffect(() => {
-    setBgOpacity(0);
-    setTimeout(() => {
-      setBgOpacity(1);
-    }, 500);
-  }, [questions.currentQuestion]);
-  const bgStyle = {
-    opacity: bgOpacity,
-    transition: "opacity 0.5s",
-  };
+    useEffect(() => {
+        setBgOpacity(0);
+        setTimeout(() => {
+            setBgOpacity(1);
+        }, 500);
+    }, [questions.currentQuestion]);
+    const bgStyle = {
+        opacity: bgOpacity,
+        transition: "opacity 0.5s",
+    };
 
-  useEffect(() => {
-    if (user) {
-      navigate("/");
-    }
-  }, []);
+    useEffect(() => {
+        if (user) {
+            navigate("/");
+        }
+    }, []);
 
-  return (
-    <div className="w-screen h-screen flex flex-col justify-center items-center z-10">
-      {/* Presentational logic */}
-      {data && <ShowQuestion question={data[questions.currentQuestion]} />}{" "}
-      {/* Presentational logic for questions */}
-      {/* next and prev buttons */}
-      <button onClick={handleButtons}>Previous</button>
-      <button onClick={handleButtons}>Next</button>
-      {/* Progession Circle and statements */}
-      <div className="circle">
-        <p>Every step counts! Calculate your footprint and make a change</p>
-      </div>
-      <div className="logo">
-      <Logo />
-      </div>
-      <div className="learn-about">
-        <a href="">Learn about</a>
-      </div>
-      <div>
-        {questions.currentQuestion === 0 && (
-          <BG0 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 1 && (
-          <BG1 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 2 && (
-          <BG2 className="max-w-full fixed bottom-0 left-0 z-[-2]" style={bgStyle}  />
-        )}
-        {questions.currentQuestion === 3 && (
-          <BG3 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-         {questions.currentQuestion === 4 && (
-          <BG4 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 5 && (
-          <BG5 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 6 && (
-          <BG6 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 7 && (
-          <BG7 className="fixed bottom-0 left-0 z-[-2]"  />
-        )}
-        {questions.currentQuestion === 8 && (
-          <BG8 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 9 && (
-          <BG9 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 10 && (
-          <BG10 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 11 && (
-          <BG10 className="fixed bottom-0 left-0 z-[-2]" />
-        )}
-        {questions.currentQuestion === 12 && (
-          <BG12 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 13 && (
-          <BG12 className="fixed bottom-0 left-0 z-[-2]" />
-        )}
-        {questions.currentQuestion === 14 && (
-          <BG14 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 15 && (
-          <BG15 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 16 && (
-          <BG16 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-      </div>{" "}
-    </div>
-  );
+    return (
+        <div className="test-page w-screen h-screen flex flex-col justify-center items-center z-10">
+            {/* Presentational logic */}
+            {data && <ShowQuestion question={data[questions.currentQuestion]} />}
+            {/* Presentational logic for questions */}
+            {/* next and prev buttons */}
+            <PreviousBtn onClick={handleButtons}  className="previous-btn bg-primary rotate-180 rounded-full w-[40px] h-[40px] p-2 fixed top-1/2 left-7" />
+            <NextBtn onClick={handleButtons} className="next-btn bg-primary rounded-full w-[40px] h-[40px] p-2 fixed top-[50vh] right-7" />
+            {/* Progession Circle and statements */}
+            <div className="circle">
+                <p>Every step counts! Calculate your footprint and make a change</p>
+            </div>
+            <div className="logo">
+                <Logo />
+            </div>
+            <div className="learn-about">
+                <a href="">Learn about</a>
+            </div>
+            <div>
+                {questions.currentQuestion === 0 && (
+                    <BG0 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
+                )}
+                {questions.currentQuestion === 1 && (
+                    <BG1 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
+                )}
+                {questions.currentQuestion === 2 && (
+                    <BG2 className="max-w-full fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
+                )}
+                {questions.currentQuestion === 3 && (
+                    <BG3 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
+                )}
+                {questions.currentQuestion === 4 && (
+                    <BG4 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
+                )}
+                {questions.currentQuestion === 5 && (
+                    <BG5 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
+                )}
+                {questions.currentQuestion === 6 && (
+                    <BG6 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
+                )}
+                {questions.currentQuestion === 7 && (
+                    <BG7 className="fixed bottom-0 left-0 z-[-2]" />
+                )}
+                {questions.currentQuestion === 8 && (
+                    <BG8 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
+                )}
+                {questions.currentQuestion === 9 && (
+                    <BG9 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
+                )}
+                {questions.currentQuestion === 10 && (
+                    <BG10 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
+                )}
+                {questions.currentQuestion === 11 && (
+                    <BG10 className="fixed bottom-0 left-0 z-[-2]" />
+                )}
+                {questions.currentQuestion === 12 && (
+                    <BG12 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
+                )}
+                {questions.currentQuestion === 13 && (
+                    <BG12 className="fixed bottom-0 left-0 z-[-2]" />
+                )}
+                {questions.currentQuestion === 14 && (
+                    <BG14 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
+                )}
+                {questions.currentQuestion === 15 && (
+                    <BG15 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
+                )}
+                {questions.currentQuestion === 16 && (
+                    <BG16 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
+                )}
+            </div>{" "}
+        </div>
+    );
 }

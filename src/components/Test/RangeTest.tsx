@@ -26,12 +26,12 @@ export function RangeTest({ question }: {question: any }) {
     }
 
     return <div className="range">
-        <div className="range-container">
-            <label className="range-label">{question.minLabel}</label>
-            <div>
+        <div className="range-container flex">
+            <label className="range-label block">{question.minLabel}</label>
+            <div className="justify-self-center flex-grow">
             <input className="range-input" ref={inputRef} onChange={handleChange} type="range" id="temp" name="temp" value={value} min={question.minValue} max={question.maxValue} />
             </div>
-            <label className="range-label">{question.maxLabel}</label>
+            <label className="range-label block">{question.maxLabel}</label>
         </div>
         {labels()}
         {um()}

@@ -46,9 +46,6 @@
   background-color: rgba(56, 180, 194, 1);
   border-radius: 10px;
   height: 8px;
-  width: 50%;
-  max-width: 400px;
-  min-width: 400px;
 }
 
 .range-input::-webkit-slider-thumb {
@@ -112,3 +109,27 @@
       min-width: 100%;
     }
   }
+
+// buttons //
+
+.test-page{
+  > svg{
+    fill: black;
+    line{
+      fill: black
+    }
+  }
+}
+
+@keyframes question-anim {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.animate-question{
+  animation: question-anim 1s ease;
+}
