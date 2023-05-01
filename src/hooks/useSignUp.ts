@@ -5,6 +5,7 @@ export function useSignUp() {
 
     async function signUp(email: string, password: string, name = "", lastname = "") {
         const testResult: any = getCookie("testResult")
+        console.log(JSON.parse(testResult))
         try {
             const res = await fetch(`${process.env.REACT_APP_SERVER_URI}/api/v1/auth/signup`,
                 {
