@@ -8,6 +8,7 @@ import useTheme from "../../hooks/useTheme";
 
 // components
 import Button from "../Button/Button";
+import { useNavigate } from "react-router-dom";
 
 interface CallToActionProps {
   description: string;
@@ -21,6 +22,7 @@ function CallToAction({
   link = null,
 }: CallToActionProps) {
   const { isDark } = useTheme();
+  const navigate = useNavigate()
 
   return (
     <section className="cta">
@@ -34,7 +36,7 @@ function CallToAction({
             >
               {description}
             </p>
-            <Button>{buttonText}</Button>
+            <Button {...{onClick: () => navigate("/test")}}>{buttonText}</Button>
           </div>
         </div>
       </div>

@@ -11,7 +11,9 @@
 }
 
 .circle {
-  @apply w-44 h-44 rounded-full border-4 border-orange-300 bg-white bg-opacity-50 flex justify-center items-center overflow-hidden p-8;
+  @apply w-44 h-44 rounded-full border-x-8 border-y-8 border-orange-300 bg-white bg-opacity-50 flex justify-center items-center overflow-hidden p-8;
+  position: relative;
+  
 }
 .circle p {
   text-align: center;
@@ -19,9 +21,11 @@
 }
 
 .learn-about {
-  @apply fixed bottom-0 right-1 rounded-b-full bg-white bg-opacity-50 flex justify-center items-center font-bold text-xl transition-transform transform-gpu hover:scale-110;
+  @apply fixed bottom-0 right-1 rounded-b-full bg-primary flex justify-center items-center font-bold text-xl transition-transform transform-gpu hover:scale-110 ;
   width: 150px;
   height: 75px;
+  color: white;
+  padding-top: 1rem;
   border-radius: 75px 75px 0 0;
 }
 
@@ -30,25 +34,25 @@
 }
 
 //=== RANGE ===//
-.range {
+/* .range {
   @apply flex flex-col justify-center gap-4 ;
 }
 .range-container {
   @apply flex flex-row justify-center items-center;
 }
-
+ */
 .range-label {
   text-transform: uppercase;
-  @apply font-semibold text-sm mx-4;
+  @apply font-semibold text-sm;
 }
 .range-input {
   appearance: none;
   background-color: rgba(56, 180, 194, 1);
   border-radius: 10px;
   height: 8px;
-  width: 50%;
-  max-width: 400px;
-  min-width: 400px;
+}
+.range-container{
+  grid-template-columns: 20% 1fr 20%;
 }
 
 .range-input::-webkit-slider-thumb {
@@ -112,3 +116,27 @@
       min-width: 100%;
     }
   }
+
+// buttons //
+
+.test-page{
+  > svg{
+    fill: black;
+    line{
+      fill: black
+    }
+  }
+}
+
+@keyframes question-anim {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.animate-question{
+  animation: question-anim 1s ease;
+}

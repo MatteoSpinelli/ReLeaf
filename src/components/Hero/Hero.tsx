@@ -14,10 +14,12 @@ import HeroBackgroundDark from "./HeroBackgroundDark";
 
 // components
 import Button from "../Button/Button";
+import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
   const { isDark } = useTheme();
   const t = useTranslate("homepage", "global");
+  const navigate = useNavigate()
   return (
     <section className="hero">
       <div className="hero-content">
@@ -36,7 +38,7 @@ export default function Hero() {
             >
               {t.hero_description}
             </p>
-            <Button>{t.get_started}</Button>
+            <Button {...{onClick: () => navigate("/test")}}>{t.get_started}</Button>
           </div>
         </div>
         <div className="hero-separator">

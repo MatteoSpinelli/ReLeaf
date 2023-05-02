@@ -6,11 +6,13 @@ import { useEffect, useRef } from "react";
 import { Menu } from "./Menu";
 import { useDispatch } from "react-redux";
 import { setTrue, toggle } from "../../store/slices/menuSlice";
+import { useNavigate } from "react-router-dom";
 
 export function Nav() {
   const { isDark } = useTheme();
   const navRef = useRef();
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   useEffect(() => {
     if (navRef?.current) {
       if (window.scrollY === 0) {
@@ -59,7 +61,7 @@ export function Nav() {
         borderBottom: `1px solid ${isDark ? "#23303F" : "#DDDDDD"}`,
       }}
     >
-      <div className="logo_nav_global">
+      <div className="logo_nav_global" {...{onClick: () => navigate("/")}}>
         <Logo style={{ fill: isDark ? "#9BB3BB" : "#272727" }} />
       </div>
       <Hamburger
