@@ -28,7 +28,7 @@ model User {
   password       String
   role           Role             @default(USER)
   ActivityToUser ActivityToUser[]
-  testResult     TestResult       @relation(fields: [testResultId], references: [id])
+  testResult     TestResult       @relation(fields: [testResultId], references: [id], onUpdate: Cascade, onDelete: Cascade)
   testResultId   String           @db.Uuid
 }
 
