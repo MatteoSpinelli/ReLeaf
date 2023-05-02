@@ -1,10 +1,13 @@
-const prisma = require("../../../lib/prismadb.js");
+const { PrismaClient } = require("@prisma/client");
+const prisma = new PrismaClient();
+/* const prisma = require("../../../lib/prismadb.js"); */
 const bcrypt = require("bcrypt");
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
 const { authStrictMiddleware } = require("../../../middlewares/auth");
 const error = require("../../../utils/error.js");
+const { User } = require("@prisma/client");
 
 const { ACCESS_TOKEN_SECRET } = process.env;
 
@@ -72,7 +75,6 @@ router.post("/login", async (req, res, next) => {
 router.post("/signup", async (req, res) => {
   const { email, password, name = "", lastname = "", testResult } = req.body;
   const { user } = req;
-  console.log(testResult)
   if (user) {
     res.status(403).json(error(403, "Cannot sign up while authenticated"));
     return;
@@ -81,17 +83,33 @@ router.post("/signup", async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, 8);
 
   try {
-    const user = await prisma.user.create({
+    await prisma.user.create({
       data: {
         email,
         password: hashedPassword,
         name,
         lastname,
-        TestResult: {
-          connectOrCreate: {...testResult}
+        testResult: {
+          create: {
+            overshoot_date: testResult.overshoot_date,
+            carbon_footprint: testResult.carbon_footprint,
+            carbon_percentage: testResult.carbon_percentage,
+            ecological_footprint: testResult.ecological_footprint,
+            earth: testResult.earth,
+            crop: testResult.crop,
+            graz: testResult.graz,
+            forest: testResult.forest,
+            fish: testResult.fish,
+            energy: testResult.energy,
+            built: testResult.built,
+            food: testResult.food,
+            housing: testResult.housing,
+            transport: testResult.transport,
+            goods: testResult.goods,
+            services: testResult.services,
+          },
         },
       },
-      
     });
     const newToken = jwt.sign(
       {
@@ -113,6 +131,7 @@ router.post("/signup", async (req, res) => {
       exp: decoded.exp,
     });
   } catch (err) {
+    console.log(err);
     res.status(409).json(err.message);
   }
 });

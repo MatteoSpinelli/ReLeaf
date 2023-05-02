@@ -28,8 +28,8 @@ model User {
   password       String
   role           Role             @default(USER)
   ActivityToUser ActivityToUser[]
-  TestResult     TestResult?      @relation(fields: [testResultId], references: [id])
-  testResultId   String?          @db.Uuid
+  testResult     TestResult       @relation(fields: [testResultId], references: [id])
+  testResultId   String           @db.Uuid
 }
 
 enum Role {
@@ -85,22 +85,21 @@ model Value {
 model TestResult {
   id                   String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   overshoot_date       DateTime
-  carbon_footprint     Int
-  carbon_percentage    Int
-  ecological_footprint Int
-  earth                Int
-  crop                 Int
-  graz                 Int
-  forest               Int
-  fish                 Int
-  energy               Int
-  built                Int
-  food                 Int
-  housing              Int
-  transport            Int
-  goods                Int
-  services             Int
-  userId               String   @db.Uuid
+  carbon_footprint     Float
+  carbon_percentage    Float
+  ecological_footprint Float
+  earth                Float
+  crop                 Float
+  graz                 Float
+  forest               Float
+  fish                 Float
+  energy               Float
+  built                Float
+  food                 Float
+  housing              Float
+  transport            Float
+  goods                Float
+  services             Float
   User                 User[]
 }
 
