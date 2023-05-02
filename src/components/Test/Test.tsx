@@ -76,7 +76,7 @@ export function Test() {
     return (
         <div className="test-page w-screen h-screen flex flex-col justify-evenly items-center z-10 py-6">
             {/* Presentational logic */}
-            {data && <ShowQuestion question={data[questions.currentQuestion]} />}
+            {data?.length !== 0 && data && <ShowQuestion question={data[questions.currentQuestion]} />}
             {/* Presentational logic for questions */}
             {/* next and prev buttons */}
             <PreviousBtn onClick={handleButtons} className="previous-btn bg-primary rotate-180 rounded-full w-[40px] h-[40px] p-2 fixed top-1/2 left-7" />
