@@ -72,7 +72,7 @@ router.post("/login", async (req, res, next) => {
 router.post("/signup", async (req, res) => {
   const { email, password, name = "", lastname = "", testResult } = req.body;
   const { user } = req;
-
+  console.log(testResult)
   if (user) {
     res.status(403).json(error(403, "Cannot sign up while authenticated"));
     return;
@@ -87,8 +87,8 @@ router.post("/signup", async (req, res) => {
         password: hashedPassword,
         name,
         lastname,
-        TestResult: testResult && {
-          create: { ...testResult },
+        TestResult: {
+          connectOrCreate: {...testResult}
         },
       },
       

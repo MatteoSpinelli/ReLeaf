@@ -11,7 +11,9 @@
 }
 
 .circle {
-  @apply w-44 h-44 rounded-full border-4 border-orange-300 bg-white bg-opacity-50 flex justify-center items-center overflow-hidden p-8;
+  @apply w-44 h-44 rounded-full border-x-8 border-y-8 border-orange-300 bg-white bg-opacity-50 flex justify-center items-center overflow-hidden p-8;
+  position: relative;
+  
 }
 .circle p {
   text-align: center;
@@ -19,9 +21,11 @@
 }
 
 .learn-about {
-  @apply fixed bottom-0 right-1 rounded-b-full bg-white bg-opacity-50 flex justify-center items-center font-bold text-xl transition-transform transform-gpu hover:scale-110;
+  @apply fixed bottom-0 right-1 rounded-b-full bg-primary flex justify-center items-center font-bold text-xl transition-transform transform-gpu hover:scale-110 ;
   width: 150px;
   height: 75px;
+  color: white;
+  padding-top: 1rem;
   border-radius: 75px 75px 0 0;
 }
 

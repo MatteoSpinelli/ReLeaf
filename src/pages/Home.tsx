@@ -16,6 +16,7 @@ import ActivitySwiper from "../components/ActivitySwiper/ActivitySwiper";
 import Faq from "../components/Faq/Faq";
 import { Nav } from "../components/Nav/Nav";
 import Footer from "../components/Footer/Footer";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const t = useTranslate("homepage", "global");

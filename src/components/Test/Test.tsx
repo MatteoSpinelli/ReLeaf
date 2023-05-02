@@ -36,6 +36,10 @@ export function Test() {
     const [bgOpacity, setBgOpacity] = useState(0);
 
     function handleButtons(evt: any) {
+        if (questions.currentQuestion === 16 && evt.target.classList[0] === "next-btn") {
+            navigate("/test-result");
+            return
+        }
         dispatch(go(evt.target.classList[0] === "next-btn" ? 1 : -1));
         /* animate the question */
         const div: any = document.querySelector(".showquestion-container")
@@ -44,9 +48,6 @@ export function Test() {
         div.classList.add("animate-question")
 
         /* upload of the answer */
-        if (questions.currentQuestion === 16) {
-            navigate("/test-result");
-        }
 
         // gradually background image
         setBgOpacity(0);
@@ -73,7 +74,7 @@ export function Test() {
     }, []);
 
     return (
-        <div className="test-page w-screen h-screen flex flex-col justify-center items-center z-10">
+        <div className="test-page w-screen h-screen flex flex-col justify-evenly items-center z-10 py-6">
             {/* Presentational logic */}
             {data && <ShowQuestion question={data[questions.currentQuestion]} />}
             {/* Presentational logic for questions */}
@@ -82,6 +83,7 @@ export function Test() {
             <NextBtn onClick={handleButtons} className="next-btn bg-primary rounded-full w-[40px] h-[40px] p-2 fixed top-[50vh] right-7" />
             {/* Progession Circle and statements */}
             <div className="circle">
+                <div className="util-circle"></div>
                 <p>Every step counts! Calculate your footprint and make a change</p>
             </div>
             <div className="logo">

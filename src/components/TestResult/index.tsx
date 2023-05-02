@@ -25,9 +25,9 @@ export default function TestResult() {
   return (
     <div className="pt-[60px] flex flex-col items-center w-full">
       <div className="w-full max-w-5xl flex flex-col items-center text-center px-3">
-        <button className="text-contrast self-start mt-10">
+        {/* <button className="text-contrast self-start mt-10">
           ← {t.back_to_test}
-        </button>
+        </button> */}
         <h2 className="text-5xl font-bold mt-5 mb-10">{t.test_results}</h2>
         {data && <Earths earth={data.data.earth} />}
         <div className="grid grid-cols-1 sm:grid-cols-2 w-full mt-16">
