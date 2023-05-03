@@ -140,6 +140,8 @@ router.post("/signup", async (req, res) => {
 router.get("/user", authStrictMiddleware, async (req, res) => {
   const { user } = req;
   if (user) {
+    /* TODO */
+    /* fetch the db to retrive info for personal area */
     res.status(200).json(user);
     return;
   }

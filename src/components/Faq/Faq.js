@@ -2,6 +2,9 @@ import React from "react";
 import FaqQuestion from "./FaqQuestion";
 
 export default function Faq() {
+  /* TODO:
+      1. translate questions 
+   */
   const faqs = [
     {
       question: "How can I calculate my carbon footprint?",
