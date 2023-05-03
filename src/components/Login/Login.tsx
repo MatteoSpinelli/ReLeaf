@@ -44,7 +44,6 @@ function Login({
 
     if (loggedIn.success) {
       await setUser()
-      navigate("/")
     } else {
       alert(loggedIn.data?.message)
     }
