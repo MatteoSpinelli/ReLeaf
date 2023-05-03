@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
 
 // styles
-import "./Login.scss";
+import "./Login.scss"
 
 // hooks
-import useTheme from "../../hooks/useTheme";
+import useTheme from "../../hooks/useTheme"
 
 // components
-import Button from "../Button/Button";
-import loginimage from "./loginimage.png";
-import useAuth from "../../hooks/useAuth";
-import { useUser } from "../../hooks/useUser";
+import Button from "../Button/Button"
+import loginimage from "./loginimage.png"
+import useAuth from "../../hooks/useAuth"
+import { useUser } from "../../hooks/useUser"
 
 interface LoginProps {
-  title?: string;
-  loginDescription: string;
-  loginQuestion: string;
-  buttonText: string;
-  getStarted?: string;
-  LoginBtn: string;
+  title?: string
+  loginDescription: string
+  loginQuestion: string
+  buttonText: string
+  getStarted?: string
+  LoginBtn: string
 }
 
 function Login({
@@ -29,24 +29,26 @@ function Login({
   getStarted = "get_started",
   LoginBtn = "login",
 }: LoginProps) {
-  const { isDark } = useTheme();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const { isDark } = useTheme()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [_, setUser] = useUser()
 
-  const { login, authenticated } = useAuth();
+  const { login, authenticated } = useAuth()
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const loggedIn = await login(email, password);
+    event.preventDefault()
+    const loggedIn = await login(email, password)
 
     if (loggedIn.success) {
-      navigate("/");
+      await setUser()
+      navigate("/")
     } else {
-      alert(loggedIn.data?.message);
+      alert(loggedIn.data?.message)
     }
-  };
+  }
 
   return (
     <section className="login-section">
@@ -99,7 +101,7 @@ function Login({
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-export default Login;
+export default Login

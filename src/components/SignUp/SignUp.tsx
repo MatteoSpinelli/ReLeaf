@@ -9,6 +9,7 @@ import useTheme from "../../hooks/useTheme";
 // components
 import Button from "../Button/Button";
 import { useSignUp } from "../../hooks/useSignUp";
+import { useUser } from "../../hooks/useUser";
 
 interface LoginProps {
   title?: string;
@@ -29,16 +30,17 @@ function SingUp({
   const { isDark } = useTheme();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { signUp } = useSignUp()
-
+  const { signUp } = useSignUp();
+  const [_, setUser] = useUser();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log({ email, password });
     if (!email || !password) {
-      return 
+      return;
     }
-    const success = await signUp(email, password)
-    console.log(success)
+    const success = await signUp(email, password);
+    await setUser();
+    console.log(success);
   };
 
   return (
@@ -57,7 +59,9 @@ function SingUp({
         </div>
 
         <form className="signup-form" onSubmit={handleSubmit}>
-          <label id="login-email">Email<abbr title="required">*</abbr></label>
+          <label id="login-email">
+            Email<abbr title="required">*</abbr>
+          </label>
           <input
             id="login-email"
             type="email"
@@ -67,17 +71,19 @@ function SingUp({
             title="Required"
             required
           />
-          <label id="login-password">Password<abbr title="required">*</abbr></label>
-           <input
+          <label id="login-password">
+            Password<abbr title="required">*</abbr>
+          </label>
+          <input
             id="login-password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="password"
-            pattern="(?=.*\d)(?=.*[A-Z]).{8,}" 
+            pattern="(?=.*\d)(?=.*[A-Z]).{8,}"
             required
           />
-           <small>{signup_password}</small>
+          <small>{signup_password}</small>
           <Button>{title}</Button>
         </form>
       </div>

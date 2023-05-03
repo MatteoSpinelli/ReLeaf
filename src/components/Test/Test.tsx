@@ -1,87 +1,77 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useQuestions } from "../../hooks/useQuestions";
-import { go, setValue } from "../../store/slices/questionSlice";
-import { ShowQuestion } from "./ShowQuestion";
-import { useEffect, useState } from "react";
-import { redirect, useNavigate } from "react-router-dom";
-import { useUser } from "../../hooks/useUser";
+import { useDispatch, useSelector } from "react-redux"
+import { useQuestions } from "../../hooks/useQuestions"
+import { go, setValue } from "../../store/slices/questionSlice"
+import { ShowQuestion } from "./ShowQuestion"
+import { useEffect, useState } from "react"
+import { redirect, useNavigate } from "react-router-dom"
+import { useUser } from "../../hooks/useUser"
 //svg
-import { ReactComponent as Logo } from "../../assets/svg/global/logo.svg";
-import { ReactComponent as BG0 } from "../../assets/questionary-bg/q-farm-0.svg";
-import { ReactComponent as BG1 } from "../../assets/questionary-bg/q-food-1.svg";
-import { ReactComponent as BG2 } from "../../assets/questionary-bg/q-house-type-2.svg";
-import { ReactComponent as BG3 } from "../../assets/questionary-bg/q-house-material-3.svg";
-import { ReactComponent as BG4 } from "../../assets/questionary-bg/q-house-size-4.svg";
-import { ReactComponent as BG5 } from "../../assets/questionary-bg/q-house-family-5.svg";
-import { ReactComponent as BG6 } from "../../assets/questionary-bg/q-energy-6.svg";
-import { ReactComponent as BG7 } from "../../assets/questionary-bg/q-energy-6.svg";
-import { ReactComponent as BG8 } from "../../assets/questionary-bg/q-energy-8.svg";
-import { ReactComponent as BG9 } from "../../assets/questionary-bg/q-trash-9.svg";
-import { ReactComponent as BG10 } from "../../assets/questionary-bg/q-traffic-10.svg";
-import { ReactComponent as BG12 } from "../../assets/questionary-bg/q-fuel-12.svg";
-import { ReactComponent as BG14 } from "../../assets/questionary-bg/q-carpool-14.svg";
-import { ReactComponent as BG15 } from "../../assets/questionary-bg/q-bus-15.svg";
-import { ReactComponent as BG16 } from "../../assets/questionary-bg/q-fly-16.svg";
-import { ReactComponent as PreviousBtn } from "../../assets/svg/test/previous.svg";
-import { ReactComponent as NextBtn } from "../../assets/svg/test/next.svg";
+import { ReactComponent as Logo } from "../../assets/svg/global/logo.svg"
+import { ReactComponent as BG0 } from "../../assets/questionary-bg/q-farm-0.svg"
+import { ReactComponent as BG1 } from "../../assets/questionary-bg/q-food-1.svg"
+import { ReactComponent as BG2 } from "../../assets/questionary-bg/q-house-type-2.svg"
+import { ReactComponent as BG3 } from "../../assets/questionary-bg/q-house-material-3.svg"
+import { ReactComponent as BG4 } from "../../assets/questionary-bg/q-house-size-4.svg"
+import { ReactComponent as BG5 } from "../../assets/questionary-bg/q-house-family-5.svg"
+import { ReactComponent as BG6 } from "../../assets/questionary-bg/q-energy-6.svg"
+import { ReactComponent as BG7 } from "../../assets/questionary-bg/q-energy-6.svg"
+import { ReactComponent as BG8 } from "../../assets/questionary-bg/q-energy-8.svg"
+import { ReactComponent as BG9 } from "../../assets/questionary-bg/q-trash-9.svg"
+import { ReactComponent as BG10 } from "../../assets/questionary-bg/q-traffic-10.svg"
+import { ReactComponent as BG12 } from "../../assets/questionary-bg/q-fuel-12.svg"
+import { ReactComponent as BG14 } from "../../assets/questionary-bg/q-carpool-14.svg"
+import { ReactComponent as BG15 } from "../../assets/questionary-bg/q-bus-15.svg"
+import { ReactComponent as BG16 } from "../../assets/questionary-bg/q-fly-16.svg"
+import { ReactComponent as PreviousBtn } from "../../assets/svg/test/previous.svg"
+import { ReactComponent as NextBtn } from "../../assets/svg/test/next.svg"
 //style
-import "./Test.scss";
+import "./Test.scss"
 
 export function Test() {
-  const [user, setUser] = useUser();
-  const { data, isLoading, error } = useQuestions();
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const questions = useSelector((state: any) => state.questions);
-  const [bgOpacity, setBgOpacity] = useState(0);
+  const [user, setUser] = useUser()
+  const { data, isLoading, error } = useQuestions()
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const questions = useSelector((state: any) => state.questions)
+  const [bgOpacity, setBgOpacity] = useState(0)
 
-  function handleButtons(evt: any) {
-    console.log(evt.target.classList[0]);
-    if (
-      questions.currentQuestion === 16 &&
-      evt.target.classList[0] === "next-btn"
-    ) {
-      navigate("/test-result");
-      return;
+  function handleButtons(direction: number) {
+    if (questions.currentQuestion === 16 && direction) {
+      navigate("/test-result")
+      return
     }
-    dispatch(
-      go(
-        evt.target.classList[0] === "next-btn" || !evt.target.classList[0]
-          ? 1
-          : -1
-      )
-    );
+    dispatch(go(direction ? 1 : -1))
     /* animate the question */
-    const div: any = document.querySelector(".showquestion-container");
-    div.classList.remove("animate-question");
-    void div.offsetWidth;
-    div.classList.add("animate-question");
+    const div: any = document.querySelector(".showquestion-container")
+    div.classList.remove("animate-question")
+    void div.offsetWidth
+    div.classList.add("animate-question")
 
     /* upload of the answer */
 
     // gradually background image
-    setBgOpacity(0);
+    setBgOpacity(0)
     setTimeout(() => {
-      setBgOpacity(1);
-    }, 300);
+      setBgOpacity(1)
+    }, 300)
   }
   // gradually background image
   useEffect(() => {
-    setBgOpacity(0);
+    setBgOpacity(0)
     setTimeout(() => {
-      setBgOpacity(1);
-    }, 500);
-  }, [questions.currentQuestion]);
+      setBgOpacity(1)
+    }, 500)
+  }, [questions.currentQuestion])
   const bgStyle = {
     opacity: bgOpacity,
     transition: "opacity 0.5s",
-  };
+  }
 
   useEffect(() => {
     if (user) {
-      navigate("/");
+      navigate("/")
     }
-  }, []);
+  }, [])
 
   return (
     <div className="test-page w-screen h-screen flex flex-col justify-evenly items-center z-10 py-6">
@@ -92,11 +82,15 @@ export function Test() {
       {/* Presentational logic for questions */}
       {/* next and prev buttons */}
       <PreviousBtn
-        onClick={handleButtons}
+        onClick={() => {
+          handleButtons(0)
+        }}
         className="previous-btn bg-primary rotate-180 rounded-full w-[40px] h-[40px] p-2 fixed top-1/2 left-7"
       />
       <NextBtn
-        onClick={handleButtons}
+        onClick={() => {
+          handleButtons(1)
+        }}
         className="next-btn bg-primary rounded-full w-[40px] h-[40px] p-2 fixed top-[50vh] right-7"
       />
       {/* Progession Circle and statements */}
@@ -167,5 +161,5 @@ export function Test() {
         )}
       </div>{" "}
     </div>
-  );
+  )
 }
