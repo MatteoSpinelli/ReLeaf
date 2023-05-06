@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { getCookie } from "../utils/cookie"
-import { add } from "../store/slices/userSlice"
+import { add, reset } from "../store/slices/userSlice"
 
 export function useUser() {
   const dispatch = useDispatch()
@@ -16,6 +16,7 @@ export function useUser() {
       dispatch(add(user.data))
       return true
     }
+    dispatch(reset())
     return false
   }
 

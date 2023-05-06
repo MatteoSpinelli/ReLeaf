@@ -19,3 +19,24 @@ nav {
     border: none !important;
   }
 }
+@keyframes userSetting-anim {
+  0%{
+    opacity: 0;
+    height: 0;
+  }
+  100%{
+    height: 100px;
+    opacity: 1;
+  }
+}
+.user-settings{
+  opacity: 0;
+  height: 0;
+}
+.user-settings-anim{
+  animation: userSetting-anim 0.5s ease-out forwards;
+}
+.user-settings-anim-reverse{
+  animation: userSetting-anim reverse 0.5s ease-out forwards;
+}
+

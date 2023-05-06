@@ -7,12 +7,15 @@ import { Menu } from "./Menu";
 import { useDispatch } from "react-redux";
 import { setTrue, toggle } from "../../store/slices/menuSlice";
 import { Navigate, useNavigate } from "react-router-dom";
+import { useUser } from "../../hooks/useUser";
+import { MenuPersonal } from "./MenuPersonal";
 
 export function Nav() {
   const { isDark } = useTheme();
   const navRef = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [user, setUser] = useUser()
   useEffect(() => {
     if (navRef?.current) {
       if (window.scrollY === 0) {
@@ -74,7 +77,7 @@ export function Nav() {
         style={{ fill: isDark ? "#9BB3BB" : "#272727" }}
         onClick={handleMenu}
       />
-      <Menu />
+      {!user ? <Menu /> : <MenuPersonal user={user} />}
     </nav>
   );
 }
