@@ -41,7 +41,7 @@ export default function Home() {
       <Faq /> {/* FAQ Section */}
       <CallToAction description={t.call_to_action2} buttonText={t.get_started} />
       <Footer />
-      <TestPanel /> {/* Test Panel - Keep it at the bottom */}
+      {/*<TestPanel />  Test Panel - Keep it at the bottom */}
     </PageContainer>
   )
 }
