@@ -2,7 +2,7 @@ import { useUser } from "../hooks/useUser"
 import { useEffect } from "react"
 
 interface AuthProviderProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export default function AuthProvider({ children }: AuthProviderProps) {
