@@ -4,7 +4,10 @@
   "private": true,
   "prettier": {
     "tabWidth": 2,
-    "semi": false
+    "semi": false,
+    "parser": "babel-flow",
+    "singleAttributePerLine": false,
+    "printWidth": 100
   },
   "dependencies": {
     "@redux-devtools/extension": "^3.2.5",

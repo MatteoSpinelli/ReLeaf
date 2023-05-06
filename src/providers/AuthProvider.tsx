@@ -8,9 +8,10 @@ interface AuthProviderProps {
 export default function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useUser()
   useEffect(() => {
-    ;(async () => {
+    const a = async () => {
       await setUser()
-    })()
+    }
+    a()
   }, [])
   return <>{children}</>
 }

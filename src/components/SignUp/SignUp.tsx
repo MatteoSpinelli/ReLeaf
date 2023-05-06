@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
 // styles
-import "./SignUp.scss";
+import "./SignUp.scss"
 
 // hooks
-import useTheme from "../../hooks/useTheme";
+import useTheme from "../../hooks/useTheme"
 
 // components
-import Button from "../Button/Button";
-import { useSignUp } from "../../hooks/useSignUp";
-import { useUser } from "../../hooks/useUser";
+import Button from "../Button/Button"
+import { useSignUp } from "../../hooks/useSignUp"
+import { useUser } from "../../hooks/useUser"
 
 interface LoginProps {
   title?: string;
@@ -27,21 +27,21 @@ function SingUp({
   signup_password = "signup_password",
   LoginBtn = "login",
 }: LoginProps) {
-  const { isDark } = useTheme();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const { signUp } = useSignUp();
-  const [_, setUser] = useUser();
+  const { isDark } = useTheme()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const { signUp } = useSignUp()
+  const [_, setUser] = useUser()
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log({ email, password });
+    event.preventDefault()
+    console.log({ email, password })
     if (!email || !password) {
-      return;
+      return
     }
-    const success = await signUp(email, password);
-    await setUser();
-    console.log(success);
-  };
+    const success = await signUp(email, password)
+    await setUser()
+    console.log(success)
+  }
 
   return (
     <section className="signup-section">
@@ -51,9 +51,7 @@ function SingUp({
       <div className={`signup-container ${isDark ? "dark" : ""}`}>
         <div className="signup-description-container">
           <h1>{title}</h1>
-          <p
-            className={`signup-description ${isDark ? "text-white" : "region"}`}
-          >
+          <p className={`signup-description ${isDark ? "text-white" : "region"}`}>
             {signupDescription}
           </p>
         </div>
@@ -88,7 +86,7 @@ function SingUp({
         </form>
       </div>
     </section>
-  );
+  )
 }
 
-export default SingUp;
+export default SingUp
