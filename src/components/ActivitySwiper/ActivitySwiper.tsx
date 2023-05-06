@@ -44,9 +44,9 @@ const params = new URLSearchParams({
 
   const { data } = useSWR(`/api/v1/activities?${params}`)
 
-  const activitiesRes = data as ActivitiesResponse[]
+  const activitiesRes = data as ActivitiesResponse[] | undefined
 
-  const activities: Activity[] = activitiesRes && activitiesRes.map(act => {
+  const activities: Activity[]|undefined = activitiesRes && activitiesRes.map((act) => {
     return {
       id: act.id,
       ecoPoints: act.eco_points,
@@ -57,59 +57,9 @@ const params = new URLSearchParams({
     }
   })
 
-  // const activities: Activity[] = [
-  //   {
-  //     title: "Support renewable energy",
-  //     description:
-  //       "Choose to support renewable energy sources like wind, solar, and hydro power by signing up for a green energy plan or installing solar panels on your property",
-  //     image: "/images/activities/support-renewable-energy.png",
-  //     linkRewrite: "support-renewable-energy",
-  //     ecoPoints: -10,
-  //   },
-  //   {
-  //     title: "Plant a tree on Treedom",
-  //     description:
-  //       "Trees absorb carbon dioxide from the atmosphere and provide numerous environmental benefits. Consider planting trees supporting reforestation efforts",
-  //     image: "/images/activities/plant-a-tree-on-treedom.png",
-  //     linkRewrite: "plant-a-tree-on-treedom",
-  //     ecoPoints: -15,
-  //   },
-  //   {
-  //     title: "Buy local and seasonal products",
-  //     description:
-  //       "Choosing local and seasonal products helps reduce the carbon footprint associated with transportation and storage of food. It  supports local farmers",
-  //     image: "/images/activities/buy-local-and-seasonal-products.png",
-  //     linkRewrite: "buy-local-and-seasonal-products",
-  //     ecoPoints: -50,
-  //   },
-  //   {
-  //     title: "Buy local and seasonal products",
-  //     description:
-  //       "Choosing local and seasonal products helps reduce the carbon footprint associated with transportation and storage of food. It  supports local farmers",
-  //     image: "/images/activities/buy-local-and-seasonal-products.png",
-  //     linkRewrite: "buy-local-and-seasonal-products",
-  //     ecoPoints: -50,
-  //   },
-  //   {
-  //     title: "Buy local and seasonal products",
-  //     description:
-  //       "Choosing local and seasonal products helps reduce the carbon footprint associated with transportation and storage of food. It  supports local farmers",
-  //     image: "/images/activities/buy-local-and-seasonal-products.png",
-  //     linkRewrite: "buy-local-and-seasonal-products",
-  //     ecoPoints: -50,
-  //   },
-  //   {
-  //     title: "Buy local and seasonal products",
-  //     description:
-  //       "Choosing local and seasonal products helps reduce the carbon footprint associated with transportation and storage of food. It  supports local farmers",
-  //     image: "/images/activities/buy-local-and-seasonal-products.png",
-  //     linkRewrite: "buy-local-and-seasonal-products",
-  //     ecoPoints: -50,
-  //   },
-  // ]
 
   return (
-   <>{activities &&  <div className="relative flex flex-col justify-center items-center my-24 overflow-hidden">
+   <>{data &&  <div className="relative flex flex-col justify-center items-center my-24 overflow-hidden">
       <h2 className="font-bold px-5 text-4xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl mb-6 text-center md:max-w-xl lg:max-w-5xl">
         {t.activities_title}
       </h2>

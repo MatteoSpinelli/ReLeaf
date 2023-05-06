@@ -25,7 +25,7 @@ const authStrictMiddleware = async (req, res, next) => {
 
   await jwt.verify(bearerToken, ACCESS_TOKEN_SECRET, (err, decoded) => {
     // if authentication is not valid deny the request
-    if (!decoded) {
+    if (!decoded || err) {
       req.user = null
       res.clearCookie("jwt")
       res
@@ -45,7 +45,7 @@ const authStrictMiddleware = async (req, res, next) => {
 }
 
 const authMiddleware = async (req, res, next) => {
-  const { authorization } = req.headers
+  const authorization = req.headers?.authorization
 
   // if access token exists
   if (authorization) {
@@ -55,11 +55,10 @@ const authMiddleware = async (req, res, next) => {
     // verify that the access token is valid and not exipred
     await jwt.verify(accessToken, ACCESS_TOKEN_SECRET, (err, decoded) => {
       // if the access token is not valid or expired unset the user and proceed to the next middleware
-      if (!decoded) {
+      if (!decoded || err) {
         req.user = null
         res.clearCookie("jwt")
         next()
-        return
       }
 
       // if the access token is valid send it through the request to the next middleware
