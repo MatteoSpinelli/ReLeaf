@@ -48,8 +48,6 @@ router.post("/login", async (req, res, next) => {
       const decoded = jwt.decode(newToken)
 
       res.cookie("jwt", newToken, {
-        sameSite: "none",
-        secure: true,
         maxAge: decoded.exp,
       })
 
