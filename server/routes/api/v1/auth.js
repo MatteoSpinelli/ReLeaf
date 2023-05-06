@@ -1,19 +1,16 @@
-const { PrismaClient } = require("@prisma/client");
-const prisma = new PrismaClient();
-/* const prisma = require("../../../lib/prismadb.js"); */
-const bcrypt = require("bcrypt");
-const express = require("express");
-const router = express.Router();
-const jwt = require("jsonwebtoken");
-const { authStrictMiddleware } = require("../../../middlewares/auth");
-const error = require("../../../utils/error.js");
-const { User } = require("@prisma/client");
+const prisma = require("../../../lib/prismadb.js")
+const bcrypt = require("bcrypt")
+const express = require("express")
+const router = express.Router()
+const jwt = require("jsonwebtoken")
+const { authStrictMiddleware } = require("../../../middlewares/auth")
+const error = require("../../../utils/error.js")
 
-const { ACCESS_TOKEN_SECRET } = process.env;
+const { ACCESS_TOKEN_SECRET } = process.env
 
 /* POST /api/v1/auth/login */
 router.post("/login", async (req, res, next) => {
-  const { email, password } = req.body;
+  const { email, password } = req.body
 
   if (req.user) {
     res.status(200).json({
@@ -22,18 +19,18 @@ router.post("/login", async (req, res, next) => {
       accessToken: req.user.accessToken.split(" ")[1],
       iat: req.user.iat,
       exp: req.user.exp,
-    });
-    return;
+    })
+    return
   }
 
   const user = email
     ? await prisma.user.findFirst({
         where: { email: email },
       })
-    : null;
+    : null
 
   if (user) {
-    const isLogged = await bcrypt.compare(password, user.password);
+    const isLogged = await bcrypt.compare(password, user.password)
     if (isLogged) {
       const newToken = jwt.sign(
         {
@@ -46,9 +43,16 @@ router.post("/login", async (req, res, next) => {
         },
         ACCESS_TOKEN_SECRET,
         { expiresIn: "10d" }
-      );
+      )
 
-      const decoded = jwt.decode(newToken);
+      const decoded = jwt.decode(newToken)
+
+      res.cookie("jwt", newToken, {
+        secure: true,
+        sameSite: "lax",
+        expires: Date.parse(decoded.exp),
+        path: "/",
+      })
 
       res.status(200).json({
         success: true,
@@ -56,31 +60,31 @@ router.post("/login", async (req, res, next) => {
         accessToken: newToken,
         iat: decoded.iat,
         exp: decoded.exp,
-      });
+      })
     } else {
       res.status(401).json({
         success: false,
         ...error(401, "Password not valid"),
-      });
+      })
     }
   } else {
     res.status(401).json({
       success: false,
       ...error(401, "Email not valid"),
-    });
+    })
   }
-});
+})
 
 /* POST /api/v1/auth/signup */
 router.post("/signup", async (req, res) => {
-  const { email, password, name = "", lastname = "", testResult } = req.body;
-  const { user } = req;
+  const { email, password, name = "", lastname = "", testResult } = req.body
+  const { user } = req
   if (user) {
-    res.status(403).json(error(403, "Cannot sign up while authenticated"));
-    return;
+    res.status(403).json(error(403, "Cannot sign up while authenticated"))
+    return
   }
 
-  const hashedPassword = await bcrypt.hash(password, 8);
+  const hashedPassword = await bcrypt.hash(password, 8)
 
   try {
     await prisma.user.create({
@@ -110,7 +114,7 @@ router.post("/signup", async (req, res) => {
           },
         },
       },
-    });
+    })
     const newToken = jwt.sign(
       {
         data: {
@@ -121,29 +125,29 @@ router.post("/signup", async (req, res) => {
       },
       ACCESS_TOKEN_SECRET,
       { expiresIn: "10d" }
-    );
-    const decoded = jwt.decode(newToken);
+    )
+    const decoded = jwt.decode(newToken)
     res.status(200).json({
       success: true,
       message: "sign up success",
       accessToken: newToken,
       iat: decoded.iat,
       exp: decoded.exp,
-    });
+    })
   } catch (err) {
-    console.log(err);
-    res.status(409).json(err.message);
+    console.log(err)
+    res.status(409).json(err.message)
   }
-});
+})
 
 /* GET /api/v1/auth/user */
 router.get("/user", authStrictMiddleware, async (req, res) => {
-  const { user } = req;
+  const { user } = req
   if (user) {
     /* TODO */
     /* fetch the db to retrive info for personal area */
-    res.status(200).json(user);
-    return;
+    res.status(200).json(user)
+    return
   }
 
   res
@@ -153,7 +157,7 @@ router.get("/user", authStrictMiddleware, async (req, res) => {
         401,
         "The request has not been applied because it lacks valid authentication credentials for the target resource"
       )
-    );
-});
+    )
+})
 
-module.exports = router;
+module.exports = router
