@@ -48,10 +48,9 @@ router.post("/login", async (req, res, next) => {
       const decoded = jwt.decode(newToken)
 
       res.cookie("jwt", newToken, {
+        sameSite: "strict",
         secure: true,
-        sameSite: "none",
-        expires: Date.parse(decoded.exp),
-        path: "/",
+        maxAge: decoded.exp,
       })
 
       res.status(200).json({
