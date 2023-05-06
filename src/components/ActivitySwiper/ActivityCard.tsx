@@ -1,13 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from "react"
+import { Link } from "react-router-dom"
 
-import { BsCardImage } from "react-icons/bs";
+import { BsCardImage } from "react-icons/bs"
 
-import useTheme from "../../hooks/useTheme";
+import useTheme from "../../hooks/useTheme"
 
-import EcoPointIcon from "../Icons/EcoPointIcon";
+import EcoPointIcon from "../Icons/EcoPointIcon"
 
-import { MdOutlineNavigateNext } from "react-icons/md";
+import { MdOutlineNavigateNext } from "react-icons/md"
 
 interface ActivityCardProps {
   title: string;
@@ -28,7 +28,7 @@ export default function ActivityCard({
   readMore = true,
   ...props
 }: ActivityCardProps) {
-  const { isDark } = useTheme();
+  const { isDark } = useTheme()
   return (
     <div
       {...props}
@@ -45,19 +45,12 @@ export default function ActivityCard({
       </div>
       <div className="my-5 px-5 grow">
         <h3 className="font-bold text-2xl pb-2">{title}</h3>
-        <p
-          className={`text-sm ${
-            isDark ? "text-secondaryTxtDark" : "text-secondaryTxt"
-          }`}
-        >
+        <p className={`text-sm ${isDark ? "text-secondaryTxtDark" : "text-secondaryTxt"}`}>
           {description}
           {readMore && linkRewrite && (
             <>
               {"..."}
-              <Link
-                className="font-bold text-link"
-                to={`/activities/${linkRewrite}`}
-              >
+              <Link className="font-bold text-link" to={`/activities/${linkRewrite}`}>
                 {" "}
                 Read more
               </Link>
@@ -89,5 +82,5 @@ export default function ActivityCard({
         </div>
       </div>
     </div>
-  );
+  )
 }
