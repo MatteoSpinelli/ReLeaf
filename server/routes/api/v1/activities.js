@@ -34,12 +34,13 @@ router.get("/", async (req, res) => {
     })
 
     if (activitiesMapped) {
-      res.status(200).json(activitiesMapped).end()
+      res.status(200).json(activitiesMapped)
     } else {
-      res.status(400).json({ message: "error" }).end()
+      res.status(400).json({ message: "error" })
     }
   } else {
-    res.status(200).json([]).end()
+    res.status(200).json([])
+    return
   }
 })
 
