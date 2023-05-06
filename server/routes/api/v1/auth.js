@@ -64,7 +64,7 @@ router.post("/login", async (req, res, next) => {
         ...error(401, "Password not valid"),
       })
     }
-  } else {
+  } else{
     res.status(401).json({
       success: false,
       ...error(401, "Email not valid"),

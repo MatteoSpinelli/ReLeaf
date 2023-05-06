@@ -9,14 +9,31 @@ import LanguageSwitcher from "../TestPanel/LanguageSwitcher";
 import ThemeSwitcher from "../TestPanel/ThemeSwitcher";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../hooks/useUser";
+import { ReactComponent as AnonymousUser } from "../../assets/svg/global/user.svg";
+import { setCookie } from "../../utils/cookie";
+import { async } from "q";
+import { reset } from "../../store/slices/userSlice";
 
-export function Menu() {
+
+export function MenuPersonal({ user }) {
   const { isDark } = useTheme();
   const menuRef = useRef();
+  const userSettingsRef = useRef()
   const dispatch = useDispatch();
   const { nav_login, nav_about, nav_mission } = useTranslate("homepage");
   const isMenuVisible = useSelector((state) => state.isMenuVisible);
   const navigate = useNavigate();
+  function handleSettings() {
+    if (userSettingsRef.current.getBoundingClientRect().height > 0) {
+      userSettingsRef.current.classList.remove("user-settings-anim")
+      void userSettingsRef.current.offsetWidth
+      userSettingsRef.current.classList.add("user-settings-anim-reverse")
+      return
+    }
+    userSettingsRef.current.classList.remove("user-settings-anim-reverse")
+    void userSettingsRef.current.offsetWidth
+    userSettingsRef.current.classList.add("user-settings-anim")
+  }
   return (
     <div
       ref={menuRef}
@@ -27,19 +44,30 @@ export function Menu() {
         translate: isMenuVisible ? "0px" : "2000px",
       }}
     >
-      <Button
-        variant="login"
-        {...{
-          onClick: () => {
-            if (window.innerWidth < 768) {
-              dispatch(toggle());
-            }
-            navigate("/login");
-          },
-        }}
-      >
-        {nav_login}
-      </Button>
+      {/* user image and name, settings on click */}
+      <div className="flex flex-col items-center gap-3">
+        <div className="flex items-center cursor-pointer" onClick={handleSettings}>
+          {/* if the user has uploaded a photo, it will per render instead of anonymous svg */}
+          <AnonymousUser className="w-[40px] h-[40px] bg-white rounded-full p-1 mx-2" />
+          {user.name ? user.name : user.email.split("@")[0]}
+        </div>
+        <div ref={userSettingsRef} className="user-settings">
+          <ul className="flex flex-col items-center gap-2">
+            <Button variant="login" onClick={async () => {
+              if (userSettingsRef.current.getBoundingClientRect().height > 0){
+                /* log out the user by destroy the jwt and reset the user state in redux slice */
+                setCookie("jwt", "")
+                dispatch(reset())
+                dispatch(toggle())
+                navigate("/")
+              }
+            }}>Logout</Button>
+            <li>Profile</li>
+            <li>Setting</li>
+          </ul>
+        </div>
+      </div>
+
       <div className="menu_nav_items cursor-pointer hover:text-link hover:underline hover:underline-offset-4 hover:decoration-2">
         {nav_about}
       </div>
