@@ -12,7 +12,11 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/personalArea" element={<PersonalArea />} />
+      <Route path="/personalArea" element={
+          <AuthRoute fallback="/login">
+            <PersonalArea />
+          </AuthRoute>
+        } />
       <Route
         path="/login"
         element={

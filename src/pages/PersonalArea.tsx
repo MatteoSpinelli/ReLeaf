@@ -8,15 +8,7 @@ import Footer from "../components/Footer/Footer"
 export function PersonalArea() {
   const [user, setUser] = useUser()
   const navigate = useNavigate()
-  useEffect(() => {
-    const util = async () => {
-      await setUser()
-      if (!(await setUser())) {
-        navigate("/")
-      }
-    }
-    util()
-  }, [])
+  
   return (
     <PageContainer
       title="PersonalArea" // the title of the page
