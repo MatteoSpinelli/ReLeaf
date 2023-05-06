@@ -15,7 +15,10 @@ const calculatorRoutes = require("./routes/api/v1/calculator.js")
 const { authMiddleware } = require("./middlewares/auth")
 const app = express()
 
-const origin = process.env.REACT_APP_SERVER_URI
+const origin =
+  process.env.REACT_APP_SERVER_URI === "http://localhost:5000"
+    ? "http://localhost:3000"
+    : "https://re-leaf.vercel.app"
 
 app.use(cors({ origin, credentials: true }))
 app.use(logger("dev"))
