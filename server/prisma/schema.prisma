@@ -11,13 +11,13 @@ datasource db {
 }
 
 model Lang {
-  id         String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  lang_short String     @unique
-  lang       String     @unique
-  Question   Question[]
-  Label      Label[]
-  Value      Value[]
-  Activity   Activity[]
+  id           String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  lang_short   String         @unique
+  lang         String         @unique
+  Question     Question[]
+  Label        Label[]
+  Value        Value[]
+  ActivityLang ActivityLang[]
 }
 
 model User {
@@ -105,13 +105,21 @@ model TestResult {
 
 model Activity {
   id             String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  id_lang        Lang             @relation(fields: [langId], references: [id])
-  title          String
-  description    String
   eco_points     Int
-  link_rewrite   String
+  activityLang   ActivityLang[]
   ActivityToUser ActivityToUser[]
-  langId         String           @db.Uuid
+}
+
+model ActivityLang {
+  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id_lang      Lang      @relation(fields: [langId], references: [id])
+  title        String
+  description  String
+  image        String
+  link_rewrite String
+  langId       String    @db.Uuid
+  Activity     Activity? @relation(fields: [activityId], references: [id])
+  activityId   String?   @db.Uuid
 }
 
 model ActivityToUser {

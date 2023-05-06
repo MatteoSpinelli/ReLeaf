@@ -1,16 +1,18 @@
-import { useState } from "react";
-import ActivityCard from "./ActivityCard";
-import useTranslate from "../../hooks/useTranslate";
-import useTheme from "../../hooks/useTheme";
+import { useState } from "react"
+import ActivityCard from "./ActivityCard"
+import useTranslate from "../../hooks/useTranslate"
+import useTheme from "../../hooks/useTheme"
 
-import "./ActivitySwiper.scss";
+import "./ActivitySwiper.scss"
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Swiper as SwiperType, Navigation, Pagination } from "swiper";
-import "swiper/scss";
-import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md";
-
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Swiper as SwiperType, Navigation, Pagination } from "swiper"
+import "swiper/scss"
+import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md"
+import useSWR from "swr"
+import useLang from "../../hooks/useLang"
 interface Activity {
+  id: string;
   title: string;
   description: string;
   image: string;
@@ -18,65 +20,96 @@ interface Activity {
   ecoPoints: number;
 }
 
+interface ActivitiesResponse {
+  id: string;
+  eco_points: number;
+  title: string;
+  description: string;
+  image: string;
+  link_rewrite: string;
+
+}
+
 export default function ActivitySwiper() {
-  const [swiper, setSwiper] = useState<SwiperType>();
+  const [swiper, setSwiper] = useState<SwiperType>()
 
-  const t = useTranslate("homepage");
-  const { isDark } = useTheme();
+  const t = useTranslate("homepage")
+  const { isDark } = useTheme()
+  const {langShort} = useLang()
 
-  const activities: Activity[] = [
-    {
-      title: "Support renewable energy",
-      description:
-        "Choose to support renewable energy sources like wind, solar, and hydro power by signing up for a green energy plan or installing solar panels on your property",
-      image: "/images/activities/support-renewable-energy.png",
-      linkRewrite: "support-renewable-energy",
-      ecoPoints: -10,
-    },
-    {
-      title: "Plant a tree on Treedom",
-      description:
-        "Trees absorb carbon dioxide from the atmosphere and provide numerous environmental benefits. Consider planting trees supporting reforestation efforts",
-      image: "/images/activities/plant-a-tree-on-treedom.png",
-      linkRewrite: "plant-a-tree-on-treedom",
-      ecoPoints: -15,
-    },
-    {
-      title: "Buy local and seasonal products",
-      description:
-        "Choosing local and seasonal products helps reduce the carbon footprint associated with transportation and storage of food. It  supports local farmers",
-      image: "/images/activities/buy-local-and-seasonal-products.png",
-      linkRewrite: "buy-local-and-seasonal-products",
-      ecoPoints: -50,
-    },
-    {
-      title: "Buy local and seasonal products",
-      description:
-        "Choosing local and seasonal products helps reduce the carbon footprint associated with transportation and storage of food. It  supports local farmers",
-      image: "/images/activities/buy-local-and-seasonal-products.png",
-      linkRewrite: "buy-local-and-seasonal-products",
-      ecoPoints: -50,
-    },
-    {
-      title: "Buy local and seasonal products",
-      description:
-        "Choosing local and seasonal products helps reduce the carbon footprint associated with transportation and storage of food. It  supports local farmers",
-      image: "/images/activities/buy-local-and-seasonal-products.png",
-      linkRewrite: "buy-local-and-seasonal-products",
-      ecoPoints: -50,
-    },
-    {
-      title: "Buy local and seasonal products",
-      description:
-        "Choosing local and seasonal products helps reduce the carbon footprint associated with transportation and storage of food. It  supports local farmers",
-      image: "/images/activities/buy-local-and-seasonal-products.png",
-      linkRewrite: "buy-local-and-seasonal-products",
-      ecoPoints: -50,
-    },
-  ];
+const params = new URLSearchParams({
+  lang: langShort,
+  limit: "12"
+})
+
+  const { data } = useSWR(`/api/v1/activities?${params}`)
+
+  const activitiesRes = data as ActivitiesResponse[]
+
+  const activities: Activity[] = activitiesRes && activitiesRes.map(act => {
+    return {
+      id: act.id,
+      ecoPoints: act.eco_points,
+      title: act.title,
+      description: act.description,
+      image: act.image,
+      linkRewrite: act.link_rewrite,
+    }
+  })
+
+  // const activities: Activity[] = [
+  //   {
+  //     title: "Support renewable energy",
+  //     description:
+  //       "Choose to support renewable energy sources like wind, solar, and hydro power by signing up for a green energy plan or installing solar panels on your property",
+  //     image: "/images/activities/support-renewable-energy.png",
+  //     linkRewrite: "support-renewable-energy",
+  //     ecoPoints: -10,
+  //   },
+  //   {
+  //     title: "Plant a tree on Treedom",
+  //     description:
+  //       "Trees absorb carbon dioxide from the atmosphere and provide numerous environmental benefits. Consider planting trees supporting reforestation efforts",
+  //     image: "/images/activities/plant-a-tree-on-treedom.png",
+  //     linkRewrite: "plant-a-tree-on-treedom",
+  //     ecoPoints: -15,
+  //   },
+  //   {
+  //     title: "Buy local and seasonal products",
+  //     description:
+  //       "Choosing local and seasonal products helps reduce the carbon footprint associated with transportation and storage of food. It  supports local farmers",
+  //     image: "/images/activities/buy-local-and-seasonal-products.png",
+  //     linkRewrite: "buy-local-and-seasonal-products",
+  //     ecoPoints: -50,
+  //   },
+  //   {
+  //     title: "Buy local and seasonal products",
+  //     description:
+  //       "Choosing local and seasonal products helps reduce the carbon footprint associated with transportation and storage of food. It  supports local farmers",
+  //     image: "/images/activities/buy-local-and-seasonal-products.png",
+  //     linkRewrite: "buy-local-and-seasonal-products",
+  //     ecoPoints: -50,
+  //   },
+  //   {
+  //     title: "Buy local and seasonal products",
+  //     description:
+  //       "Choosing local and seasonal products helps reduce the carbon footprint associated with transportation and storage of food. It  supports local farmers",
+  //     image: "/images/activities/buy-local-and-seasonal-products.png",
+  //     linkRewrite: "buy-local-and-seasonal-products",
+  //     ecoPoints: -50,
+  //   },
+  //   {
+  //     title: "Buy local and seasonal products",
+  //     description:
+  //       "Choosing local and seasonal products helps reduce the carbon footprint associated with transportation and storage of food. It  supports local farmers",
+  //     image: "/images/activities/buy-local-and-seasonal-products.png",
+  //     linkRewrite: "buy-local-and-seasonal-products",
+  //     ecoPoints: -50,
+  //   },
+  // ]
 
   return (
-    <div className="relative flex flex-col justify-center items-center my-24 overflow-hidden">
+   <>{activities &&  <div className="relative flex flex-col justify-center items-center my-24 overflow-hidden">
       <h2 className="font-bold px-5 text-4xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl mb-6 text-center md:max-w-xl lg:max-w-5xl">
         {t.activities_title}
       </h2>
@@ -89,7 +122,7 @@ export default function ActivitySwiper() {
       </p>
       <Swiper
         onInit={(ev) => {
-          setSwiper(ev);
+          setSwiper(ev)
         }}
         className="relative py-6 w-full h-full pl-5 sm:px-5 md:max-w-xl
         lg:max-w-4xl"
@@ -106,17 +139,13 @@ export default function ActivitySwiper() {
         pagination={{
           clickable: true,
           renderBullet: function (index, className) {
-            return (
-              '<span class="' +
-              className +
-              '"><div class="pagination-bullet"></div></span>'
-            );
+            return '<span class="' + className + '"><div class="pagination-bullet"></div></span>'
           },
         }}
       >
         {activities &&
-          activities.map((activity, index) => (
-            <SwiperSlide key={"a" + index}>
+          activities.map((activity) => (
+            <SwiperSlide key={activity.id}>
               <ActivityCard {...activity} />
             </SwiperSlide>
           ))}
@@ -138,6 +167,6 @@ export default function ActivitySwiper() {
           <MdOutlineNavigateNext className="fill-white w-8 h-8" />
         </button>
       </div>
-    </div>
-  );
+    </div>}</>
+  )
 }
