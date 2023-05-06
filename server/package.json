@@ -8,7 +8,7 @@
     "seed": "node prisma/seed.mjs"
   },
   "scripts": {
-    "prestart": "npm install && npx prisma generate",
+    "prestart": "npx prisma generate",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
