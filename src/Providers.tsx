@@ -12,11 +12,6 @@ import { getCookie } from "./utils/cookie"
 import AuthProvider from "./providers/AuthProvider"
 
 export default function Providers({ children }: { children: React.ReactNode }) {
-  const jwt = getCookie("jwt")
-  const headers = jwt && {
-    authorization: `Bearer ${jwt}`,
-  }
-
   return (
     <HelmetProvider>
       <Provider store={store}>
@@ -26,7 +21,6 @@ export default function Providers({ children }: { children: React.ReactNode }) {
               fetcher: (uri, options = {}) =>
                 fetch(process.env.REACT_APP_SERVER_URI + uri, {
                   ...options,
-                  headers,
                   credentials: "include",
                 }).then((res) => res.json()),
             }}

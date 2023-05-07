@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ActivityCard from "./ActivityCard"
 import useTranslate from "../../hooks/useTranslate"
 import useTheme from "../../hooks/useTheme"
@@ -56,6 +56,10 @@ const params = new URLSearchParams({
       linkRewrite: act.link_rewrite,
     }
   })
+
+  useEffect(() => {
+    console.log(activities)
+  }, [activities])
 
 
   return (

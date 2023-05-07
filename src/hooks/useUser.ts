@@ -11,6 +11,7 @@ export function useUser() {
     if (token) {
       const res = await fetch(process.env.REACT_APP_SERVER_URI + "/api/v1/auth/user", {
         credentials: "include",
+        headers: { authorization: `Bearer ${token}` },
       })
       const user = await res.json()
       dispatch(add(user.data))
