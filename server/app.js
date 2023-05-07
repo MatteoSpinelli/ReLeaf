@@ -26,7 +26,7 @@ const corsOptions = {
   },
 }
 
-app.use(cors({ credentials: true, ...corsOptions }))
+app.use(cors({ credentials: true, preflightContinue: true, ...corsOptions }))
 app.use(logger("dev"))
 app.use(express.json())
 // app.use(express.urlencoded({ extended: false }))
