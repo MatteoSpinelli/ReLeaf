@@ -47,7 +47,6 @@ router.post("/login", async (req, res) => {
 
       res
         .cookie("jwt", newToken, {
-          domain: "vercel.app",
           maxAge: decoded.exp,
           secure: true,
           sameSite: "none",

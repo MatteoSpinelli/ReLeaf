@@ -22,14 +22,13 @@ const app = express()
 // ]
 /** @type import("cors").CorsOptions */
 const corsOptions = {
-  origin: ["http://localhost:3000", "https://re-leaf.vercel.app", "https://re-leaf-api.vercel.app"],
+  origin: ["http://localhost:3000", "https://re-leaf.vercel.app"],
   credentials: true,
   optionsSuccessStatus: 200,
 }
 
-app.use(cookieParser())
-app.options("*", cors(corsOptions))
 app.use(cors(corsOptions))
+app.use(cookieParser())
 app.use(logger("dev"))
 app.use(express.json())
 // app.use(express.urlencoded({ extended: false }))
