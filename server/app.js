@@ -31,7 +31,7 @@ const corsOptions = {
   credentials: true,
 }
 
-app.options("*", cors())
+app.options("*", cors(corsOptions))
 app.use(cors(corsOptions))
 app.use(logger("dev"))
 app.use(express.json())
