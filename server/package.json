@@ -10,7 +10,8 @@
   "scripts": {
     "prestart": "npx prisma generate",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^4.12.0",
