@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { Provider } from "react-redux"
 import { BrowserRouter } from "react-router-dom"
 import { SWRConfig } from "swr"
@@ -8,7 +8,6 @@ import { HelmetProvider } from "react-helmet-async"
 
 // components
 import ScrollToTop from "./components/common/ScrollToTop"
-import { getCookie } from "./utils/cookie"
 import AuthProvider from "./providers/AuthProvider"
 
 export default function Providers({ children }: { children: React.ReactNode }) {

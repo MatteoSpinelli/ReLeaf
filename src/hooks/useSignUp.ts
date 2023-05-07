@@ -1,5 +1,4 @@
-import useSWR from "swr"
-import { getCookie, setCookie } from "../utils/cookie"
+import { getCookie } from "../utils/cookie"
 
 export function useSignUp() {
   async function signUp(email: string, password: string, name = "", lastname = "") {
