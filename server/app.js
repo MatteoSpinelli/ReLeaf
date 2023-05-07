@@ -18,7 +18,7 @@ const app = express()
 const whitelist = ["http://localhost:3000", "https://re-leaf.vercel.app"]
 const corsOptions = {
   origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
+    if (whitelist.indexOf(origin) !== -1 || !origin || origin.contains("re-leaf")) {
       callback(null, true)
     } else {
       callback(new Error("Not allowed by CORS"))
@@ -29,9 +29,10 @@ const corsOptions = {
 app.use(cors({ credentials: true, ...corsOptions }))
 app.use(logger("dev"))
 app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+// app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, "public")))
+
 app.use(authMiddleware)
 
 // api routes
@@ -62,8 +63,7 @@ app.use(function (err, req, res, next) {
   res.locals.error = req.app.get("env") === "development" ? err : {}
 
   // render the error page
-  res.status(err.status || 500)
-  res.json({ status: err.status || 500, message: err.message })
+  res.status(err.status || 500).json({ status: err.status || 500, message: err.message })
 })
 
 module.exports = app

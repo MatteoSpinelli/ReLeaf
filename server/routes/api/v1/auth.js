@@ -47,9 +47,11 @@ router.post("/login", async (req, res, next) => {
 
       const decoded = jwt.decode(newToken)
 
+      console.log(decoded.exp)
+
       res.cookie("jwt", newToken, {
         maxAge: decoded.exp,
-        SameSite: "none",
+        sameSite: "none",
         secure: true,
       })
 
@@ -64,7 +66,7 @@ router.post("/login", async (req, res, next) => {
         ...error(401, "Password not valid"),
       })
     }
-  } else{
+  } else {
     res.status(401).json({
       success: false,
       ...error(401, "Email not valid"),

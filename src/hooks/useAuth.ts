@@ -24,8 +24,6 @@ export default function useAuth() {
       }
     )
     const data: AuthResponse = await res.json()
-    const dat = new Date(data.exp * 1000).toUTCString()
-    console.log(dat)
     if (data && data.success) {
       setAuthenticated(true)
       return { success: true }
