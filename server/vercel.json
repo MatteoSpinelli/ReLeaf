@@ -1,7 +1,6 @@
 {
   "version": 2,
   "builds": [{ "src": "*.js", "use": "@vercel/node" }],
-  "buildCommand": "npx prisma generate",
   "routes": [
     {
       "src": "/(.*)",
