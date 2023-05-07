@@ -9,7 +9,7 @@ const error = require("../../../utils/error.js")
 const { ACCESS_TOKEN_SECRET } = process.env
 
 /* POST /api/v1/auth/login */
-router.post("/login", async (req, res, next) => {
+router.post("/login", async (req, res) => {
   const { email, password } = req.body
 
   if (req.user) {
