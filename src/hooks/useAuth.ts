@@ -28,7 +28,7 @@ export default function useAuth() {
         return { success: false, data }
       }
     } catch (error) {
-      return { success: false, error }
+      return { success: false, message: JSON.stringify(error) }
     }
   }
 
