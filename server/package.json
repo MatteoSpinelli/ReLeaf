@@ -9,6 +9,10 @@
   },
   "scripts": {
     "prestart": "npx prisma generate",
+    "prebuild": "npx prisma generate",
+    "prevercel-build": "npx prisma generate",
+    "vercel-build": "node index.js",
+    "build": "node index.js",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
