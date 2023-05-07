@@ -1,28 +1,24 @@
-import useTheme from "../../hooks/useTheme";
-import Button from "../Button/Button";
-import { ReactComponent as Cross } from "../../assets/svg/global/cross.svg";
-import { useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { toggle } from "../../store/slices/menuSlice";
-import useTranslate from "../../hooks/useTranslate";
-import LanguageSwitcher from "../TestPanel/LanguageSwitcher";
-import ThemeSwitcher from "../TestPanel/ThemeSwitcher";
-import { useNavigate } from "react-router-dom";
-import { useUser } from "../../hooks/useUser";
-import { ReactComponent as AnonymousUser } from "../../assets/svg/global/user.svg";
-import { setCookie } from "../../utils/cookie";
-import { async } from "q";
-import { reset } from "../../store/slices/userSlice";
-
+import useTheme from "../../hooks/useTheme"
+import Button from "../Button/Button"
+import { ReactComponent as Cross } from "../../assets/svg/global/cross.svg"
+import { useRef } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { toggle } from "../../store/slices/menuSlice"
+import useTranslate from "../../hooks/useTranslate"
+import LanguageSwitcher from "../TestPanel/LanguageSwitcher"
+import ThemeSwitcher from "../TestPanel/ThemeSwitcher"
+import { useNavigate } from "react-router-dom"
+import { ReactComponent as AnonymousUser } from "../../assets/svg/global/user.svg"
+import { reset } from "../../store/slices/userSlice"
 
 export function MenuPersonal({ user }) {
-  const { isDark } = useTheme();
-  const menuRef = useRef();
+  const { isDark } = useTheme()
+  const menuRef = useRef()
   const userSettingsRef = useRef()
-  const dispatch = useDispatch();
-  const { nav_login, nav_about, nav_mission } = useTranslate("homepage");
-  const isMenuVisible = useSelector((state) => state.isMenuVisible);
-  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const { nav_about, nav_mission } = useTranslate("homepage")
+  const isMenuVisible = useSelector((state) => state.isMenuVisible)
+  const navigate = useNavigate()
   function handleSettings() {
     if (userSettingsRef.current.getBoundingClientRect().height > 0) {
       userSettingsRef.current.classList.remove("user-settings-anim")
@@ -53,15 +49,23 @@ export function MenuPersonal({ user }) {
         </div>
         <div ref={userSettingsRef} className="user-settings">
           <ul className="flex flex-col items-center gap-2">
-            <Button variant="login" onClick={async () => {
-              if (userSettingsRef.current.getBoundingClientRect().height > 0){
-                /* log out the user by destroy the jwt and reset the user state in redux slice */
-                setCookie("jwt", "")
-                dispatch(reset())
-                dispatch(toggle())
-                navigate("/")
-              }
-            }}>Logout</Button>
+            <Button
+              variant="login"
+              onClick={async () => {
+                if (userSettingsRef.current.getBoundingClientRect().height > 0) {
+                  /* log out the user by destroy the jwt and reset the user state in redux slice */
+                  await fetch(process.env.REACT_APP_SERVER_URI + "/api/v1/auth/logout", {
+                    mode: "cors",
+                    credentials: "include",
+                  })
+                  dispatch(reset())
+                  dispatch(toggle())
+                  navigate("/")
+                }
+              }}
+            >
+              Logout
+            </Button>
             <li>Profile</li>
             <li>Setting</li>
           </ul>
@@ -88,11 +92,11 @@ export function MenuPersonal({ user }) {
       </div>
       <Cross
         onClick={() => {
-          dispatch(toggle());
-          menuRef.current.style.translate = "2000px";
+          dispatch(toggle())
+          menuRef.current.style.translate = "2000px"
         }}
         className="cursor-pointer md:hidden"
       />
     </div>
-  );
+  )
 }
