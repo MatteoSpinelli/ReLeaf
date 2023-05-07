@@ -8,7 +8,6 @@
     "seed": "node prisma/seed.mjs"
   },
   "scripts": {
-    "prestart": "npx prisma generate",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
