@@ -20,6 +20,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
               fetcher: (uri, options = {}) =>
                 fetch(process.env.REACT_APP_SERVER_URI + uri, {
                   ...options,
+                  mode: "cors",
                   credentials: "include",
                 }).then((res) => res.json()),
             }}

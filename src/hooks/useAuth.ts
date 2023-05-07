@@ -13,6 +13,7 @@ export default function useAuth() {
     try {
       const res = await fetch(`${process.env.REACT_APP_SERVER_URI}/api/v1/auth/login`, {
         method: "POST",
+        mode: "cors",
         credentials: "include",
         headers: {
           "Content-Type": "application/json",
