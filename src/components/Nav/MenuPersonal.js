@@ -10,6 +10,7 @@ import ThemeSwitcher from "../TestPanel/ThemeSwitcher"
 import { useNavigate } from "react-router-dom"
 import { ReactComponent as AnonymousUser } from "../../assets/svg/global/user.svg"
 import { reset } from "../../store/slices/userSlice"
+import Cookies from "js-cookie"
 
 export function MenuPersonal({ user }) {
   const { isDark } = useTheme()
@@ -54,6 +55,7 @@ export function MenuPersonal({ user }) {
               onClick={async () => {
                 if (userSettingsRef.current.getBoundingClientRect().height > 0) {
                   /* log out the user by destroy the jwt and reset the user state in redux slice */
+                  Cookies.remove("jwt")
                   await fetch(process.env.REACT_APP_SERVER_URI + "/api/v1/auth/logout", {
                     mode: "cors",
                     credentials: "include",
