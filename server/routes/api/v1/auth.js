@@ -16,9 +16,7 @@ router.post("/login", async (req, res) => {
     res.status(200).json({
       success: true,
       message: "Already Authenticated",
-      accessToken: req.user.accessToken.split(" ")[1],
-      iat: req.user.iat,
-      exp: req.user.exp,
+      accessToken: req.user.accessToken,
     })
     return
   }

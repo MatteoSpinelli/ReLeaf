@@ -4,7 +4,7 @@ const error = require("../utils/error")
 const { ACCESS_TOKEN_SECRET } = process.env
 
 const authStrictMiddleware = async (req, res, next) => {
-  const { authorization } = req.headers
+  const authorization = req.cookies.jwt
 
   // if access token is missing deny the request
   if (!authorization) {
@@ -21,9 +21,7 @@ const authStrictMiddleware = async (req, res, next) => {
     return
   }
 
-  const bearerToken = authorization.split(" ")[1]
-
-  await jwt.verify(bearerToken, ACCESS_TOKEN_SECRET, (err, decoded) => {
+  await jwt.verify(authorization, ACCESS_TOKEN_SECRET, (err, decoded) => {
     // if authentication is not valid deny the request
     if (!decoded || err) {
       req.user = null
@@ -45,15 +43,15 @@ const authStrictMiddleware = async (req, res, next) => {
 }
 
 const authMiddleware = async (req, res, next) => {
-  const authorization = req.headers?.authorization
+  const authorization = req.cookies.jwt
 
   // if access token exists
   if (authorization) {
     // get the access token from bearer header
-    const accessToken = authorization.split(" ")[1]
+    // const accessToken = authorization.split(" ")[1]
 
     // verify that the access token is valid and not exipred
-    await jwt.verify(accessToken, ACCESS_TOKEN_SECRET, (err, decoded) => {
+    await jwt.verify(authorization, ACCESS_TOKEN_SECRET, (err, decoded) => {
       // if the access token is not valid or expired unset the user and proceed to the next middleware
       if (!decoded || err) {
         req.user = null
