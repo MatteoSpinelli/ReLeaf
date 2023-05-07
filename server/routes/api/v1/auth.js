@@ -45,19 +45,13 @@ router.post("/login", async (req, res) => {
 
       const decoded = jwt.decode(newToken)
 
-      res
-        .cookie("jwt", newToken, {
-          domain: ".vercel.app",
-          maxAge: decoded.exp,
-          secure: true,
-          sameSite: "none",
-        })
-        .status(200)
-        .json({
-          success: true,
-          message: "Authenticated successfully",
-          accessToken: newToken,
-        })
+      res.status(200).json({
+        success: true,
+        message: "Authenticated successfully",
+        accessToken: newToken,
+        iat: decoded.iat,
+        exp: decoded.exp,
+      })
     } else {
       res.status(401).json({
         success: false,
