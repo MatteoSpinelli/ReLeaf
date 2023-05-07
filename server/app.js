@@ -15,7 +15,11 @@ const calculatorRoutes = require("./routes/api/v1/calculator.js")
 const { authMiddleware } = require("./middlewares/auth")
 const app = express()
 
-const whitelist = ["http://localhost:3000", "https://re-leaf.vercel.app"]
+const whitelist = [
+  "http://localhost:3000",
+  "https://re-leaf.vercel.app",
+  "https://re-leaf-api.vercel.app",
+]
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1 || !origin) {
@@ -24,9 +28,11 @@ const corsOptions = {
       callback(new Error("Not allowed by CORS"))
     }
   },
+  credentials: true,
 }
 
-app.use(cors({ credentials: true, preflightContinue: true, ...corsOptions }))
+app.options("*", cors())
+app.use(cors(corsOptions))
 app.use(logger("dev"))
 app.use(express.json())
 // app.use(express.urlencoded({ extended: false }))
