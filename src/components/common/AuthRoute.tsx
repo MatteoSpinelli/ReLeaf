@@ -11,7 +11,6 @@ export default function AuthRoute({ children, fallback = "/", inverted = false }
   const [user] = useUser()
 
   if (!inverted) {
-    console.log(user)
     if (user) {
       return children
     }

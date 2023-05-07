@@ -1,22 +1,19 @@
 import { useDispatch, useSelector } from "react-redux"
-import { getCookie } from "../utils/cookie"
 import { add, reset } from "../store/slices/userSlice"
+import Cookies from "js-cookie"
+import jwtDecode from "jwt-decode"
 
 export function useUser() {
   const dispatch = useDispatch()
   const user = useSelector((state: any) => state.user)
 
   async function setUser() {
-    const token = getCookie("jwt")
+    const token = Cookies.get("jwt")
     if (token) {
-      console.log(token)
-      const res = await fetch(process.env.REACT_APP_SERVER_URI + "/api/v1/auth/user", {
-        mode: "cors",
-        credentials: "include",
-        headers: { authorization: `Bearer ${token}` },
-      })
-      const user = await res.json()
-      dispatch(add(user.data))
+      const decoded: { data: any } = jwtDecode(token)
+      if (decoded) {
+        dispatch(add(decoded?.data))
+      }
       return true
     }
     dispatch(reset())

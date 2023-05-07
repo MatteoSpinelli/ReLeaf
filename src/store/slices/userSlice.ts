@@ -1,12 +1,18 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
+import Cookies from "js-cookie"
+import jwtDecode from "jwt-decode"
+
+const jwt = Cookies.get("jwt")
+const token: any = jwt && jwtDecode(jwt)
+const initialState = token ? token.data : null
 
 const userState = createSlice({
-    name: "user",
-    initialState: null,
-    reducers: {
-        add: (state, action) => action.payload,
-        reset: () => null
-    }
+  name: "user",
+  initialState,
+  reducers: {
+    add: (state, action) => action.payload,
+    reset: () => null,
+  },
 })
 
 export default userState.reducer
