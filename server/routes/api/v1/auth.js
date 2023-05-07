@@ -47,11 +47,11 @@ router.post("/login", async (req, res) => {
 
       console.log(decoded.exp)
 
-      res.cookie("jwt", newToken, {
-        maxAge: decoded.exp,
-        sameSite: "none",
-        secure: true,
-      })
+      // res.cookie("jwt", newToken, {
+      //   maxAge: decoded.exp,
+      //   sameSite: "none",
+      //   secure: true,
+      // })
 
       res.status(200).json({
         success: true,
