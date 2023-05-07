@@ -4,8 +4,6 @@ interface AuthResponse {
   success: boolean
   message: string
   accessToken: string
-  iat: number
-  exp: number
 }
 
 export default function useAuth() {
@@ -20,6 +18,7 @@ export default function useAuth() {
           "Content-Type": "application/json",
         },
         credentials: "include",
+        mode:"cors",
         body: JSON.stringify({ email, password }),
       }
     )

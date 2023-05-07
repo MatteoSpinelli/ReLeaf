@@ -27,6 +27,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
                 fetch(process.env.REACT_APP_SERVER_URI + uri, {
                   ...options,
                   headers,
+                  credentials: "include",
                 }).then((res) => res.json()),
             }}
           >
