@@ -1,9 +1,12 @@
+import Cookies from "js-cookie"
 import { useState } from "react"
 
 interface AuthResponse {
   success: boolean;
   message: string;
   accessToken: string;
+  iat: number;
+  exp: number;
 }
 
 export default function useAuth() {
@@ -21,6 +24,11 @@ export default function useAuth() {
     })
     const data: AuthResponse = await res.json()
     if (data && data.success) {
+      Cookies.set("jwt", data.accessToken, {
+        expires: data.exp,
+        secure: true,
+        SameSite: "None",
+      })
       setAuthenticated(true)
       return { success: true }
     } else {

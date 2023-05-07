@@ -45,13 +45,20 @@ router.post("/login", async (req, res) => {
 
       const decoded = jwt.decode(newToken)
 
-      res.status(200).json({
-        success: true,
-        message: "Authenticated successfully",
-        accessToken: newToken,
-        iat: decoded.iat,
-        exp: decoded.exp,
-      })
+      res
+        .status(200)
+        .cookie("jwt", newToken, {
+          maxAge: decoded.exp,
+          secure: true,
+          sameSite: "none",
+        })
+        .json({
+          success: true,
+          message: "Authenticated successfully",
+          accessToken: newToken,
+          iat: decoded.iat,
+          exp: decoded.exp,
+        })
     } else {
       res.status(401).json({
         success: false,
