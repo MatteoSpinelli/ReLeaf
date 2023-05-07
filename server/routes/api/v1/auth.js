@@ -49,7 +49,7 @@ router.post("/login", async (req, res) => {
         .status(200)
         .cookie("jwt", newToken, {
           maxAge: decoded.exp,
-          sameSite: "lax",
+          sameSite: "none",
           expires: decoded.exp,
           secure: true,
         })
