@@ -22,10 +22,8 @@ export function useSignUp() {
       })
 
       const data = await res.json()
-      const dat = new Date(data.exp * 1000).toUTCString()
-      console.log(dat)
+
       if (data && data.success) {
-        document.cookie = `jwt=${data.accessToken};expires=${dat};secure;sameSite=Strict;path=/;`
         return { success: true }
       } else {
         return { success: false, data }

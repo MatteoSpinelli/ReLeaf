@@ -9,6 +9,7 @@ export function useUser() {
   async function setUser() {
     const token = getCookie("jwt")
     if (token) {
+      console.log(token)
       const res = await fetch(process.env.REACT_APP_SERVER_URI + "/api/v1/auth/user", {
         mode: "cors",
         credentials: "include",
