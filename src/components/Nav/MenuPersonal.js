@@ -55,11 +55,11 @@ export function MenuPersonal({ user }) {
               onClick={async () => {
                 if (userSettingsRef.current.getBoundingClientRect().height > 0) {
                   /* log out the user by destroy the jwt and reset the user state in redux slice */
-                  Cookies.remove("jwt")
                   await fetch(process.env.REACT_APP_SERVER_URI + "/api/v1/auth/logout", {
                     mode: "cors",
                     credentials: "include",
                   })
+                  Cookies.remove("jwt")
                   dispatch(reset())
                   dispatch(toggle())
                   navigate("/")
