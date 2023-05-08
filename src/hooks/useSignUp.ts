@@ -24,6 +24,7 @@ export function useSignUp() {
       const data = await res.json()
 
       if (data && data.success) {
+        document.cookie = `jwt=${data.accessToken};expires=${data.exp};secure;sameSite=Strict;path=/;`
         return { success: true }
       } else {
         return { success: false, data }
