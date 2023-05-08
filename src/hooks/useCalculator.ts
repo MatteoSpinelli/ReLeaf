@@ -1,12 +1,15 @@
 import useSWR from "swr";
 import { setCookie } from "../utils/cookie";
+import Cookies from "js-cookie";
 
 export default function useCalculator(body: TestInputData) {
+  const jwt = Cookies.get("jwt")
+  const headers: { authorization?: string, "Content-Type": string } = jwt
+    ? { authorization: `Bearer ${jwt}`, "Content-Type": "application/json" }
+    : { "Content-Type": "application/json" }
   const fetcher = async (uri: string) => {
     const options = {
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
       method: "POST",
       body: JSON.stringify(body),
     };

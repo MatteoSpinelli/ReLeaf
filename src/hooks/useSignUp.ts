@@ -1,3 +1,4 @@
+import Cookies from "js-cookie"
 import { getCookie } from "../utils/cookie"
 
 export function useSignUp() {
@@ -5,13 +6,15 @@ export function useSignUp() {
     const testResult: any = getCookie("testResult")
     console.log(JSON.parse(testResult))
     try {
+      const jwt = Cookies.get("jwt")
+      const headers: { authorization?: string, "Content-Type": string } = jwt
+        ? { authorization: `Bearer ${jwt}`, "Content-Type": "application/json" }
+        : { "Content-Type": "application/json" }
+
       const res = await fetch(`${process.env.REACT_APP_SERVER_URI}/api/v1/auth/signup`, {
         method: "POST",
         mode: "cors",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers,
         body: JSON.stringify({
           email,
           password,

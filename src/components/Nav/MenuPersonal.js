@@ -53,11 +53,13 @@ export function MenuPersonal({ user }) {
             <Button
               variant="login"
               onClick={async () => {
+                const jwt = Cookies.get("jwt")
+                const headers = jwt ? { authorization: `Bearer ${jwt}` } : {}
                 if (userSettingsRef.current.getBoundingClientRect().height > 0) {
                   /* log out the user by destroy the jwt and reset the user state in redux slice */
                   await fetch(process.env.REACT_APP_SERVER_URI + "/api/v1/auth/logout", {
                     mode: "cors",
-                    credentials: "include",
+                    headers,
                   })
                   Cookies.remove("jwt")
                   dispatch(reset())

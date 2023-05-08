@@ -12,14 +12,16 @@ interface AuthResponse {
 export default function useAuth() {
   const [authenticated, setAuthenticated] = useState(false)
 
+  const jwt = Cookies.get("jwt")
+  const headers: { authorization?: string, "Content-Type": string } = jwt
+    ? { authorization: `Bearer ${jwt}`, "Content-Type": "application/json" }
+    : { "Content-Type": "application/json" }
+
   const login = async (email: string, password: string) => {
     const res = await fetch(`${process.env.REACT_APP_SERVER_URI}/api/v1/auth/login`, {
       method: "POST",
       mode: "cors",
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
       body: JSON.stringify({ email, password }),
     })
     const data: AuthResponse = await res.json()
