@@ -154,7 +154,7 @@ router.get("/user", authStrictMiddleware, async (req, res) => {
 router.get("/logout", async (req, res) => {
   req.user = null
   res.clearCookie("jwt").status(200).json({
-    message: "Logged out successfully",
+    message: "User logged out succesfully",
   })
 })
 
