@@ -17,7 +17,7 @@ export function MenuPersonal({ user }) {
   const menuRef = useRef()
   const userSettingsRef = useRef()
   const dispatch = useDispatch()
-  const { nav_about, nav_mission } = useTranslate("homepage")
+  const { nav_about, nav_mission, navP_profile, navP_settings } = useTranslate("homepage")
   const isMenuVisible = useSelector((state) => state.isMenuVisible)
   const navigate = useNavigate()
   function handleSettings() {
@@ -25,8 +25,10 @@ export function MenuPersonal({ user }) {
       userSettingsRef.current.classList.remove("user-settings-anim")
       void userSettingsRef.current.offsetWidth
       userSettingsRef.current.classList.add("user-settings-anim-reverse")
+      setTimeout(() => (userSettingsRef.current.style.display = "none"), 500)
       return
     }
+    userSettingsRef.current.style.display = "block"
     userSettingsRef.current.classList.remove("user-settings-anim-reverse")
     void userSettingsRef.current.offsetWidth
     userSettingsRef.current.classList.add("user-settings-anim")
@@ -42,13 +44,13 @@ export function MenuPersonal({ user }) {
       }}
     >
       {/* user image and name, settings on click */}
-      <div className="flex flex-col items-center gap-3">
+      <div className="flex flex-col items-center gap-3 relative">
         <div className="flex items-center cursor-pointer" onClick={handleSettings}>
           {/* if the user has uploaded a photo, it will per render instead of anonymous svg */}
           <AnonymousUser className="w-[40px] h-[40px] bg-white rounded-full p-1 mx-2" />
           {user.name ? user.name : user.email.split("@")[0]}
         </div>
-        <div ref={userSettingsRef} className="user-settings">
+        <div ref={userSettingsRef} className="user-settings hidden md:absolute md:top-[50px] md:right-0 md:bg-inherit">
           <ul className="flex flex-col items-center gap-2">
             <Button
               variant="login"
@@ -70,21 +72,15 @@ export function MenuPersonal({ user }) {
             >
               Logout
             </Button>
-            <li>Profile</li>
-            <li>Setting</li>
+            <li>{navP_profile}</li>
+            <li>{navP_settings}</li>
           </ul>
         </div>
       </div>
 
-      <div className="menu_nav_items cursor-pointer hover:text-link hover:underline hover:underline-offset-4 hover:decoration-2">
-        {nav_about}
-      </div>
-      <div className="menu_nav_items cursor-pointer hover:text-link hover:underline hover:underline-offset-4 hover:decoration-2">
-        {nav_mission}
-      </div>
-      <div className="menu_nav_items cursor-pointer hover:text-link hover:underline hover:underline-offset-4 hover:decoration-2">
-        Blog
-      </div>
+      <div className="menu_nav_items cursor-pointer hover:text-link hover:underline hover:underline-offset-4 hover:decoration-2">{nav_about}</div>
+      <div className="menu_nav_items cursor-pointer hover:text-link hover:underline hover:underline-offset-4 hover:decoration-2">{nav_mission}</div>
+      <div className="menu_nav_items cursor-pointer hover:text-link hover:underline hover:underline-offset-4 hover:decoration-2">Blog</div>
       <LanguageSwitcher />
       <div
         style={{

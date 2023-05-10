@@ -133,22 +133,21 @@ router.post("/signup", async (req, res) => {
 
 /* GET /api/v1/auth/user */
 router.get("/user", authStrictMiddleware, async (req, res) => {
-  const { user } = req
+  let { user } = req
   if (user) {
     /* TODO */
     /* fetch the db to retrive info for personal area */
+    /* const dataToBeAdded = await prisma.user.findFirst({
+      where: {
+        email: user.email,
+      },
+    })
+    user = { ...user, ...dataToBeAdded } */
     res.status(200).json(user)
     return
   }
 
-  res
-    .status(401)
-    .json(
-      error(
-        401,
-        "The request has not been applied because it lacks valid authentication credentials for the target resource"
-      )
-    )
+  res.status(401).json(error(401, "The request has not been applied because it lacks valid authentication credentials for the target resource"))
 })
 
 router.get("/logout", async (req, res) => {

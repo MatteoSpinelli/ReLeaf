@@ -11,7 +11,7 @@
 }
 
 .circle {
-  @apply w-44 h-44 rounded-full border-x-8 border-y-8 border-orange-300 bg-white bg-opacity-50 flex justify-center items-center overflow-hidden p-8;
+  @apply w-44 h-44 rounded-full border-x-8 border-y-8 bg-white bg-opacity-50 flex justify-center items-center overflow-hidden p-8;
   position: relative;
   
 }

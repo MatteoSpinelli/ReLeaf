@@ -25,6 +25,8 @@
     "nav_login": "Accedi",
     "nav_about": "Chi siamo",
     "nav_mission": "Il nostro obiettivo",
+    "navP_profile": "Profilo",
+    "navP_settings": "Impostazioni",
 
     "login_title": "Bentornato",
     "login_description": "Inserisci la tua email per accedere.",

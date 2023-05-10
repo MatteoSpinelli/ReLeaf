@@ -9,6 +9,13 @@ export function useUser() {
 
   async function setUser() {
     const token = Cookies.get("jwt")
+    /* const res = await fetch(process.env.REACT_APP_SERVER_URI + "/api/v1/auth/user", {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    })
+    const resJ = await res.json()
+    console.log(resJ) */
     if (token) {
       const decoded: { data: any } = jwtDecode(token)
       if (decoded) {
