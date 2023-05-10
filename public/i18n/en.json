@@ -25,6 +25,8 @@
     "nav_login": "Login",
     "nav_about": "About us",
     "nav_mission": "Our mission",
+    "navP_profile": "Profile",
+    "navP_settings": "Settings",
 
     "login_title": "Welcome back",
     "login_description": "Enter your email to log in.",

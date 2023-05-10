@@ -76,9 +76,7 @@ export function Test() {
   return (
     <div className="test-page w-screen h-screen flex flex-col justify-evenly items-center z-10 py-6">
       {/* Presentational logic */}
-      {data?.length !== 0 && data && (
-        <ShowQuestion question={data[questions.currentQuestion]} />
-      )}
+      {data?.length !== 0 && data && <ShowQuestion question={data[questions.currentQuestion]} />}
       {/* Presentational logic for questions */}
       {/* next and prev buttons */}
       <PreviousBtn
@@ -94,8 +92,8 @@ export function Test() {
         className="next-btn bg-primary rounded-full w-[40px] h-[40px] p-2 fixed top-[50vh] right-7"
       />
       {/* Progession Circle and statements */}
-      <div className="circle">
-        <div className="util-circle"></div>
+      <div className="circle border-orange-300">
+        <div className="util-circle "></div>
         <p>Every step counts! Calculate your footprint and make a change</p>
       </div>
       <div className="logo">
@@ -105,60 +103,23 @@ export function Test() {
         <a href="">Learn about</a>
       </div>
       <div>
-        {questions.currentQuestion === 0 && (
-          <BG0 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 1 && (
-          <BG1 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 2 && (
-          <BG2
-            className="max-w-full fixed bottom-0 left-0 z-[-2]"
-            style={bgStyle}
-          />
-        )}
-        {questions.currentQuestion === 3 && (
-          <BG3 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 4 && (
-          <BG4 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 5 && (
-          <BG5 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 6 && (
-          <BG6 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 7 && (
-          <BG7 className="fixed bottom-0 left-0 z-[-2]" />
-        )}
-        {questions.currentQuestion === 8 && (
-          <BG8 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 9 && (
-          <BG9 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 10 && (
-          <BG10 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 11 && (
-          <BG10 className="fixed bottom-0 left-0 z-[-2]" />
-        )}
-        {questions.currentQuestion === 12 && (
-          <BG12 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 13 && (
-          <BG12 className="fixed bottom-0 left-0 z-[-2]" />
-        )}
-        {questions.currentQuestion === 14 && (
-          <BG14 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 15 && (
-          <BG15 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
-        {questions.currentQuestion === 16 && (
-          <BG16 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />
-        )}
+        {questions.currentQuestion === 0 && <BG0 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />}
+        {questions.currentQuestion === 1 && <BG1 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />}
+        {questions.currentQuestion === 2 && <BG2 className="max-w-full fixed bottom-0 left-0 z-[-2]" style={bgStyle} />}
+        {questions.currentQuestion === 3 && <BG3 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />}
+        {questions.currentQuestion === 4 && <BG4 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />}
+        {questions.currentQuestion === 5 && <BG5 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />}
+        {questions.currentQuestion === 6 && <BG6 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />}
+        {questions.currentQuestion === 7 && <BG7 className="fixed bottom-0 left-0 z-[-2]" />}
+        {questions.currentQuestion === 8 && <BG8 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />}
+        {questions.currentQuestion === 9 && <BG9 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />}
+        {questions.currentQuestion === 10 && <BG10 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />}
+        {questions.currentQuestion === 11 && <BG10 className="fixed bottom-0 left-0 z-[-2]" />}
+        {questions.currentQuestion === 12 && <BG12 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />}
+        {questions.currentQuestion === 13 && <BG12 className="fixed bottom-0 left-0 z-[-2]" />}
+        {questions.currentQuestion === 14 && <BG14 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />}
+        {questions.currentQuestion === 15 && <BG15 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />}
+        {questions.currentQuestion === 16 && <BG16 className="fixed bottom-0 left-0 z-[-2]" style={bgStyle} />}
       </div>{" "}
     </div>
   )
