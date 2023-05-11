@@ -65,7 +65,9 @@ export function MenuPersonal({ user }) {
                   })
                   Cookies.remove("jwt")
                   dispatch(reset())
-                  dispatch(toggle())
+                  if (window.innerWidth < 768) {
+                    dispatch(toggle())
+                  }
                   navigate("/")
                 }
               }}
