@@ -24,6 +24,9 @@ router.post("/login", async (req, res) => {
   const user = email
     ? await prisma.user.findFirst({
         where: { email: email },
+        include: {
+          testResult: true,
+        },
       })
     : null
 
@@ -37,6 +40,7 @@ router.post("/login", async (req, res) => {
             name: user.name,
             lastname: user.lastname,
             role: user.role,
+            testResult: user.testResult,
           },
         },
         ACCESS_TOKEN_SECRET,
@@ -112,6 +116,7 @@ router.post("/signup", async (req, res) => {
           email: email,
           name: name,
           lastname: lastname,
+          testResult,
         },
       },
       ACCESS_TOKEN_SECRET,
