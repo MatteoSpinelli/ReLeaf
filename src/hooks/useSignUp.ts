@@ -1,15 +1,11 @@
 import Cookies from "js-cookie"
-import { getCookie } from "../utils/cookie"
 
 export function useSignUp() {
   async function signUp(email: string, password: string, name = "", lastname = "") {
-    const testResult: any = getCookie("testResult")
-    console.log(JSON.parse(testResult))
+    const testResult: any = Cookies.get("testResult")
     try {
       const jwt = Cookies.get("jwt")
-      const headers: { authorization?: string, "Content-Type": string } = jwt
-        ? { authorization: `Bearer ${jwt}`, "Content-Type": "application/json" }
-        : { "Content-Type": "application/json" }
+      const headers: { authorization?: string, "Content-Type": string } = jwt ? { authorization: `Bearer ${jwt}`, "Content-Type": "application/json" } : { "Content-Type": "application/json" }
 
       const res = await fetch(`${process.env.REACT_APP_SERVER_URI}/api/v1/auth/signup`, {
         method: "POST",

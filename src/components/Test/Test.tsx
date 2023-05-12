@@ -3,7 +3,7 @@ import { useQuestions } from "../../hooks/useQuestions"
 import { go, setValue } from "../../store/slices/questionSlice"
 import { ShowQuestion } from "./ShowQuestion"
 import { useEffect, useState } from "react"
-import { redirect, useNavigate } from "react-router-dom"
+import { Link, redirect, useNavigate } from "react-router-dom"
 import { useUser } from "../../hooks/useUser"
 //svg
 import { ReactComponent as Logo } from "../../assets/svg/global/logo.svg"
@@ -96,9 +96,9 @@ export function Test() {
         <div className="util-circle "></div>
         <p>Every step counts! Calculate your footprint and make a change</p>
       </div>
-      <div className="logo">
+      <Link className="logo cursor-pointer" to="/">
         <Logo />
-      </div>
+      </Link>
       <div className="learn-about">
         <a href="">Learn about</a>
       </div>

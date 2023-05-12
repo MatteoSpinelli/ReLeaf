@@ -51,7 +51,7 @@ function Login({
 
   return (
     <section className="login-section">
-      <img className="login-img" src={loginimage} alt="login image" />
+      <img className="login-img" src={loginimage} alt="login" />
 
       <div className={`login-container ${isDark ? "dark" : ""}`}>
         <div className="login-description-container">
@@ -72,7 +72,8 @@ function Login({
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="email"
+            autoComplete="on"
+            placeholder="Email"
             required
           />
           <label id="login-password">
@@ -83,7 +84,8 @@ function Login({
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="password"
+            placeholder="Password"
+            autoComplete="on"
             pattern="(?=.*\d)(?=.*[A-Z]).{8,}"
             required
           />
@@ -92,11 +94,9 @@ function Login({
 
         <div className="login-question-container">
           <p>{loginQuestion}</p>
-          <a className="login-link" href="">
-            <Link to="/signup" className="login-link">
+            <Link className="login-link" to="/signup">
               {getStarted}
             </Link>
-          </a>
         </div>
       </div>
     </section>

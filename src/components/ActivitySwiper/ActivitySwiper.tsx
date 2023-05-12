@@ -57,11 +57,6 @@ const params = new URLSearchParams({
     }
   })
 
-  useEffect(() => {
-    console.log(activities)
-  }, [activities])
-
-
   return (
    <>{data &&  <div className="relative flex flex-col justify-center items-center my-24 overflow-hidden">
       <h2 className="font-bold px-5 text-4xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl mb-6 text-center md:max-w-xl lg:max-w-5xl">
