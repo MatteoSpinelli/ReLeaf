@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import reportWebVitals from "./reportWebVitals";
 import Providers from "./Providers";
+import { Route, Routes } from "react-router-dom";
 
 import "./index.scss";
 
@@ -14,7 +15,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Providers>
-      <App />
+      <Routes>
+        <Route path="/*" element={<App />} />
+      </Routes>
     </Providers>
   </React.StrictMode>
 );

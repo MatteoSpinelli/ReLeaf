@@ -11,7 +11,6 @@ import PieChart from "./PieChart"
 import BarChart from "./BarChart"
 import SignupCta from "./SignupCta"
 import { useSelector } from "react-redux"
-import { getCookie } from "../../utils/cookie"
 import EcoPoints from "./EcoPoints"
 
 export default function TestResult() {

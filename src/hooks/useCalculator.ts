@@ -1,5 +1,4 @@
 import useSWR from "swr";
-import { setCookie } from "../utils/cookie";
 import Cookies from "js-cookie";
 
 export default function useCalculator(body: TestInputData) {
@@ -48,7 +47,7 @@ export default function useCalculator(body: TestInputData) {
       goods: rawData.goods,
       services: rawData.services,
     }
-    setCookie("testResult", JSON.stringify(dataToBeSent))
+    Cookies.set("testResult", JSON.stringify(dataToBeSent))
   }
 
   return { data, isLoading, error } as {

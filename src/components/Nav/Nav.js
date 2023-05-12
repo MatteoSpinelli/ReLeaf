@@ -1,57 +1,55 @@
-import { ReactComponent as Logo } from "../../assets/svg/global/logo.svg";
-import { ReactComponent as Hamburger } from "../../assets/svg/global/hamburger.svg";
-import "./Nav.scss";
-import useTheme from "../../hooks/useTheme";
-import { useEffect, useRef } from "react";
-import { Menu } from "./Menu";
-import { useDispatch } from "react-redux";
-import { setTrue, toggle } from "../../store/slices/menuSlice";
-import { Navigate, useNavigate } from "react-router-dom";
-import { useUser } from "../../hooks/useUser";
-import { MenuPersonal } from "./MenuPersonal";
+import { ReactComponent as Logo } from "../../assets/svg/global/logo.svg"
+import { ReactComponent as Hamburger } from "../../assets/svg/global/hamburger.svg"
+import "./Nav.scss"
+import useTheme from "../../hooks/useTheme"
+import { useEffect, useRef } from "react"
+import { Menu } from "./Menu"
+import { useDispatch } from "react-redux"
+import { toggle } from "../../store/slices/menuSlice"
+import { Link, useNavigate } from "react-router-dom"
+import { useUser } from "../../hooks/useUser"
+import { MenuPersonal } from "./MenuPersonal"
 
 export function Nav() {
-  const { isDark } = useTheme();
-  const navRef = useRef();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const [user, setUser] = useUser()
+  const { isDark } = useTheme()
+  const navRef = useRef()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const [user] = useUser()
   useEffect(() => {
     if (navRef?.current) {
       if (window.scrollY === 0) {
-        navRef.current.style.background = "none";
-        navRef.current.style.borderBottom = "none";
+        navRef.current.style.background = "none"
+        navRef.current.style.borderBottom = "none"
       }
       /* if (window.visualViewport.width >= 768){
             dispatch(setTrue())
         } */
     }
-  });
+  })
 
   useEffect(() => {
     const handleScroll = () => {
       if (navRef?.current) {
         if (window.scrollY === 0) {
-          navRef.current.style.background = "none";
-          navRef.current.style.borderBottom = "none";
-          return;
+          navRef.current.style.background = "none"
+          navRef.current.style.borderBottom = "none"
+          return
         }
-        navRef.current.style.backgroundColor = isDark ? "#283442" : "#FFFFFF";
-        navRef.current.style.borderBottom = `1px solid ${
-          isDark ? "#23303F" : "#DDDDDD"
-        }`;
+        navRef.current.style.backgroundColor = isDark ? "#283442" : "#FFFFFF"
+        navRef.current.style.borderBottom = `1px solid ${isDark ? "#23303F" : "#DDDDDD"}`
       }
-    };
+    }
 
-    window.addEventListener("scroll", () => handleScroll());
+    window.addEventListener("scroll", () => handleScroll())
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isDark]);
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [isDark])
 
   function handleMenu() {
-    dispatch(toggle());
+    dispatch(toggle())
   }
 
   return (
@@ -64,20 +62,13 @@ export function Nav() {
         borderBottom: `1px solid ${isDark ? "#23303F" : "#DDDDDD"}`,
       }}
     >
-      <div
-        className="logo_nav_global"
-        onClick={async () => {
-          navigate("/");
-        }}
-      >
-        <Logo style={{ fill: isDark ? "#9BB3BB" : "#272727" }} />
+      <div className="logo_nav_global">
+        <Link to="/">
+          <Logo style={{ fill: isDark ? "#9BB3BB" : "#272727" }} />
+        </Link>
       </div>
-      <Hamburger
-        className="cursor-pointer md:hidden"
-        style={{ fill: isDark ? "#9BB3BB" : "#272727" }}
-        onClick={handleMenu}
-      />
+      <Hamburger className="cursor-pointer md:hidden" style={{ fill: isDark ? "#9BB3BB" : "#272727" }} onClick={handleMenu} />
       {!user ? <Menu /> : <MenuPersonal user={user} />}
     </nav>
-  );
+  )
 }

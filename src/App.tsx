@@ -5,43 +5,27 @@ import LoginPage from "./pages/LoginPage"
 import SignUpPage from "./pages/SignUpPage"
 import TestResultPage from "./pages/TestResultPage"
 import { Test } from "./components/Test/Test"
-import AuthRoute from "./components/common/AuthRoute"
 import { PersonalArea } from "./pages/PersonalArea"
+import { RequireAuth, RedirectIfAuthenticated } from "./components/AuthRouteMiddlewares"
 
 function App() {
   return (
     <Routes>
+      {/* Routes available to guests and authenticated users */}
       <Route path="/" element={<Home />} />
-      <Route path="/personalArea" element={
-          <AuthRoute fallback="/login">
-            <PersonalArea />
-          </AuthRoute>
-        } />
-      <Route
-        path="/login"
-        element={
-          <AuthRoute inverted fallback="/personalArea">
-            <LoginPage />
-          </AuthRoute>
-        }
-      />
-      <Route
-        path="/signup"
-        element={
-          <AuthRoute inverted fallback="/personalArea">
-            <SignUpPage />
-          </AuthRoute>
-        }
-      />
       <Route path="/test-result" element={<TestResultPage />} />
-      <Route
-        path="/test"
-        element={
-          <AuthRoute inverted fallback="/personalArea">
-            <Test />
-          </AuthRoute>
-        }
-      />
+
+      {/* Routes available only to authenticated users */}
+      <Route element={<RequireAuth />}>
+        <Route path="/personalArea" element={<PersonalArea />} />
+      </Route>
+
+      {/* Routes available only to not authenticated users */}
+      <Route element={<RedirectIfAuthenticated />}>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/test" element={<Test />} />
+      </Route>
     </Routes>
   )
 }

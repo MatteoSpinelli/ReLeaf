@@ -1,22 +1,22 @@
-import useTheme from "../../hooks/useTheme";
-import Button from "../Button/Button";
-import { ReactComponent as Cross } from "../../assets/svg/global/cross.svg";
-import { useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { toggle } from "../../store/slices/menuSlice";
-import useTranslate from "../../hooks/useTranslate";
-import LanguageSwitcher from "../TestPanel/LanguageSwitcher";
-import ThemeSwitcher from "../TestPanel/ThemeSwitcher";
-import { useNavigate } from "react-router-dom";
-import { useUser } from "../../hooks/useUser";
+import useTheme from "../../hooks/useTheme"
+import Button from "../Button/Button"
+import { ReactComponent as Cross } from "../../assets/svg/global/cross.svg"
+import { useRef } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { toggle } from "../../store/slices/menuSlice"
+import useTranslate from "../../hooks/useTranslate"
+import LanguageSwitcher from "../TestPanel/LanguageSwitcher"
+import ThemeSwitcher from "../TestPanel/ThemeSwitcher"
+import { useNavigate } from "react-router-dom"
+import { useUser } from "../../hooks/useUser"
 
 export function Menu() {
-  const { isDark } = useTheme();
-  const menuRef = useRef();
-  const dispatch = useDispatch();
-  const { nav_login, nav_about, nav_mission } = useTranslate("homepage");
-  const isMenuVisible = useSelector((state) => state.isMenuVisible);
-  const navigate = useNavigate();
+  const { isDark } = useTheme()
+  const menuRef = useRef()
+  const dispatch = useDispatch()
+  const { nav_login, nav_about, nav_mission } = useTranslate("homepage")
+  const isMenuVisible = useSelector((state) => state.isMenuVisible)
+  const navigate = useNavigate()
   return (
     <div
       ref={menuRef}
@@ -32,23 +32,17 @@ export function Menu() {
         {...{
           onClick: () => {
             if (window.innerWidth < 768) {
-              dispatch(toggle());
+              dispatch(toggle())
             }
-            navigate("/login");
+            navigate("/login")
           },
         }}
       >
         {nav_login}
       </Button>
-      <div className="menu_nav_items cursor-pointer hover:text-link hover:underline hover:underline-offset-4 hover:decoration-2">
-        {nav_about}
-      </div>
-      <div className="menu_nav_items cursor-pointer hover:text-link hover:underline hover:underline-offset-4 hover:decoration-2">
-        {nav_mission}
-      </div>
-      <div className="menu_nav_items cursor-pointer hover:text-link hover:underline hover:underline-offset-4 hover:decoration-2">
-        Blog
-      </div>
+      <div className="menu_nav_items cursor-pointer hover:text-link hover:underline hover:underline-offset-4 hover:decoration-2">{nav_about}</div>
+      <div className="menu_nav_items cursor-pointer hover:text-link hover:underline hover:underline-offset-4 hover:decoration-2">{nav_mission}</div>
+      <div className="menu_nav_items cursor-pointer hover:text-link hover:underline hover:underline-offset-4 hover:decoration-2">Blog</div>
       <LanguageSwitcher />
       <div
         style={{
@@ -60,11 +54,11 @@ export function Menu() {
       </div>
       <Cross
         onClick={() => {
-          dispatch(toggle());
-          menuRef.current.style.translate = "2000px";
+          dispatch(toggle())
+          menuRef.current.style.translate = "2000px"
         }}
         className="cursor-pointer md:hidden"
       />
     </div>
-  );
+  )
 }

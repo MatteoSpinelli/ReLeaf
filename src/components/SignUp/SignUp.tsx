@@ -10,6 +10,8 @@ import useTheme from "../../hooks/useTheme"
 import Button from "../Button/Button"
 import { useSignUp } from "../../hooks/useSignUp"
 import { useUser } from "../../hooks/useUser"
+import { Link } from "react-router-dom"
+import { Test } from "../Test/Test"
 
 interface LoginProps {
   title?: string;
@@ -20,13 +22,7 @@ interface LoginProps {
   LoginBtn: string;
 }
 
-function SingUp({
-  title = "signup",
-  signupDescription = "signup_description",
-  toTest = " signup_to_test",
-  signup_password = "signup_password",
-  LoginBtn = "login",
-}: LoginProps) {
+function SingUp({ title = "signup", signupDescription = "signup_description", toTest = " signup_to_test", signup_password = "signup_password", LoginBtn = "login" }: LoginProps) {
   const { isDark } = useTheme()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -34,53 +30,33 @@ function SingUp({
   const [_, setUser] = useUser()
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    console.log({ email, password })
     if (!email || !password) {
       return
     }
     const success = await signUp(email, password)
     await setUser()
-    console.log(success)
   }
 
   return (
     <section className="signup-section">
-      <a className="signup-link" href="">
+      <Link className="signup-link" to="/test">
         &#8592; {toTest}
-      </a>
+      </Link>
       <div className={`signup-container ${isDark ? "dark" : ""}`}>
         <div className="signup-description-container">
           <h1>{title}</h1>
-          <p className={`signup-description ${isDark ? "text-white" : "region"}`}>
-            {signupDescription}
-          </p>
+          <p className={`signup-description ${isDark ? "text-white" : "region"}`}>{signupDescription}</p>
         </div>
 
         <form className="signup-form" onSubmit={handleSubmit}>
           <label id="login-email">
             Email<abbr title="required">*</abbr>
           </label>
-          <input
-            id="login-email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="email"
-            title="Required"
-            required
-          />
+          <input id="login-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email" title="Required" autoComplete="on" required />
           <label id="login-password">
             Password<abbr title="required">*</abbr>
           </label>
-          <input
-            id="login-password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="password"
-            pattern="(?=.*\d)(?=.*[A-Z]).{8,}"
-            required
-          />
+          <input id="login-password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" pattern="(?=.*\d)(?=.*[A-Z]).{8,}" autoComplete="on" required />
           <small>{signup_password}</small>
           <Button>{title}</Button>
         </form>
