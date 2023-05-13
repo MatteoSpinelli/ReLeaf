@@ -10,15 +10,11 @@ import useTranslate from "../hooks/useTranslate"
 import PageContainer from "../components/PageContainer/PageContainer"
 import Hero from "../components/Hero/Hero"
 import Roadmap from "../components/Roadmap/Roadmap"
-import TestPanel from "../components/TestPanel/TestPanel"
 import CallToAction from "../components/CallToAction/CallToAction"
 import ActivitySwiper from "../components/ActivitySwiper/ActivitySwiper"
 import Faq from "../components/Faq/Faq"
 import { Nav } from "../components/Nav/Nav"
 import Footer from "../components/Footer/Footer"
-import { useNavigate } from "react-router-dom"
-import { useEffect } from "react"
-import { useUser } from "../hooks/useUser"
 
 export default function Home() {
   const t = useTranslate("homepage", "global")

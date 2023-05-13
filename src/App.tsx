@@ -7,6 +7,7 @@ import TestResultPage from "./pages/TestResultPage"
 import { Test } from "./components/Test/Test"
 import { PersonalArea } from "./pages/PersonalArea"
 import { RequireAuth, RedirectIfAuthenticated } from "./components/AuthRouteMiddlewares"
+import Activities from "./pages/Activities"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       {/* Routes available to guests and authenticated users */}
       <Route path="/" element={<Home />} />
       <Route path="/test-result" element={<TestResultPage />} />
+      <Route path="/activities" element={<Activities />} />
 
       {/* Routes available only to authenticated users */}
       <Route element={<RequireAuth />}>
