@@ -11,7 +11,7 @@ export default function Footer() {
   const t = useTranslate("footer")
   const { isDark } = useTheme()
   return (
-    <div className={`bg-gradient-to-b ${isDark ? "from-[#1a2530] to-[#091316]" : "from-[#1a302c] to-[#091614]"}`}>
+    <div className={`mt-auto bg-gradient-to-b ${isDark ? "from-[#1a2530] to-[#091316]" : "from-[#1a302c] to-[#091614]"}`}>
       <div className="text-center sm:text-left w-full mx-auto max-w-[1240px] py-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 px-[15px]">
         <div className="flex flex-col items-center sm:items-start pb-5">
           <Link className="cursor-pointer" to="/">
