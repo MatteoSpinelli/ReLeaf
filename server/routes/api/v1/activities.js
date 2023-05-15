@@ -23,6 +23,7 @@ router.get("/", async (req, res) => {
       },
     },
   })
+  console.log(activities)
 
   if (activities) {
     const activitiesMapped = activities.map((act) => {
