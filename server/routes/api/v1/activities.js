@@ -46,3 +46,6 @@ router.get("/", async (req, res) => {
 })
 
 module.exports = router
+
+/* POST /api/v1/activities */
+
