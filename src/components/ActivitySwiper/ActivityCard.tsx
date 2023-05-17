@@ -1,4 +1,4 @@
-import React from "react"
+import React, { LegacyRef, useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
 
 import { BsCardImage } from "react-icons/bs"
@@ -25,16 +25,25 @@ export default function ActivityCard({
   image,
   ecoPoints,
   linkRewrite,
-  readMore = true,
   ...props
 }: ActivityCardProps) {
   const { isDark } = useTheme()
+  const cardRef: LegacyRef<HTMLDivElement> = useRef<any>()
+  const [readMore, setReadMore] = useState(false)
+  useEffect(() => {
+    /** @ts-ignore */
+    console.log(cardRef.current?.textContent.split("").length)
+    if (cardRef.current?.textContent && cardRef.current?.textContent.split("").length > 150){
+      setReadMore(true)
+    }
+  })
   return (
     <div
       {...props}
       className={`flex flex-col group w-full h-full rounded-lg overflow-hidden border transition-[transform, shadow] hover:scale-110 duration-300 hover:shadow-lg cursor-pointer ${
         isDark ? "border-borderDark" : "border-backgroundDark/10"
       }`}
+      
     >
       <div className={`flex flex-1 justify-center items-center h-[130px]`}>
         {image ? (
@@ -45,15 +54,15 @@ export default function ActivityCard({
       </div>
       <div className="my-5 px-5 grow">
         <h3 className="font-bold text-2xl pb-2">{title}</h3>
-        <p className={`text-sm ${isDark ? "text-secondaryTxtDark" : "text-secondaryTxt"}`}>
+        <p ref={cardRef} className={`text-sm ${isDark ? "text-secondaryTxtDark" : "text-secondaryTxt"}`}>
           {description}
-          {readMore && linkRewrite && (
+          {readMore && (
             <>
               {"..."}
-              <Link className="font-bold text-link" to={`/activities/${linkRewrite}`}>
+              <div>
                 {" "}
                 Read more
-              </Link>
+              </div>
             </>
           )}
         </p>
@@ -65,7 +74,7 @@ export default function ActivityCard({
       >
         <EcoPointIcon className="w-9 h-9" />
         <span className="justify-self-start font-black text-link cursor-default">
-          {ecoPoints} eco points
+          -{ecoPoints} eco points
         </span>
         <div
           className={`transition-all duration-300 flex justify-center items-center text-lg w-8 h-8 ml-auto rounded-full border ${

@@ -5,6 +5,7 @@ import PageContainer from "../components/PageContainer/PageContainer"
 import { Nav } from "../components/Nav/Nav"
 import Footer from "../components/Footer/Footer"
 import { PersonalContainer } from "../components/PersonalContainer/PersonalContainer"
+import { SuggestedAct } from "../components/SuggestedAct/SuggestedAct"
 
 export function PersonalArea() {
   const [user, setUser] = useUser()
@@ -19,6 +20,7 @@ export function PersonalArea() {
     >
       <Nav />
       <PersonalContainer />
+      <SuggestedAct />
       <Footer />
     </PageContainer>
   )

@@ -22,6 +22,7 @@ router.get("/", async (req, res) => {
       },
     },
   })
+  console.log(activities)
 
   if (activities) {
     const activitiesMapped = activities.map((act) => {
@@ -44,3 +45,6 @@ router.get("/", async (req, res) => {
 })
 
 module.exports = router
+
+/* POST /api/v1/activities */
+
