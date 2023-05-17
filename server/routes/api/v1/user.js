@@ -6,10 +6,8 @@ var router = express.Router()
 // GET /user/activities com
 router.get("/activities", authStrictMiddleware, async (req, res) => {
   const user = req.user.data
-  const { page, limit = 5, lang, completed } = req.query
-
+  const { page = 0, limit = 5, lang, completed = false } = req.query
   const offset = page * limit
-
   // tutte le attività dell'utente completate e non
   // attività suggerite
   const activities = await prisma.activity.findMany({
@@ -23,9 +21,7 @@ router.get("/activities", authStrictMiddleware, async (req, res) => {
           title: true,
           description: true,
           image: true,
-          link_rewrite: true,
         },
-        where: { id_lang: { lang_short: lang } },
       },
     },
     where: {
@@ -38,7 +34,6 @@ router.get("/activities", authStrictMiddleware, async (req, res) => {
           },
     },
   })
-
   const totalPages = Math.ceil(activities.length / limit)
 
   if (activities) {

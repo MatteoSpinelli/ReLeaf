@@ -48,3 +48,46 @@ module.exports = router
 
 /* POST /api/v1/activities */
 
+router.post("/", async (req, res) => {
+  const { ecoPoints, langs } = req.body
+  try {
+    const activity = await prisma.activity.create({
+      data: {
+        eco_points: ecoPoints,
+        activityLang: {
+          create: [
+            {
+              ...langs[0],
+              id_lang: { connect: { lang_short: "en" } },
+            },
+            {
+              ...langs[1],
+              id_lang: { connect: { lang_short: "it" } },
+            },
+          ],
+        },
+      },
+    })
+    res.status(200).json({ activity })
+  } catch (err) {
+    console.log(err)
+    res.status(401).json({ msg: err })
+  }
+})
+
+/* DELETE /api/v1/activities */
+
+router.delete("/", async (req, res) => {
+  const { id } = req.body
+  try {
+    const activity = await prisma.activity.delete({
+      where: {
+        id,
+      },
+    })
+    res.status(200).json({ activity })
+  } catch (err) {
+    console.log(err)
+    res.status(401).json({ msg: err })
+  }
+})
