@@ -17,7 +17,6 @@ router.get("/", async (req, res) => {
           title: true,
           description: true,
           image: true,
-          link_rewrite: true,
         },
         where: { id_lang: { lang_short: lang } },
       },

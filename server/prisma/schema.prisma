@@ -111,15 +111,14 @@ model Activity {
 }
 
 model ActivityLang {
-  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  id_lang      Lang      @relation(fields: [langId], references: [id], onDelete: Cascade)
-  title        String
-  description  String
-  image        String
-  link_rewrite String
-  langId       String    @db.Uuid
-  Activity     Activity? @relation(fields: [activityId], references: [id], onDelete: Cascade)
-  activityId   String?   @db.Uuid
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id_lang     Lang      @relation(fields: [langId], references: [id], onDelete: Cascade)
+  title       String
+  description String
+  image       String
+  langId      String    @db.Uuid
+  Activity    Activity? @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  activityId  String?   @db.Uuid
 }
 
 model AuthToken {
