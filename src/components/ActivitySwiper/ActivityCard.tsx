@@ -31,9 +31,9 @@ export default function ActivityCard({ title, description, image, ecoPoints, lin
     }
   }, [])
   return (
-    <div {...props} className={`flex flex-col group w-full h-full rounded-lg overflow-hidden border transition-[transform, shadow] hover:scale-110 duration-300 hover:shadow-lg cursor-pointer ${isDark ? "border-borderDark" : "border-backgroundDark/10"}`}>
-      <div className={`flex flex-1 justify-center items-center h-[130px]`}>{image ? <img className="object-cover w-full h-full" src={image} alt={title} /> : <BsCardImage className="w-10 h-10 fill-darkIcon" />}</div>
-      <div className="my-5 px-5 grow">
+    <div {...props} className={`flex flex-col group w-full h-[400px] md:h-[700px] rounded-lg overflow-hidden border transition-[transform, shadow] hover:scale-110 duration-300 hover:shadow-lg cursor-pointer ${isDark ? "border-borderDark" : "border-backgroundDark/10"}`}>
+      <div className={`flex flex-1 justify-center items-center max-h-[130px] md:max-h-[230px]`}>{image ? <img className="object-cover w-full h-full" src={image} alt={title} /> : <BsCardImage className="w-10 h-10 fill-darkIcon" />}</div>
+      <div className="my-5 px-5 grow overflow-hidden">
         <h3 className="font-bold text-2xl pb-2">{title}</h3>
         <p ref={cardRef} className={`text-sm ${isDark ? "text-secondaryTxtDark" : "text-secondaryTxt"}`}>
           {description}

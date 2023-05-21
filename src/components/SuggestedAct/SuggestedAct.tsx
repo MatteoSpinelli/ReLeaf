@@ -6,15 +6,18 @@ import { useEffect } from "react"
 import { error } from "console"
 
 export function SuggestedAct() {
-  const { activities } = useActivities()
+  const { activities, getAct } = useActivities()
   const { langShort } = useLang()
+  useEffect(() => {
+    getAct()
+  }, [])
   return (
     <div className="flex items-center flex-col mt-[6rem]">
       <h1 className="text-4xl font-semibold mb-10">Suggested activities</h1>
       <div className="grid grid-cols-1 gap-[2rem] px-[1rem] w-[80%] mb-[4rem] md:grid-cols-3">
-      {/** @ts-ignore */}
-
-        {activities && !activities?.error &&
+        {activities &&
+          /* @ts-ignore */
+          !activities?.error &&
           /** @ts-ignore */
           activities.activities.map((activity: any, i: number) => {
             const language = langShort === "en" ? activity.activityLang[1] : activity.activityLang[0]
