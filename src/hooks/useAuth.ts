@@ -10,7 +10,6 @@ interface AuthResponse {
 }
 
 export default function useAuth() {
-  const [authenticated, setAuthenticated] = useState(false)
 
   const jwt = Cookies.get("jwt")
   const headers: { authorization?: string, "Content-Type": string } = jwt
@@ -31,13 +30,11 @@ export default function useAuth() {
         secure: true,
         SameSite: "None",
       })
-      setAuthenticated(true)
       return { success: true }
     } else {
-      setAuthenticated(false)
       return { success: false, data }
     }
   }
 
-  return { login, authenticated }
+  return { login }
 }

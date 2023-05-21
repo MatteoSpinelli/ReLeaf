@@ -34,7 +34,7 @@ function Login({
   const [password, setPassword] = useState("")
   const [_, setUser] = useUser()
 
-  const { login, authenticated } = useAuth()
+  const { login } = useAuth()
 
   const navigate = useNavigate()
 
